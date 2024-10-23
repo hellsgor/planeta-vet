@@ -1,1 +1,22 @@
 @use "sass:color";
+
+$black: #000;
+$black-light: #1c1c1c;
+$black-transparent: rgba(0, 0, 0, 0.7);
+
+$white: #fff;
+$white-transparent: rgba(255, 255, 255, 0.5);
+
+$gray: #a4a4a4;
+
+$green: #3aa635;
+$green-lighten: #91bd1f;
+$green-light: #f4fbf0;
+
+$orange: #e86608;
+$orange-lighten: #f9b233;
+
+$headings: $black-light;
+$text-dark: $black;
+$text: $black-light;
+$text-light: $white;
