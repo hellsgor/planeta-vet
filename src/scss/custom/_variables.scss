@@ -1,2 +1,4 @@
-$transition-func: "ease-in-out";
+$transition-func: var(--default-timing-function);
 $transition-duration: 0.3s;
+
+$radius: 50px;

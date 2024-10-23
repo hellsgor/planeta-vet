@@ -1,11 +1,15 @@
 body,
-.paragraph {
-  // font-family: "Roboto", sans-serif;
+.paragraph,
+p {
+  font-family: "BloggerSans", sans-serif;
   font-size: px-to-rem(22);
-  font-weight: 400;
   font-style: normal;
+  color: $text;
+}
+
+.paragraph,
+p {
   line-height: 1.5;
-  color: $black;
 }
 
 h1,
@@ -25,56 +29,46 @@ h3,
 .heading_h1,
 .heading_h2,
 .heading_h3 {
-  // font-family: "Roboto", sans-serif;
-}
-
-h4,
-h5,
-h6,
-.heading_h4,
-.heading_h5,
-.heading_h6 {
-  // font-family: "Roboto", sans-serif;
+  font-family: "CTC_Bold", sans-serif;
 }
 
 h1,
 .heading_h1 {
-  // font-size: px-to-rem(48);
+  font-size: px-to-rem(68);
 }
 
 h2,
 .heading_h2 {
-  // font-size: px-to-rem(48);
+  font-size: px-to-rem(80);
 }
 
 h3,
 .heading_h3 {
-  // font-size: px-to-rem(32);
+  font-size: px-to-rem(64);
 }
 
 h4,
 .heading_h4 {
-  // font-size: px-to-rem(28);
+  font-family: "BloggerSans-Bold", sans-serif;
+  font-size: px-to-rem(64);
 }
 
 h5,
 .heading_h5 {
-  // font-size: px-to-rem(24);
+  font-family: "BloggerSans", sans-serif;
+  font-size: px-to-rem(54);
 }
 
 h6,
 .heading_h6 {
-  // font-size: px-to-rem(20);
+  font-family: "BloggerSans", sans-serif;
+  font-size: px-to-rem(44);
 }
 
 .paragraphs {
   display: flex;
   flex-direction: column;
   // row-gap: 8px;
-}
-
-a {
-  // color: $primary;
 }
 
 .hint {

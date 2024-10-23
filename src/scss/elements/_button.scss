@@ -4,16 +4,20 @@
   overflow: hidden;
 
   width: fit-content;
-  padding: 16px 48px;
+  padding: 22px 100px;
 
-  font-size: 20px;
-  color: $text;
+  font-size: 28px;
+  color: $white;
 
-  background-color: $darken;
-  border: 1px solid $darken;
+  background-image: linear-gradient(90deg, #e86608 0%, #f9b233 100%), linear-gradient(#f36f21, #f36f21);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 500% 100%;
+  border: none;
   border-radius: $radius;
   outline: none;
-  @include transition(border-color);
+
+  @include transition(background-size);
 
   &__wrapper {
     display: flex;
@@ -37,11 +41,18 @@
   }
 
   &_white {
-    color: $text-dark;
-    background-color: #fff;
-
+    color: $text;
+    background: #fff;
+    border: 1px solid $black-light;
+    transition: all 0.3s var(--default-timing-function);
     .button__icon svg {
       fill: $text-dark;
+    }
+
+    &:hover {
+      color: $white;
+      background: $orange;
+      border: 1px solid $orange;
     }
   }
 
@@ -50,6 +61,6 @@
   }
 
   &:hover {
-    border-color: $primary;
+    background-size: 100% 100%;
   }
 }
