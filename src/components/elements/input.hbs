@@ -1,0 +1,10 @@
+<div class="form-controll{{#if this.classes}} {{this.classes}}{{/if}}">
+<input 
+  class="form-controll__input"
+  type="text" 
+  {{#if this.placeholder}} placeholder="{{this.placeholder}}"{{/if}}
+  {{#if this.id}} id="{{this.id}}"{{/if}}
+  {{#if this.name}} name="{{this.name}}"{{/if}}
+>
+<p class="form-controll__error">{{#if this.error}} {{this.error}}{{/if}}</p>
+</div>
