@@ -13,6 +13,7 @@
     border-bottom: 1px solid $black;
     outline: none;
     &::placeholder {
+      font-size: 22px;
       color: $text-light;
     }
   }
