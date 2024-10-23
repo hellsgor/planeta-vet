@@ -1,0 +1,14 @@
+<div class="form-controll{{#if this.classes}} {{this.classes}}{{/if}}">
+<input 
+  class="form-controll__input"
+  type="checkbox" 
+  {{#if this.id}} id="{{this.id}}"{{/if}}
+  {{#if this.name}} name="{{this.name}}"{{/if}}
+>
+<div class="form-controll__indicator"></div>
+<label 
+{{#if this.id}} for="{{this.id}}"{{/if}}
+>
+{{#if this.title}} {{this.title}} {{/if}}
+</label>
+</div>

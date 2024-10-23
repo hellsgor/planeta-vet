@@ -7,3 +7,21 @@ body {
   max-width: 1400px;
   margin: 0 auto;
 }
+
+.typography {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px;
+}
+
+.ui-kit {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+
+  padding: 50px;
+
+  background-color: #a3a3a3;
+}
