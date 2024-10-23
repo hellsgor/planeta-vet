@@ -11,18 +11,16 @@
     <main>
 
       <section class="ui-kit">
-
-        <button class="button">Кнопка</button>
-        <button class="button button_big">Кнопка со шрифтом побольше</button>
-
-        <button class="button button_white">Белая Кнопка</button>
+        {{> elements/button text='Кнопка'}}
+        {{> elements/button classes="button_big" text='Кнопка со шрифтом побольше'}}
+        {{> elements/button classes="button_white" text='Белая Кнопка'}}
+       
 
 
         {{> elements/input placeholder="Плейсхолдер"}}
-        <div class="bg">
         {{> elements/inputCheckbox title="Чекбокс" }}
         {{> elements/inputRadio title="Радио"}}
-      </div>
+     
       </section>
       <!-- /.ui-kit -->
   
