@@ -1,7 +1,7 @@
 {{#if this.href}}
   <a 
     href="{{this.href}}" 
-    class="button{{#if this.white}} button_white{{/if}}{{#if this.wide}} button_wide{{/if}}{{#if this.classes}} {{this.classes}}{{/if}}"
+    class="button{{#if this.white}} button_white{{/if}}{{#if this.wide}} button_wide{{/if}}{{#if this.empty}} button_empty{{/if}}{{#if this.classes}} {{this.classes}}{{/if}}"
     {{#if this.id}}id="{{this.id}}"{{/if}}
     {{#if this.attrs}}{{{this.attrs}}}{{/if}}
   >
@@ -18,7 +18,7 @@
   </a>
 {{else}}
   <button
-    class="button{{#if this.white}} button_white{{/if}}{{#if this.wide}} button_wide{{/if}}{{#if this.classes}} {{this.classes}}{{/if}}"
+    class="button{{#if this.white}} button_white{{/if}}{{#if this.wide}} button_wide{{/if}}{{#if this.empty}} button_empty{{/if}}{{#if this.classes}} {{this.classes}}{{/if}}"
     {{#if this.disabled}}disabled{{/if}}
     {{#if this.id}}id="{{this.id}}"{{/if}}
     {{#if this.form}}form='{{this.form}}'{{/if}}
