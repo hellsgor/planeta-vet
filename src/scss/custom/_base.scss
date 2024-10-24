@@ -4,8 +4,15 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1920px;
   margin: 0 auto;
+  padding-right: 120px;
+  padding-left: 120px;
+
+  @include bp(md) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
 .typography {

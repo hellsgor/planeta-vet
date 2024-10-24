@@ -1,0 +1,33 @@
+<footer class="footer">
+  <div class="footer__logo footer__logo-text">
+    <img src="../../assets/images/footer-logo-text.svg" alt="">
+  </div>
+
+  <div class="footer__logo footer__logo-image">
+    <img src="../../assets/images/footer-logo-image.svg" alt="">
+  </div>
+
+  <div class="container footer__container">
+    <div class="footer__columns">
+      <div class="footer__column footer__contacts">
+        <address class="footer__address">
+          {{> elements/button classes='button_underlined button_empty footer__contact' href='tel:79681876936' text='+7 968 187-69-36'}}
+          {{> elements/button classes='button_underlined button_empty footer__contact' href='mailto:okp@planetvet.ru' text='okp@planetvet.ru'}}
+        </address>
+        {{> elements/button classes='button_empty button_external-link footer__social' href='javascript:void(0)' text='Написать в Telegram'}}
+      </div>
+
+      <nav class="footer__column footer__navigation">
+        {{> elements/button empty='true' href='/ambassador.html' text='Амбассадор'}}
+        {{> elements/button empty='true' href='/partner-clinic.html' text='Клиника-партнёр'}}
+        {{> elements/button empty='true' href='/doctor.html' text='Врач клиники'}}
+        {{> elements/button empty='true' href='/advantages.html' text='Преимущества'}}
+        {{> elements/button empty='true' href='/contacts.html' text='Контакты'}}
+      </nav>
+    </div>
+
+    <div class="footer__bottom-row">
+      <span class="footer__copyright">©2024</span>
+    </div>
+  </div>
+</footer>
