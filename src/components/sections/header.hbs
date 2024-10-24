@@ -5,17 +5,19 @@
       <a href="#" class="header-logo"><img src="./assets/images/logo-header.svg" alt="" class="headeer-logo__img"></a>
 
  
-  <div class="button button_white button_white_bordered button-select">
-    Сотрудничество
-    <img src="/assets/images/icons/arrow-down-circle.svg" alt="" class="button__icon button-select__icon">
+  <div class="header-select">
+    <button class="button button_white button_white_bordered">Сотрудничество
+      <svg class="button__icon button-select__icon">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-down-circle" />
+          </svg></button>
+    
+    
     <ul>
       <li><a href="#">Амбассадор</a></li>
       <li><a href="#">Клиника-партнёр</a></li>
       <li><a href="#">Ветеринарный врач</a></li>
     </ul>
-    {{!-- <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/arrow-down-circle.svg" />
-          </svg> --}}
+   
   </div>
 
   <nav class="header-menu">
@@ -33,7 +35,9 @@
 
     <div class="header-wrapper">
       <div class="header-login">
-        <img src="/assets/images/icons/profile.svg" alt="" class="sheader-login__img">
+       <svg class="button__icon header-login__icon ">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-profile" />
+          </svg>
         <span>Войти</span>
       </div>
 

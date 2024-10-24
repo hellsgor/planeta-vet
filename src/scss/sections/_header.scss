@@ -1,0 +1,105 @@
+.header {
+  margin: 34px 34px 0;
+  padding: 20px 88px;
+
+  background-color: $white;
+  border-radius: $medium-radius;
+  box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &-wrapper {
+    display: flex;
+    // width: 100%;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  & .button {
+    padding: 22px 40px;
+  }
+  &-select {
+    position: relative;
+    z-index: 1;
+
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .button {
+      position: relative;
+      z-index: 1;
+      display: flex;
+    }
+    & ul {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      right: 0;
+      left: 0;
+
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 0fr;
+      flex-direction: column;
+      justify-content: center;
+
+      height: 0;
+      min-height: 0;
+      // padding: 60px 20px 20px;
+
+      background-color: $white;
+      border: 1px solid $text-dark;
+      border-bottom-right-radius: $big-radius;
+      border-bottom-left-radius: $big-radius;
+
+      transition: grid-template-rows 0.3s;
+      & li {
+        overflow: hidden;
+        min-height: 0;
+      }
+    }
+    &:hover {
+      & ul {
+        grid-template-rows: 1fr;
+        height: auto;
+        padding: 60px 20px 20px;
+      }
+    }
+  }
+  &-menu {
+    &-list {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      &__link {
+        padding: 10px 20px;
+        border-radius: $big-radius;
+      }
+    }
+  }
+  &-login {
+    cursor: pointer;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    padding: 10px 20px;
+
+    color: $text-light;
+
+    border-radius: $big-radius;
+
+    transition: all 0.3s var(--default-timing-function);
+    &:hover {
+      color: $white;
+      background-color: $orange;
+      & svg {
+        fill: $white;
+      }
+    }
+  }
+}
