@@ -13,6 +13,11 @@ body {
   flex-direction: column;
   gap: 20px;
   padding: 50px;
+
+  hr {
+    width: 100%;
+    color: #7e7e7e;
+  }
 }
 
 .ui-kit {
