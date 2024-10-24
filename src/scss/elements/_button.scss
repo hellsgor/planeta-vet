@@ -80,18 +80,42 @@
 
   &_empty {
     display: inline-block;
+
+    width: fit-content;
     padding: 0;
+
+    line-height: normal;
+
     background: transparent;
     border-radius: unset;
     @include transition(opacity);
 
-    .button__wrapper {
-      width: fit-content;
-    }
-
     @media (hover: hover) {
       &:hover {
         opacity: 0.5;
+      }
+    }
+
+    .button__wrapper {
+      width: fit-content;
+    }
+  }
+
+  &_underlined {
+    .button__wrapper {
+      position: relative;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        bottom: 11%;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: $white;
       }
     }
   }
