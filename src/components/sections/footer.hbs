@@ -1,3 +1,4 @@
+{{!-- footer start --}}
 <footer class="footer">
   <div class="footer__logo footer__logo-text">
     <img src="../../assets/images/footer-logo-text.svg" alt="">
@@ -11,18 +12,19 @@
     <div class="footer__columns">
       <div class="footer__column footer__contacts">
         <address class="footer__address">
-          {{> elements/button classes='button_underlined button_empty footer__contact' href='tel:79681876936' text='+7 968 187-69-36'}}
-          {{> elements/button classes='button_underlined button_empty footer__contact' href='mailto:okp@planetvet.ru' text='okp@planetvet.ru'}}
+          {{#each data.contacts}}
+            {{> elements/button classes='button_underlined button_empty footer__contact' href=this.href text=this.text}}
+          {{/each}}
         </address>
-        {{> elements/button classes='button_empty button_external-link footer__social' href='javascript:void(0)' text='Написать в Telegram'}}
+        {{#each data.social}}
+          {{> elements/button classes='button_empty button_external-link footer__social' href=this.href text=this.text iconId=this.iconId}}
+        {{/each}}
       </div>
 
       <nav class="footer__column footer__navigation">
-        {{> elements/button empty='true' href='/ambassador.html' text='Амбассадор'}}
-        {{> elements/button empty='true' href='/partner-clinic.html' text='Клиника-партнёр'}}
-        {{> elements/button empty='true' href='/doctor.html' text='Врач клиники'}}
-        {{> elements/button empty='true' href='/advantages.html' text='Преимущества'}}
-        {{> elements/button empty='true' href='/contacts.html' text='Контакты'}}
+        {{#each data.navigation}}
+          {{> elements/button empty='true' href=this.href text=this.text}}
+        {{/each}}
       </nav>
     </div>
 
@@ -31,3 +33,4 @@
     </div>
   </div>
 </footer>
+{{!-- footer end --}}
