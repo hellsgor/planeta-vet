@@ -3,7 +3,6 @@
 
   overflow: hidden;
 
-  // width: fit-content;
   padding: 20px 100px;
 
   font-size: 22px;
@@ -43,16 +42,26 @@
   &_white {
     color: $text;
     background: #fff;
-    border: 1px solid $black-light;
     transition: all 0.3s var(--default-timing-function);
     .button__icon svg {
       fill: $text-dark;
     }
 
-    &:hover {
-      color: $white;
-      background: $orange;
-      border: 1px solid $orange;
+    @media (hover: hover) {
+      &:hover {
+        color: $white;
+        background: $orange;
+      }
+    }
+
+    &_bordered {
+      border: 1px solid $black-light;
+
+      @media (hover: hover) {
+        &:hover {
+          border: 1px solid $orange;
+        }
+      }
     }
   }
   &_big {
@@ -63,7 +72,51 @@
     width: 100%;
   }
 
-  &:hover {
-    background-size: 100% 100%;
+  @media (hover: hover) {
+    &:hover {
+      background-size: 100% 100%;
+    }
+  }
+
+  &_empty {
+    display: inline-block;
+
+    width: fit-content;
+    padding: 0;
+
+    line-height: normal;
+
+    background: transparent;
+    border-radius: unset;
+    @include transition(opacity);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .button__wrapper {
+      width: fit-content;
+    }
+  }
+
+  &_underlined {
+    .button__wrapper {
+      position: relative;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        bottom: 11%;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: $white;
+      }
+    }
   }
 }

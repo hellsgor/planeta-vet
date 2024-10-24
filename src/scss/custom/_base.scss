@@ -4,8 +4,25 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1920px;
   margin: 0 auto;
+  padding-right: 120px;
+  padding-left: 120px;
+
+  @include bp(xl) {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  @include bp(lg) {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  @include bp(md) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
 
 .typography {
