@@ -37,7 +37,7 @@
       height: 22px;
 
       opacity: 0;
-      &:focus {
+      &:checked {
         & ~ .form-control__indicator {
           background-color: $green;
         }
