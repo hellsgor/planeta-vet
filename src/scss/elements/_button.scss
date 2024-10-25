@@ -70,6 +70,7 @@
 
   &_wide {
     width: 100%;
+    max-width: unset;
   }
 
   @media (hover: hover) {
