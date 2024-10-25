@@ -97,11 +97,14 @@
     border-radius: $big-radius;
 
     transition: all 0.3s var(--default-timing-function);
+    & svg {
+      color: $orange;
+    }
     &:hover {
       color: $white;
       background-color: $orange;
       & svg {
-        fill: $white;
+        color: $white;
       }
     }
   }
