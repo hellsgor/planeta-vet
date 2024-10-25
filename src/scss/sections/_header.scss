@@ -17,8 +17,12 @@
     align-items: center;
     justify-content: space-between;
   }
+  &-logo {
+    width: 10vw;
+  }
   & .button {
     padding: 22px 40px;
+    white-space: nowrap;
   }
   &-select {
     position: relative;
