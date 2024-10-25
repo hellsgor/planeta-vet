@@ -19,10 +19,9 @@
 @import "./elements/input";
 
 // components
+@import "./components/ul";
 
 // sections
-@import "./sections/footer";
-
-//sections
-
 @import "./sections/header";
+@import "./sections/hero";
+@import "./sections/footer";
