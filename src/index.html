@@ -5,15 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="./assets/images/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/js/main.js" defer></script>
-    <title>Vite App</title>
+    <title>PlanetaVet</title>
   </head>
   {{> svgSprite}}
   <body>
     {{> sections/header data=header}}
-    <main>
-      {{> sections/hero}}
-      {{> sections/path-to-success}}
-    </main>
+    <main>{{> sections/hero}} {{> sections/path-to-success}}</main>
     {{> sections/footer data=footer}}
   </body>
 </html>
