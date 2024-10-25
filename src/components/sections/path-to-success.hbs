@@ -3,15 +3,26 @@
   <div class="container">
     <div class="path-to-success__wrapper">
       <h3>Начните свой путь к успеху в ветеринарии уже сегодня!</h3>
-      <form action="" name="path-to-success" method="GET">
-        <div class="path-to-success__columns">
-          {{> elements/form-control placeholder='Ваша почта' name='email' require=true inputmode='email' autocomplete='email'}}
-          {{> elements/form-control placeholder='Ваш телефон' name='tel' require=true inputmode='tel' autocomplete='tel'}}
+
+      <form class="path-to-success__form" action="" name="path-to-success" method="GET">
+        <div class="path-to-success__controls">
+          <div class="path-to-success__columns">
+            {{> elements/form-control placeholder='Ваша почта' name='email' require=true inputmode='email' autocomplete='email'}}
+            {{> elements/form-control placeholder='Ваш телефон' name='tel' require=true inputmode='tel' autocomplete='tel'}}
+          </div>
+
+          {{> elements/form-control placeholder='Сообщение' name='message' require=true autocomplete='off'}}
         </div>
-        {{> elements/form-control placeholder='Сообщение' name='message' require=true autocomplete='off'}}
+
         <p>Нажимая кнопку «Отправить», я даю своё согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года № 152-ФЗ «О персональных данных», на условиях и для целей, определённых в Согласии на обработку персональных данных</p>
+
         {{> elements/button type='submit' text='Отправить'}}
       </form>
+
+      {{> elements/shadow-circle classes='path-to-success__shadow'}}
+      <div class="path-to-success__decor">
+        <img src="../../assets/images/path-to-success__parrot.webp" alt="">
+      </div>
     </div>
   </div>
 </section>
