@@ -1,6 +1,6 @@
 .header {
   margin: 34px 34px 0;
-  padding: 20px 88px;
+  padding: 20px 0;
 
   background-color: $white;
   border-radius: $medium-radius;
@@ -67,17 +67,20 @@
         height: auto;
         padding: 60px 20px 20px;
       }
+      & .button {
+        &__icon {
+          fill: $white;
+        }
+      }
     }
   }
   &-menu {
-    &-list {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      &__link {
-        padding: 10px 20px;
-        border-radius: $big-radius;
-      }
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    & .button {
+      padding: 10px 20px;
+      border-radius: $big-radius;
     }
   }
   &-login {
