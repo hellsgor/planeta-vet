@@ -8,6 +8,16 @@
 
     max-width: 832px;
     padding: 190px 0;
+
+    @include bp(xxl) {
+      max-width: 600px;
+      padding: 100px 0;
+    }
+
+    @include bp(xl) {
+      row-gap: 40px;
+      max-width: unset;
+    }
   }
 
   &__controls {
@@ -15,11 +25,20 @@
     flex-direction: column;
     row-gap: 64px;
     margin-bottom: 40px;
+
+    @include bp(md) {
+      row-gap: 40px;
+    }
   }
 
   &__columns {
     display: flex;
     column-gap: 20px;
+
+    @include bp(md) {
+      flex-direction: column;
+      row-gap: 40px;
+    }
   }
 
   &__form {
@@ -55,11 +74,32 @@
 
     width: 1014px;
     height: 912px;
+
+    @include bp(xxl) {
+      left: 780px;
+    }
+
+    @include bp(xl) {
+      display: none;
+    }
   }
 
   &__message {
     bottom: 76px;
     left: -146px;
     max-width: 399px;
+  }
+
+  &__message-mobile {
+    display: none;
+    color: $orangeOld;
+
+    @include bp(xl) {
+      display: block;
+    }
+
+    // @include bp(md) {
+    //   // font-size: px-to-rem(20);
+    // }
   }
 }
