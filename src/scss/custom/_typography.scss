@@ -46,6 +46,14 @@ h1,
 h2,
 .heading_h2 {
   font-size: px-to-rem(80);
+
+  @include bp(xl) {
+    font-size: calc(80px - (80 - 40) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(40);
+  }
 }
 
 h3,
