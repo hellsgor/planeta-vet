@@ -3,11 +3,11 @@ import '../scss/style.scss';
 
 import { ResolutionChecker } from './utils/ResolutionChecker';
 import { initPathToSuccess } from './components/path-to-success';
-import { heroMoveItems } from './components/hero';
+import { initHero } from './components/hero';
 
 export const resolutionChecker = new ResolutionChecker();
 
 document.addEventListener('DOMContentLoaded', () => {
   initPathToSuccess();
-  heroMoveItems();
+  initHero();
 });
