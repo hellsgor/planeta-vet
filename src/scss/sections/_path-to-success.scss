@@ -1,0 +1,109 @@
+.path-to-success {
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 94px;
+
+    max-width: 832px;
+    padding: 190px 0;
+
+    @include bp(xxl) {
+      max-width: 600px;
+      padding: 100px 0;
+    }
+
+    @include bp(xl) {
+      row-gap: 40px;
+      max-width: unset;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    row-gap: 64px;
+    margin-bottom: 40px;
+
+    @include bp(md) {
+      row-gap: 40px;
+    }
+  }
+
+  &__columns {
+    display: flex;
+    column-gap: 20px;
+
+    @include bp(md) {
+      flex-direction: column;
+      row-gap: 40px;
+    }
+  }
+
+  &__form {
+    p {
+      margin-bottom: 32px;
+
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.31;
+      color: $black-transparent;
+    }
+
+    button {
+      width: 100%;
+      max-width: 407px;
+
+      @include bp(md) {
+        max-width: unset;
+      }
+    }
+  }
+
+  &__shadow {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    width: 1232px;
+  }
+
+  &__decor {
+    position: absolute;
+    bottom: 0;
+    left: 1010px;
+
+    width: 1014px;
+    height: 912px;
+
+    @include bp(xxl) {
+      left: 780px;
+    }
+
+    @include bp(xl) {
+      display: none;
+    }
+  }
+
+  &__message {
+    bottom: 76px;
+    left: -146px;
+    max-width: 399px;
+  }
+
+  &__message-mobile {
+    display: none;
+    color: $orangeOld;
+
+    @include bp(xl) {
+      display: block;
+    }
+
+    // @include bp(md) {
+    //   // font-size: px-to-rem(20);
+    // }
+  }
+}

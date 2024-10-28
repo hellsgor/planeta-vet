@@ -6,6 +6,10 @@ p {
   font-size: px-to-rem(22);
   font-style: normal;
   color: $text;
+
+  @include bp(md) {
+    font-size: px-to-rem(20);
+  }
 }
 
 .paragraph,
@@ -47,6 +51,11 @@ h2,
 h3,
 .heading_h3 {
   font-size: px-to-rem(64);
+  line-height: 1.3;
+
+  @include bp(md) {
+    font-size: px-to-rem(24);
+  }
 }
 
 h4,
