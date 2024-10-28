@@ -18,14 +18,14 @@
       padding: 0 50px;
     }
   }
-  &-wrapper {
+  &__wrapper {
     display: flex;
     // width: 100%;
     gap: 50px;
     align-items: center;
     justify-content: space-between;
   }
-  &-logo {
+  &__logo {
     width: 10vw;
   }
   & .button {
@@ -134,7 +134,7 @@
     &-logo {
       width: 100%;
     }
-    &-wrapper:has(.header-login) {
+    &__wrapper:has(.header-login) {
       justify-content: flex-end;
       width: 100%;
     }
@@ -152,7 +152,7 @@
     }
   }
   @include bp(md) {
-    &-wrapper {
+    &__wrapper {
       & .button {
         display: none;
       }
