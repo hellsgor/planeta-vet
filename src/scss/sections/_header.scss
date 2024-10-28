@@ -9,7 +9,9 @@
   background-color: $white;
   border-radius: $medium-radius;
   box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
-
+  @include bp(lg) {
+    margin: 0;
+  }
   & .container {
     display: flex;
     align-items: center;
@@ -18,19 +20,25 @@
       padding: 0 50px;
     }
   }
-  &-wrapper {
+  &__wrapper {
     display: flex;
     // width: 100%;
     gap: 50px;
     align-items: center;
     justify-content: space-between;
   }
-  &-logo {
-    width: 10vw;
+  &__logo {
+    max-width: 205px;
+    & img {
+      width: 100%;
+    }
   }
   & .button {
-    padding: 22px 40px;
     white-space: nowrap;
+
+    &_white_bordered {
+      padding: 22px 40px;
+    }
   }
   &-select {
     position: relative;
@@ -121,8 +129,22 @@
       }
     }
   }
+  &__burger {
+    display: none;
+    justify-content: center;
+    & .button__wrapper {
+      gap: 0;
+    }
+  }
   @include bp(xxl) {
+    & .container {
+      gap: 50px;
+    }
     &-logo {
+      width: 100%;
+    }
+    &__wrapper:has(.header-login) {
+      justify-content: flex-end;
       width: 100%;
     }
     &-select {
@@ -134,9 +156,15 @@
     &-login {
       display: none;
     }
+    &__burger {
+      display: block;
+    }
   }
   @include bp(md) {
-    &-wrapper {
+    & .container {
+      padding: 0 16px;
+    }
+    &__wrapper {
       & .button {
         display: none;
       }
