@@ -11,7 +11,7 @@ export const home = {
         mod: 'big',
         buttonText: 'Получить бизнес-план',
         scrollToId: 'path-to-success',
-        imagePath: '../assets/images/raccoon.webp',
+        imageName: 'raccoon.webp',
       },
       { title: '7,1 млн ₽', subtitle: 'Средняя выручка', iconId: 'money-bag' },
       { title: '+ 600 000 т. р.', subtitle: 'Чистая прибыль в рамках месяца', iconId: 'cash-register' },
