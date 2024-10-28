@@ -2,15 +2,13 @@
   <div class="container">
 
     <div class="header-wrapper">
-      <a href="#" class="header-logo"><img src="./assets/images/logo-header.svg" alt="" class="headeer-logo__img"></a>
+
+      <a href="#" class="header-logo">
+        <img src="./assets/images/logo-header.svg" alt="" class="header-logo__img"></a>
 
  
   <div class="header-select">
-    <button class="button button_white button_white_bordered">Сотрудничество
-      <svg class="button__icon button-select__icon">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-down-circle" />
-          </svg></button>
-    
+    {{> elements/button text="Сотрудничество" classes="button_white button_white_bordered" iconId="arrow-down-circle"}}
     
     <ul>
       <li><a href="#">Амбассадор</a></li>
@@ -21,17 +19,12 @@
   </div>
 
   <nav class="header-menu">
-    <ul class="header-menu-list">
-      <li class="header-menu-list__item">
-        <a href="#" class="header-menu-list__link">О нас</a></li>
-      <li class="header-menu-list__item">
-        <a href="#" class="header-menu-list__link">Услуги</a></li>
-      <li class="header-menu-list__item">
-        <a href="#" class="header-menu-list__link">Контакты</a></li>
-    </ul>
+    {{#each data.navigation}}
+      {{> elements/button href=this.href text=this.text classes="button_white" }}
+    {{/each}}
   </nav>
   </div>
-    <!-- /.header-wrapper -->
+
 
     <div class="header-wrapper">
       <div class="header-login">
@@ -43,9 +36,11 @@
 
     {{> elements/button text="Оставить заявку" classes="button_white button_white_bordered"}}
     </div>
-    <!-- /.header-wrapper -->
 
+    <svg class="button__icon">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-burger" />
+          </svg>
     </div>
-  <!-- /.container -->
+
 </header>
 <!-- /.header -->

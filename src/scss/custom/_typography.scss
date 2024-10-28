@@ -1,5 +1,6 @@
 body,
 .paragraph,
+.text,
 p {
   font-family: "BloggerSans", sans-serif;
   font-size: px-to-rem(22);
@@ -12,6 +13,7 @@ p {
 }
 
 .paragraph,
+.text,
 p {
   line-height: 1.5;
 }
@@ -78,6 +80,15 @@ h6,
   display: flex;
   flex-direction: column;
   // row-gap: 8px;
+}
+
+.text {
+  &-green {
+    color: $green;
+  }
+  &-orange {
+    color: $orange;
+  }
 }
 
 .hint {

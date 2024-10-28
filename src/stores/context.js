@@ -1,4 +1,12 @@
 export const context = {
+  header: {
+    navigation: [
+      { href: '#about', text: 'О нас' },
+      { href: '/services.html', text: 'Услуги' },
+      { href: '/contacts.html', text: 'Контакты' },
+    ],
+  },
+
   footer: {
     navigation: [
       { href: '/ambassador.html', text: 'Амбассадор' },
