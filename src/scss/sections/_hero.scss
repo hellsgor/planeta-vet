@@ -10,6 +10,8 @@
   }
   &__img {
     overflow: hidden;
+
+    width: 35vw;
     // flex-basis: 48%;
 
     max-width: 880px;
@@ -24,6 +26,7 @@
     display: flex;
     flex-basis: 55%;
     flex-direction: column;
+    gap: 30px;
     align-items: flex-start;
     justify-content: space-around;
   }
