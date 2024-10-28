@@ -29,7 +29,10 @@
     width: 10vw;
   }
   & .button {
-    padding: 22px 40px;
+    &_white_bordered {
+      padding: 22px 40px;
+    }
+
     white-space: nowrap;
   }
   &-select {
@@ -121,8 +124,18 @@
       }
     }
   }
+  &__burger {
+    display: none;
+  }
   @include bp(xxl) {
+    & .container {
+      gap: 50px;
+    }
     &-logo {
+      width: 100%;
+    }
+    &-wrapper:has(.header-login) {
+      justify-content: flex-end;
       width: 100%;
     }
     &-select {
@@ -133,6 +146,9 @@
     }
     &-login {
       display: none;
+    }
+    &__burger {
+      display: block;
     }
   }
   @include bp(md) {
