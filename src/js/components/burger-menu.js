@@ -2,30 +2,54 @@ import { resolutionChecker } from '../main';
 import { debouncer } from '../utils/Debouncer';
 
 /**
- * Класс для управления поведением секции "Hero".
+ * Класс для управления поведением бургер-меню в секции "Header".
  */
 class BurgerMenu {
   /**
-   * @type {HTMLElement | null} Секция Hero.
+   * @type {HTMLElement | null} Секция Header.
    */
   $section = null;
 
   /**
-   * @type {HTMLElement | null} Изображение в секции Hero.
+   * @type {HTMLElement | null} Выпадающее меню.
    */
-  $img = null;
+  $select = null;
 
   /**
-   * @type {HTMLElement | null} Подзаголовок в секции Hero.
+   * @type {HTMLElement | null} Основное меню.
    */
-  $subtitle = null;
+  $menu = null;
 
   /**
-   * CSS-селекторы для поиска элементов секции Hero.
+   * @type {HTMLElement | null} Элемент для входа в систему.
+   */
+  $login = null;
+
+  /**
+   * @type {HTMLElement | null} Кнопка запроса.
+   */
+  $request = null;
+
+  /**
+   * @type {HTMLElement | null} Контейнер бургер-меню.
+   */
+  $burgerMenuContainer = null;
+
+  /**
+   * @type {NodeListOf<HTMLElement> | null} Контейнеры Header.
+   */
+  $headerContainer = null;
+
+  /**
+   * CSS-селекторы для поиска элементов секции Header.
    * @type {Object.<string, string>}
-   * @property {string} section - Селектор для контейнера Hero.
-   * @property {string} img - Селектор для изображения Hero.
-   * @property {string} subtitle - Селектор для подзаголовка Hero.
+   * @property {string} section - Селектор для контейнера Header.
+   * @property {string} select - Селектор для выпадающего меню.
+   * @property {string} menu - Селектор для основного меню.
+   * @property {string} login - Селектор для элемента входа в систему.
+   * @property {string} headerContainer - Селектор для обертки Header.
+   * @property {string} burgerMenuContainer - Селектор для контейнера бургер-меню.
+   * @property {string} request - Селектор для кнопки запроса.
    */
   classNames = {
     section: '.header',
@@ -33,15 +57,13 @@ class BurgerMenu {
     menu: '.header-menu',
     login: '.header-login',
     headerContainer: '.header__wrapper',
-    firstHeaderContainer: '.header__wrapper_first',
-    secondHeaderContainer: '.header__wrapper_second',
     burgerMenuContainer: '.burger-menu',
     request: '.button__request',
   };
 
   /**
-   * Создает экземпляр класса Hero.
-   * @param {HTMLElement} $section - Корневой элемент секции Hero.
+   * Создает экземпляр класса BurgerMenu.
+   * @param {HTMLElement} $section - Корневой элемент секции Header.
    */
   constructor($section) {
     this.$section = $section;
@@ -60,22 +82,23 @@ class BurgerMenu {
   }
 
   /**
-   * Получает элементы изображения и подзаголовка внутри секции Hero.
+   * Инициализирует элементы внутри секции Header, присваивая их соответствующим свойствам класса.
    * @private
    */
   getElements() {
-    this.$select = this.$section.querySelector(`${this.classNames.select}`);
-    this.$menu = this.$section.querySelector(`${this.classNames.menu}`);
-    this.$login = this.$section.querySelector(`${this.classNames.login}`);
-    this.$request = this.$section.querySelector(`${this.classNames.request}`);
-    this.$burgerMenuContainer = this.$section.querySelector(`${this.classNames.burgerMenuContainer}`);
-    this.$headerContainer = this.$section.querySelectorAll(`${this.classNames.headerContainer}`);
+    this.$select = this.$section.querySelector(this.classNames.select);
+    this.$menu = this.$section.querySelector(this.classNames.menu);
+    this.$login = this.$section.querySelector(this.classNames.login);
+    this.$request = this.$section.querySelector(this.classNames.request);
+    this.$burgerMenuContainer = this.$section.querySelector(this.classNames.burgerMenuContainer);
+    this.$headerContainer = this.$section.querySelectorAll(this.classNames.headerContainer);
   }
 
   /**
-   * Перемещает изображение внутри секции Hero.
-   * Если разрешение подходит для ноутбуков, изображение добавляется после подзаголовка,
-   * в противном случае — в начало контейнера Hero.
+   * Перемещает элементы внутри секции Header в зависимости от разрешения экрана.
+   * Если разрешение соответствует ноутбуку, элементы меню переносятся в бургер-меню.
+   * Для мобильного разрешения кнопка запроса перемещается в меню,
+   * в остальных случаях она перемещается в другой контейнер.
    * @private
    */
   transferElements() {
@@ -83,10 +106,6 @@ class BurgerMenu {
       this.$burgerMenuContainer.appendChild(this.$menu);
       this.$burgerMenuContainer.appendChild(this.$select);
       this.$burgerMenuContainer.appendChild(this.$login);
-      console.log(resolutionChecker.isMobile());
-      // const cloned = this.$menu.querySelector('a').cloneNode(true);
-      // cloned.querySelector('.button__text').innerHTML = this.$request.querySelector('.button__text').innerHTML;
-      // cloned.setAttribute('href', this.$request.getAttribute('href'));
     }
     if (resolutionChecker.isMobile()) {
       this.$menu.appendChild(this.$request);
@@ -102,11 +121,8 @@ class BurgerMenu {
   }
 }
 
-// cloneElement(){
-
-// }
 /**
- * Инициализирует секцию Hero.
+ * Инициализирует бургер-меню в секции Header.
  * @function
  */
 export function initBurgerMenu() {
