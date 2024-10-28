@@ -1,0 +1,23 @@
+.modal-thank-you {
+  display: flex;
+  flex-direction: column;
+  row-gap: 72px;
+  align-items: center;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    align-items: center;
+
+    & > h6,
+    & > p {
+      max-width: 421px;
+      text-align: center;
+    }
+  }
+
+  &__close-button {
+    width: fit-content;
+  }
+}
