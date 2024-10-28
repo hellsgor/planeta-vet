@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  counter-reset: numbered-title-counter;
   overflow-x: hidden;
   background-color: $green-light;
 }
