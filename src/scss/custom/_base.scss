@@ -26,6 +26,10 @@ body {
   }
 }
 
+.popover-opened {
+  overflow: hidden;
+}
+
 .typography {
   display: flex;
   flex-direction: column;
