@@ -29,11 +29,11 @@
     width: 10vw;
   }
   & .button {
+    white-space: nowrap;
+
     &_white_bordered {
       padding: 22px 40px;
     }
-
-    white-space: nowrap;
   }
   &-select {
     position: relative;
