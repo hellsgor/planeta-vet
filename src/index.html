@@ -10,7 +10,11 @@
   {{> svgSprite}}
   <body>
     {{> sections/header data=header}}
-    <main>{{> sections/hero}} {{> sections/path-to-success}}</main>
+    <main>
+      {{> sections/hero}}
+      {{> sections/start-in-numbers this.startInNumbers}}
+      {{> sections/path-to-success}}
+    </main>
     {{> modal name='thank-you'}}
     {{> sections/footer data=footer}}
 
