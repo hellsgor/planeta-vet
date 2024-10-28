@@ -8,6 +8,7 @@ import { URL } from 'url';
 import dotenv from 'dotenv';
 
 import handlebars from 'vite-plugin-handlebars';
+import Handlebars from 'handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import autoprefixer from 'autoprefixer';
@@ -15,6 +16,10 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
+
+Handlebars.registerHelper('eq', function (a, b) {
+  return a === b;
+});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
