@@ -1,0 +1,40 @@
+.modal {
+  position: fixed;
+
+  width: 100%;
+  max-width: 800px;
+  padding: 80px;
+
+  background-color: $white;
+  border: none;
+  border-radius: $medium-radius;
+
+  &__close-button {
+    cursor: pointer;
+
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+
+    @include transition(opacity);
+
+    svg {
+      width: 32px;
+      height: 32px;
+      stroke: $black;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

@@ -16,8 +16,11 @@
 @import "./elements/button";
 @import "./elements/input";
 @import "./elements/shadow-circle";
-@import "./components/message";
 @import "./components/ul";
+
+// components
+@import "./components/message";
+@import "./components/modal";
 
 // sections
 @import "./sections/header";
