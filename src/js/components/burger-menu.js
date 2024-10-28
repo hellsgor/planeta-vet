@@ -36,6 +36,7 @@ class BurgerMenu {
     firstHeaderContainer: '.header__wrapper_first',
     secondHeaderContainer: '.header__wrapper_second',
     burgerMenuContainer: '.burger-menu',
+    request: '.button__request',
   };
 
   /**
@@ -66,6 +67,7 @@ class BurgerMenu {
     this.$select = this.$section.querySelector(`${this.classNames.select}`);
     this.$menu = this.$section.querySelector(`${this.classNames.menu}`);
     this.$login = this.$section.querySelector(`${this.classNames.login}`);
+    this.$request = this.$section.querySelector(`${this.classNames.request}`);
     this.$burgerMenuContainer = this.$section.querySelector(`${this.classNames.burgerMenuContainer}`);
     this.$headerContainer = this.$section.querySelectorAll(`${this.classNames.headerContainer}`);
   }
@@ -81,7 +83,18 @@ class BurgerMenu {
       this.$burgerMenuContainer.appendChild(this.$menu);
       this.$burgerMenuContainer.appendChild(this.$select);
       this.$burgerMenuContainer.appendChild(this.$login);
-    } else {
+      console.log(resolutionChecker.isMobile());
+      // const cloned = this.$menu.querySelector('a').cloneNode(true);
+      // cloned.querySelector('.button__text').innerHTML = this.$request.querySelector('.button__text').innerHTML;
+      // cloned.setAttribute('href', this.$request.getAttribute('href'));
+    }
+    if (resolutionChecker.isMobile()) {
+      this.$menu.appendChild(this.$request);
+    }
+    if (!resolutionChecker.isMobile()) {
+      this.$headerContainer[1].appendChild(this.$request);
+    }
+    if (!resolutionChecker.isLaptop()) {
       this.$headerContainer[0].appendChild(this.$select);
       this.$headerContainer[0].appendChild(this.$menu);
       this.$headerContainer[1].prepend(this.$login);
@@ -89,6 +102,9 @@ class BurgerMenu {
   }
 }
 
+// cloneElement(){
+
+// }
 /**
  * Инициализирует секцию Hero.
  * @function
