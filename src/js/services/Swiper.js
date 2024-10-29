@@ -79,6 +79,20 @@ export class InitSlider {
 }
 
 const listSliders = [
+  {
+    classSlider: '.start-in-numbers__container',
+    settingsSlider: {
+      wrapperClass: 'start-in-numbers__wrapper',
+      slideClass: 'start-in-numbers__card',
+
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+
+      setWrapperSize: true,
+
+      destroySize: '(min-width: 1550px)',
+    },
+  },
   // {
   //   classSlider: '.products-main-page__inner',
   //   settingsSlider: {
@@ -110,7 +124,7 @@ const listSliders = [
   // },
 ];
 
-export const initSliders = () => {
+export const initSwipers = () => {
   return listSliders.map((i) => {
     return new InitSlider(i);
   });
