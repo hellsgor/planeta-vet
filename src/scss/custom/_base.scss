@@ -8,6 +8,10 @@ body {
   background-color: $green-light;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 header,
 .hero {
   max-width: 1920px;
@@ -20,9 +24,9 @@ header,
   padding-right: 120px;
   padding-left: 120px;
 
-  @include bp(xxxl) {
-    overflow-x: hidden;
-  }
+  // @include bp(xxxl) {
+  //   overflow: hidden;
+  // }
 
   @include bp(xl) {
     padding-right: 60px;
