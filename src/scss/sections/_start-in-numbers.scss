@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     row-gap: 80px;
+
+    & > .card-start-in-numbers {
+      background: linear-gradient(110deg, $orange 1.85%, $orange-lighten 97.94%);
+    }
   }
 
   &__wrapper {
@@ -54,6 +58,14 @@
         background: linear-gradient(110deg, $green-lighten 1.85%, $green 97.94%),
           linear-gradient(110deg, $orange-lighten 1.85%, $green-lighten 97.94%),
           linear-gradient(110deg, $green-lighten 1.85%, $green 97.94%);
+      }
+    }
+
+    @include bp(xxl_custom) {
+      display: flex;
+
+      & > div {
+        flex: 0 405px;
       }
     }
   }
