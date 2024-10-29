@@ -9,14 +9,16 @@
   </head>
    {{> svgSprite}}
   <body>
-      {{> sections/header data=header}}
+    {{> sections/header data=header}}
+
     <main>
       {{> sections/hero}}
       {{> sections/concept data=concept}}
+      {{> sections/start-in-numbers this.startInNumbers}}
       {{> sections/path-to-success}}
     </main>
-      {{> modal name='thank-you'}}
-      {{> sections/footer data=footer}}
-
+    
+    {{> modal name='thank-you'}}
+    {{> sections/footer data=footer}}
   </body>
 </html>

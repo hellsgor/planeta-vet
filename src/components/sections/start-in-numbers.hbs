@@ -1,0 +1,16 @@
+<section class="start-in-numbers">
+  <div class="container start-in-numbers__container">
+    {{> section-header
+      classes='start-in-numbers__header'
+      numbered=true
+      accent-color='orange'
+      title=this.title
+    }}
+
+    <div class="start-in-numbers__wrapper">
+      {{#each this.cards}}
+        {{> card-start-in-numbers this classes='start-in-numbers__card'}}
+      {{/each}}
+    </div>
+  </div>
+</section>
