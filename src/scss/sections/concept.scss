@@ -5,22 +5,33 @@
     &-header {
       max-width: 75%;
       margin-bottom: 38px;
+      @include bp(xxl) {
+        max-width: 90%;
+      }
     }
   }
   &__decor-wrapper {
     position: absolute;
     z-index: -1;
     inset: 0;
-    // overflow: hidden;
   }
   &__img {
     position: absolute;
     z-index: -1;
     left: 0;
+    @include bp(xxl_custom) {
+      width: 500px;
+    }
+    @include bp(xl) {
+      width: 300px;
+    }
+    @include bp(lg) {
+      display: none;
+    }
   }
   &__shadow {
     position: absolute;
-    z-index: -1;
+    z-index: -2;
     top: -50%;
     left: -50%;
     transform: translate(50%, 50%);
@@ -29,6 +40,11 @@
     height: min(100%, 976px);
 
     background: radial-gradient(50% 50% at 50% 50%, rgba(145, 189, 31, 0.15) 0%, rgba(244, 251, 240, 0.15) 100%);
+    &:nth-child(1) {
+      top: 82px;
+      left: 82px;
+      transform: translate(0, 0);
+    }
   }
   &__wrapper {
     position: relative;
@@ -45,11 +61,27 @@
 
     width: 500px;
     height: 950px;
+    @include bp(xxl) {
+      top: -100px;
+      width: 300px;
+      height: auto;
+    }
+    @include bp(lg) {
+      transform: rotate(339deg) translateX(75px);
+      width: 200px;
+    }
+    @include bp(md) {
+      top: -50px;
+      width: 160px;
+    }
   }
   &__message {
     top: 290px;
-    right: 190px;
+    right: 70px;
     max-width: 400px;
+    @include bp(xxl) {
+      display: none;
+    }
   }
   &__services {
     padding: 50px 60px;
@@ -62,11 +94,17 @@
     & h6 {
       margin-bottom: 36px;
       color: $white;
+      @include bp(lg) {
+        text-align: center;
+      }
     }
     & ul {
       display: grid;
       grid-template-columns: repeat(2, minmax(max-content, 1fr));
       margin-bottom: 48px;
+      @include bp(sm) {
+        grid-template-columns: 1fr;
+      }
       & li {
         width: fit-content;
         padding-top: 5px;
@@ -85,6 +123,10 @@
       align-items: center;
       justify-content: center;
       padding: 20px 0;
+    }
+    @include bp(lg) {
+      width: 100%;
+      padding: 24px 8px;
     }
   }
 }
