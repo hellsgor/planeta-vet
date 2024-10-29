@@ -1,7 +1,28 @@
 <section class="concept">
   <div class="container">
-    {{> section-header numbered="true" classes="section-header__concept" title="PlanetaVet" subtitle="Это клиентоориентированные ветеринарные клиники
-с высокоточным лабораторным оборудованием
-для диагностики и лучшие ветеринарные врачи"}}
+    {{> section-header numbered="true" classes="section-header__concept" title="PlanetaVet" subtitle="Это клиентоориентированные ветеринарные клиники с высокоточным лабораторным оборудованием для диагностики и лучшие ветеринарные врачи"}}
+
+    {{!-- {{> message classes="concept-message" position="right-top" text="У нас более 500 видов исследований. И мы постоянно обновляем каталог"}} --}}
+
+    <div class="concept__wrapper">
+
+    <div class="concept__img">
+      <img src="/assets/images/concept-planeta-vet.webp" alt="">
+    </div>
+
+
+    <div class="services concept__services">
+      <h6>Ветеринарные услуги</h6>
+      <ul class="custom custom_plus">
+       {{#each data.services}}
+       <li>{{this.name}}</li>
+       {{/each}}
+      </ul>
+      {{> elements/button href="/services.html" text="Перейти в каталог" classes="button_white" }}
+    </div>
+
+    </div>
+
+    
   </div>
 </section>
