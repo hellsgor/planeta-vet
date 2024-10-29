@@ -86,7 +86,13 @@ const listSliders = [
       slideClass: 'start-in-numbers__card',
 
       slidesPerView: 'auto',
-      spaceBetween: 20,
+      spaceBetween: 16,
+
+      breakpoints: {
+        768: {
+          spaceBetween: 20,
+        },
+      },
 
       setWrapperSize: true,
 
