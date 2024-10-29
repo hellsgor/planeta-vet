@@ -68,20 +68,28 @@ export const home = {
           'Каждый регион имеет свои особенности, и франшизные владельцы могут адаптировать свои услуги под потребности местного населения. Например, если в вашем районе наблюдается рост популярности домашних животных определённых пород, вы можете сосредоточиться на специализированных услугах для этих животных, таких как диетология или поведенческая терапия.',
         imagePath: '../assets/images/main-advantages/2-flexibility.webp',
       },
-      { title: 'Поддержка бренда', description: '', imagePath: '../assets/images/main-advantages/1-investment.webp' },
+      {
+        title: 'Поддержка бренда',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        imagePath: '../assets/images/main-advantages/1-investment.webp',
+      },
       {
         title: 'Обучение и подготовка',
-        description: '',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
         imagePath: '../assets/images/main-advantages/2-flexibility.webp',
       },
       {
         title: 'Сетевое взаимодействие',
-        description: '',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
         imagePath: '../assets/images/main-advantages/1-investment.webp',
       },
       {
         title: 'Доступ к эксклюзивным продуктам',
-        description: '',
+        description:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
         imagePath: '../assets/images/main-advantages/2-flexibility.webp',
       },
     ],
