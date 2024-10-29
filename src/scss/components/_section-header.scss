@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 32px;
+  padding-top: 5px;
 
   &__title {
     &_numbered {
@@ -77,5 +78,7 @@
 
   @include bp(md) {
     row-gap: 24px;
+    padding-top: 6px;
+    padding-bottom: 10px;
   }
 }
