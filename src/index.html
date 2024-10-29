@@ -7,13 +7,15 @@
     <script type="module" src="/js/main.js" defer></script>
     <title>PlanetaVet</title>
   </head>
-   {{> svgSprite}}
+  {{> svgSprite}}
+  
   <body>
     {{> sections/header data=header}}
 
     <main>
       {{> sections/hero}}
       {{> sections/concept data=concept}}
+      {{> sections/stages-of-opening this.stagesOfOpening}}
       {{> sections/start-in-numbers this.startInNumbers}}
       {{> sections/path-to-success}}
     </main>
