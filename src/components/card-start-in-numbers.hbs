@@ -1,0 +1,27 @@
+<div class="card-start-in-numbers{{#if this.mod}} card-start-in-numbers_{{this.mod}}{{/if}}{{#if this.classes}} {{this.classes}}{{/if}}">
+  {{#if this.imageName}}
+    <div class="card-start-in-numbers__image">
+      <img src="../assets/images/{{imageName}}" alt="">
+    </div>
+  {{/if}}
+
+  {{#if this.iconId}}
+    <div class="card-start-in-numbers__icon">
+      <svg>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{this.iconId}}" />
+      </svg>
+    </div>
+  {{/if}}
+
+  <div class="card-start-in-numbers__wrapper">
+    <p class="card-start-in-numbers__title">{{this.title}}</p>
+
+    {{#if this.subtitle}}
+      <p class="card-start-in-numbers__subtitle">{{this.subtitle}}</p>
+    {{/if}}
+
+    {{#if this.scrollToId}}
+      {{> elements/button href=this.scrollToId text=this.buttonText white=true classes='card-start-in-numbers__link'}}
+    {{/if}}
+  </div>
+</div>

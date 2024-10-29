@@ -1,6 +1,13 @@
 .path-to-success {
   overflow: hidden;
   padding: 0;
+
+  &__container {
+    @include bp(md) {
+      overflow: hidden;
+    }
+  }
+  
   &__wrapper {
     position: relative;
 
@@ -19,6 +26,11 @@
     @include bp(xl) {
       row-gap: 40px;
       max-width: unset;
+    }
+
+    @include bp(md) {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 
