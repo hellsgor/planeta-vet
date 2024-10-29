@@ -8,6 +8,10 @@ body {
   background-color: $green-light;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 .container {
   width: 100%;
   max-width: 1920px;
