@@ -7,6 +7,10 @@
 
   &__header {
     margin-bottom: 80px;
+
+    @include bp(md) {
+      margin-bottom: 24px;
+    }
   }
 
   &__wrapper {
@@ -68,7 +72,7 @@
       grid-template-rows: unset;
 
       width: fit-content;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
 
       & > div {
         flex: 0 405px;
