@@ -1,5 +1,4 @@
 import { resolutionChecker } from '../main';
-import { debouncer } from '../utils/Debouncer';
 
 /**
  * Класс для управления поведением секции "Hero".
@@ -38,6 +37,8 @@ class Hero {
    * @param {HTMLElement} $section - Корневой элемент секции Hero.
    */
   constructor($section) {
+    // this.debouncer = new Debouncer();
+
     this.$section = $section;
 
     this.getElements();
@@ -51,7 +52,8 @@ class Hero {
    * @private
    */
   addEvents() {
-    window.addEventListener('resize', debouncer.debounce(this.transferImg.bind(this), 350));
+    window.addEventListener('resize', this.transferImg.bind(this));
+    // window.addEventListener('resize', this.debouncer.debounce(this.transferImg.bind(this), 350));
   }
 
   /**

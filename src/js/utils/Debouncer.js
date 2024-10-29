@@ -2,7 +2,7 @@
  * @class Debouncer
  * @description Класс для реализации функции debounce, которая ограничивает количество вызовов функции callee в указанный интервал времени.
  */
-class Debouncer {
+export class Debouncer {
   /**
    * @description Оборачивает функцию, добавляя к ней задержку (debounce).
    * @param {Function} callee - Функция, которую необходимо обернуть в debounce.
@@ -23,5 +23,3 @@ class Debouncer {
     };
   }
 }
-//300-400ms
-export const debouncer = new Debouncer();

@@ -12,6 +12,11 @@ main {
   overflow-x: hidden;
 }
 
+header,
+.hero {
+  max-width: 1920px;
+}
+
 .container {
   width: 100%;
   max-width: 1920px;

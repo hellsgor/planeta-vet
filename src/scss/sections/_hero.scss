@@ -3,6 +3,9 @@
   padding: 70px 36px 36px;
   background-color: $white;
   border-radius: $medium-radius;
+  @media (min-width: 1920px) {
+    margin: auto;
+  }
   & .container {
     display: flex;
     gap: 80px;
@@ -36,14 +39,7 @@
     }
   }
   &-title {
-    // font-size: var(--subtitle-size);
     line-height: 1;
-    & span {
-      // font-size: var(--title-size);
-    }
-  }
-  &__subtitle {
-    // font-size: var(--text-size);
   }
   & ul {
     display: flex;
