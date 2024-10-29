@@ -63,6 +63,11 @@
 
     @include bp(xxl_custom) {
       display: flex;
+      grid-gap: unset;
+      grid-template-columns: unset;
+      grid-template-rows: unset;
+
+      width: fit-content;
       margin-bottom: 20px;
 
       & > div {
