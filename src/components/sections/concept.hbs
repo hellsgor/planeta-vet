@@ -25,7 +25,9 @@
       <h6>Ветеринарные услуги</h6>
       <ul class="custom custom_plus">
        {{#each data.services}}
-       <li>{{this.name}}</li>
+       <li>{{this.name}}
+        {{#if this.info}} <p>{{this.info}}</p> {{/if}}
+       </li>
        {{/each}}
       </ul>
       {{> elements/button href="/services.html" text="Перейти в каталог" classes="button_white" }}

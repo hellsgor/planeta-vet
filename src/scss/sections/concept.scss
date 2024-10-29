@@ -23,7 +23,7 @@
       width: 500px;
     }
     @include bp(xl) {
-      width: 300px;
+      width: 400px;
     }
     @include bp(lg) {
       display: none;
@@ -106,15 +106,35 @@
         grid-template-columns: 1fr;
       }
       & li {
+        position: relative;
+
         width: fit-content;
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 64px;
-
         &:before {
           top: 50%;
           left: 22px;
           transform: translateY(-50%);
+        }
+        & p {
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          right: 100%;
+
+          display: none;
+
+          width: 450px;
+          padding: 24px 28px;
+
+          background-color: $white;
+          border-radius: $medium-radius;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+
+          &.active {
+            display: block;
+          }
         }
       }
     }
