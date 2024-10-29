@@ -1,0 +1,16 @@
+<div class="stages-of-opening">
+  <div class="container stages-of-opening__container">
+    {{> section-header
+      classes='stages-of-opening__header'
+      numbered=true
+      accent-color='orange'
+      title=this.title
+    }}
+
+    <div class="stages-of-opening__list stages-list">
+      {{#each this.stages}}
+        {{> stage this classes='stages-of-opening__item'}}
+      {{/each}}
+    </div>
+  </div>
+</div>
