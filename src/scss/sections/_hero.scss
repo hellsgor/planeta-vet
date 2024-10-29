@@ -1,5 +1,5 @@
 .hero {
-  margin: -40px 34px;
+  margin: 0 34px;
   padding: 70px 36px 36px;
   background-color: $white;
   border-radius: $medium-radius;
@@ -36,14 +36,14 @@
     }
   }
   &-title {
-    font-size: var(--subtitle-size);
+    // font-size: var(--subtitle-size);
     line-height: 1;
     & span {
-      font-size: var(--title-size);
+      // font-size: var(--title-size);
     }
   }
   &__subtitle {
-    font-size: var(--text-size);
+    // font-size: var(--text-size);
   }
   & ul {
     display: flex;
@@ -53,7 +53,7 @@
     align-items: center;
     & li {
       flex-basis: 45%;
-      font-size: var(--small-text-size);
+      // font-size: var(--small-text-size);
     }
   }
 }
