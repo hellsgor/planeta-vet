@@ -1,0 +1,44 @@
+<div class="controlled-slider{{#if this.classes}} {{this.classes}}{{/if}}">
+  <div class="controlled-slider__main-item">
+    <div class="controlled-slider__text-content">
+      <p class="controlled-slider__heading">{{this.heading}}</p>
+      <p class="controlled-slider__description">{{this.description}}</p>
+    </div>
+
+    <div class="controlled-slider__slides-titles">
+      {{#each this.items}}
+        <span class="controlled-slider__slides-titles-item">{{this.title}}</span>
+      {{/each}}
+    </div>
+
+    <div class="controlled-slider__navigation">
+      <div class="controlled-slider__arrow controlled-slider__arrow_prew">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
+        </svg>
+      </div>
+
+      <div class="controlled-slider__arrow controlled-slider__arrow_next">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="controlled-slider__wrapper">
+    {{#each this.items}}
+      <div class="controlled-slider__slide">
+        <img src="{{this.imagePath}}" alt="">
+        <div class="controlled-slider__slide-wrapper">
+          <p class="controlled-slider__slide-title">{{this.title}}</p>
+          <p class="controlled-slider__description">{{this.description}}</p>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="controlled-slider__pagination"></div>
+</div>
+
+<p></p>
