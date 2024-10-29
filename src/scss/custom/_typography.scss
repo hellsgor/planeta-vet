@@ -6,7 +6,6 @@ p {
   font-size: px-to-rem(22);
   font-style: normal;
   color: $text;
-
   @include bp(xl) {
     font-size: calc(22px - (22 - 20) * ((1200px - 100vw) / (1200 - 768)));
   }
@@ -153,4 +152,67 @@ h6,
 
 .hint {
   color: $gray;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  & li {
+    position: relative;
+    padding-left: 60px;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 25px;
+      height: 25px;
+
+      background-color: $green;
+      border-radius: $tiny-radius;
+    }
+  }
+  &.center {
+    & li {
+      padding-left: 26px;
+      &::before {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+  &.custom {
+    &_plus {
+      & li {
+        cursor: pointer;
+        margin-bottom: 20px;
+        padding: 5px 46px 0;
+        transition: all 0.3s var(--default-timing-function);
+        &::before {
+          content: "";
+
+          width: 30px;
+          height: 30px;
+
+          background-color: unset;
+          background-image: url("/assets/images/icons/icon-plus-rounded.svg");
+        }
+        &:hover {
+          color: $green-custom;
+          background-color: $white;
+          border-radius: $big-radius;
+          &::before {
+            background-color: $green-custom;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,12 +1,13 @@
 .path-to-success {
   overflow: hidden;
+  padding: 0;
 
   &__container {
     @include bp(md) {
       overflow: hidden;
     }
   }
-
+  
   &__wrapper {
     position: relative;
 
