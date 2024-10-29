@@ -20,10 +20,6 @@ header,
   padding-right: 120px;
   padding-left: 120px;
 
-  @include bp(xxxl) {
-    overflow-x: hidden;
-  }
-
   @include bp(xl) {
     padding-right: 60px;
     padding-left: 60px;
@@ -41,7 +37,8 @@ header,
 }
 
 section {
-  padding: 108px 0;
+  margin-top: 108px;
+  margin-bottom: 108px;
 }
 
 .popover-opened {
