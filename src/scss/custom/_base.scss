@@ -38,10 +38,18 @@ main {
 section {
   &:not(:first-child) {
     margin-top: 108px;
+
+    @include bp(md) {
+      margin-top: 64px;
+    }
   }
 
   &:not(:last-child) {
     margin-bottom: 108px;
+
+    @include bp(md) {
+      margin-bottom: 64px;
+    }
   }
 }
 
