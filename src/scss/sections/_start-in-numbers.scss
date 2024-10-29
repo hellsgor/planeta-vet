@@ -1,5 +1,9 @@
 .start-in-numbers {
   &__container {
+    @include bp(xxxl) {
+      overflow-x: hidden;
+    }
+
     & > .card-start-in-numbers {
       background: linear-gradient(110deg, $orange 1.85%, $orange-lighten 97.94%);
     }
