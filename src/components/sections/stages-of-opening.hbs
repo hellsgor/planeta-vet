@@ -1,4 +1,6 @@
-<div class="stages-of-opening">
+<section class="stages-of-opening">
+
+  
   <div class="container stages-of-opening__container">
     {{> section-header
       classes='stages-of-opening__header'
@@ -12,5 +14,17 @@
         {{> stage this classes='stages-of-opening__item'}}
       {{/each}}
     </div>
+
+    {{> elements/shadow-circle classes='stages-of-opening__shadow-circle'}}
+    {{> rounded-img classes='stages-of-opening__rounded-img' src='../../assets/images/stages-of-opening.webp'}}
+    <div class="stages-of-opening__decor">
+      <div class="stages-of-opening__decor-image">
+        <img src="../../assets/images/parrot-stages.webp" alt="">
+      </div>
+
+      {{> message classes='stages-of-opening__message' position='right-top' text=this.message}}
+    </div>
   </div>
-</div>
+
+  
+</section>
