@@ -7,6 +7,7 @@ import { initPathToSuccess } from './components/path-to-success';
 import { initHero } from './components/hero';
 import { initBurgerMenu } from './components/burger-menu';
 import { initStartInNumbers } from './components/start-in-numbers ';
+import { initSwipers } from './services/Swiper';
 
 export const resolutionChecker = new ResolutionChecker();
 
@@ -17,4 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initBurgerMenu();
   initModals();
+
+  initSwipers();
 });
