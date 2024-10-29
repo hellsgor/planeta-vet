@@ -8,6 +8,10 @@ body {
   background-color: $green-light;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 header,
 .hero {
   max-width: 1920px;

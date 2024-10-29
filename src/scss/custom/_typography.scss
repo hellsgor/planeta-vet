@@ -201,7 +201,10 @@ ul {
           height: 30px;
 
           background-color: unset;
-          background-image: url("/assets/images/icons/icon-plus-rounded.svg");
+          background-image: url("/assets/images/icons/icon-plus.svg");
+          background-position: center;
+          border: 1px solid $white;
+          border-radius: 50%;
         }
         &:hover {
           color: $green-custom;
@@ -209,7 +212,7 @@ ul {
           border-radius: $big-radius;
           &::before {
             background-color: $green-custom;
-            border-radius: 50%;
+            border: none;
           }
         }
       }

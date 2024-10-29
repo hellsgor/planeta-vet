@@ -1,8 +1,7 @@
 .rounded-img {
   position: relative;
-  max-width: 830px;
-  max-height: 830px;
-
+  aspect-ratio: 1/1;
+  width: 830px;
   & img {
     overflow: hidden;
 

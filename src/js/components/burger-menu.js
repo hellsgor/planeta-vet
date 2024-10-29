@@ -1,5 +1,5 @@
 import { resolutionChecker } from '../main';
-import { debouncer } from '../utils/Debouncer';
+import { Debouncer } from '../utils/Debouncer';
 
 /**
  * Класс для управления поведением бургер-меню в секции "Header".
@@ -66,6 +66,8 @@ class BurgerMenu {
    * @param {HTMLElement} $section - Корневой элемент секции Header.
    */
   constructor($section) {
+    this.debouncer = new Debouncer();
+
     this.$section = $section;
     this.getElements();
     this.addEvents();
@@ -78,7 +80,7 @@ class BurgerMenu {
    * @private
    */
   addEvents() {
-    window.addEventListener('resize', debouncer.debounce(this.transferElements.bind(this), 350));
+    window.addEventListener('resize', this.debouncer.debounce(this.transferElements.bind(this), 350));
   }
 
   /**

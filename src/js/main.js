@@ -6,6 +6,7 @@ import { ResolutionChecker } from './utils/ResolutionChecker';
 import { initPathToSuccess } from './components/path-to-success';
 import { initHero } from './components/hero';
 import { initBurgerMenu } from './components/burger-menu';
+import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
 import { initSwipers } from './services/Swiper';
 
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHero();
   initStartInNumbers();
   initPathToSuccess();
-
+  showServicesInfo();
   initBurgerMenu();
   initModals();
 
