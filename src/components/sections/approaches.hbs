@@ -1,23 +1,18 @@
 <section class="approaches">
   <div class="container">
-     {{> section-header numbered="true" classes="concept-section-header" title="3 концепции" subtitle="Каждая из этих концепций может быть адаптирована под конкретные потребности рынка"}}
-    {{> message classes="concept__message" position="right-top" text="Мы предлагаем уникальные возможности для франчайзи."}}
-    {{> elements/shadow-circle classes='concept__shadow'}}
+     {{> section-header numbered="true" classes="approaches-section-header" title="3 концепции" subtitle="Каждая из этих концепций может быть адаптирована под конкретные потребности рынка"}}
+       <div class="approaches__decor-wrapper">
+          <div class="approaches__decor">
+                    <img src="/assets/images/hamster.webp" alt="">
+          </div>
+        </div>
 
-  <div class="approaches-card">
-    <div class="approaches-card__wrapper">
-      <div class="approaches-card__num"></div>
-      <h4>Амбассадор</h4>
-      <p>Амбассадор — клиника или частно практикующий врач-ветеринар, которые, анимаются вместе с нами продвижением Планета Вет. Кобрендинг, участвует в совместных мероприятиях, привлекает маркетинговыми мероприятиями другие клиники и частных ветврачей к проекту.</p>
-      <div class="approaches-card-tags">
-        <div class="approaches-card-tags__tag">Маркетинговая поддержка</div>
-        <div class="approaches-card-tags__tag">Стандарты качества</div>
-        <div class="approaches-card-tags__tag">Финансовая стабильность</div>
-      </div>
-      {{> elements/button href="/ambassador.html" classes="button_white" text="Подробнее"}}
-    </div>
-    <img src="/assets/images/ambassador.webp" alt="">
-  </div>
+    {{> message classes="approaches__message" position="right-bottom" text="Мы предлагаем уникальные возможности для франчайзи."}}
+    {{> elements/shadow-circle classes='approaches__shadow'}}
+
+    {{#each this.approaches.card}}
+      {{> approaches-card data=approaches}}
+    {{/each}}
 
   </div>
 </section>
