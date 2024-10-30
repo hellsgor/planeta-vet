@@ -57,9 +57,6 @@
       width: 500px;
     }
     @include bp(xl) {
-      width: 400px;
-    }
-    @include bp(lg) {
       display: none;
     }
   }
@@ -99,8 +96,15 @@
     @include bp(xxl) {
       margin-bottom: 100px;
     }
+    @include bp(xl) {
+      width: 100%;
+    }
     @include bp(md) {
       margin-bottom: 40px;
+    }
+
+    @include bp(lg) {
+      padding: 24px 8px;
     }
     & h6 {
       margin-bottom: 36px;
@@ -154,10 +158,6 @@
       align-items: center;
       justify-content: center;
       padding: 20px 0;
-    }
-    @include bp(lg) {
-      width: 100%;
-      padding: 24px 8px;
     }
   }
   &__list {
