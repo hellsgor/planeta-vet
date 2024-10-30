@@ -1,46 +1,43 @@
 <header class="header">
   <div class="container">
-
     <div class=" header__wrapper">
-
       <a href="#" class="header__logo">
-        <img src="./assets/images/logo-header.svg" alt=""></a>
+        <img src="./assets/images/logo-header.svg" alt="">
+      </a>
 
- 
-  <div class="header-select">
-    {{> elements/button text="Сотрудничество" classes="button_white button_white_bordered" iconId="arrow-down-circle"}}
+      <div class="header-select">
+        {{> elements/button text="Сотрудничество" classes="button_white button_white_bordered" iconId="arrow-down-circle"}}
     
-    <ul>
-      <li><a href="#">Амбассадор</a></li>
-      <li><a href="#">Клиника-партнёр</a></li>
-      <li><a href="#">Ветеринарный врач</a></li>
-    </ul>
-   
-  </div>
+        <ul>
+          <li><a href="#">Амбассадор</a></li>
+          <li><a href="#">Клиника-партнёр</a></li>
+          <li><a href="#">Ветеринарный врач</a></li>
+        </ul>
+      </div>
 
-  <nav class="header-menu">
-    {{#each data.navigation}}
-      {{> elements/button href=this.href text=this.text classes="button_white" }}
-    {{/each}}
-  </nav>
-  </div>
-
+      <nav class="header-menu">
+        {{#each data.navigation}}
+          {{> elements/button href=this.href text=this.text classes="button_white" }}
+        {{/each}}
+      </nav>
+    </div>
 
     <div class="header__wrapper">
       <div class="header-login">
-       <svg class="button__icon header-login__icon ">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-profile" />
-          </svg>
+        <svg class="button__icon header-login__icon ">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-profile" />
+        </svg>
+
         <span>Войти</span>
       </div>
 
-    {{> elements/button text="Оставить заявку" href="#path-to-success" classes="button_white button_white_bordered button__request"}}
+      {{> elements/button text="Оставить заявку" href="#path-to-success" classes="button_white button_white_bordered button__request"}}
     </div>
 
 
     {{> elements/button  classes="button_null header__burger" iconId="icon-burger" attrs='popovertarget="modal-burger-menu"'}}
- 
-    </div>
-{{> modal name="burger-menu"}}
+  </div>
+  
+  {{> modal name="burger-menu"}}
 </header>
 <!-- /.header -->
