@@ -82,6 +82,10 @@
       font-weight: 400;
       line-height: 1.2;
     }
+
+    @include bp(xxl) {
+      display: none;
+    }
   }
 
   &__navigation {
