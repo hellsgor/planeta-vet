@@ -28,10 +28,19 @@
     background-size: 100%;
   }
 
-  &_right-top {
-    &::before {
-      top: -19px;
-      right: -1px;
+  &_right {
+    &-top {
+      &::before {
+        top: -19px;
+        right: -1px;
+      }
+    }
+    &-bottom {
+      &::before {
+        right: -1px;
+        bottom: -19px;
+        transform: scale(1, -1);
+      }
     }
   }
 }

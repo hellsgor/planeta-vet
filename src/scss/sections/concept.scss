@@ -4,9 +4,12 @@
   &-section {
     &-header {
       max-width: 75%;
-      margin-bottom: 38px;
+      margin-bottom: 80px;
       @include bp(xxl) {
         max-width: 90%;
+      }
+      @include bp(md) {
+        margin-bottom: 32px;
       }
     }
   }
@@ -14,6 +17,37 @@
     position: absolute;
     z-index: -1;
     inset: 0;
+  }
+  &__decor {
+    position: absolute;
+    z-index: -1;
+    top: -22%;
+    right: 0;
+    transform: rotate(339deg) translateX(108px);
+
+    width: 500px;
+    height: 950px;
+    @include bp(xxl) {
+      top: -100px;
+      width: 300px;
+      height: auto;
+    }
+    @include bp(lg) {
+      transform: rotate(339deg) translateX(75px);
+      width: 200px;
+    }
+    @include bp(md) {
+      top: -50px;
+      width: 160px;
+    }
+  }
+  &__message {
+    top: 190px;
+    right: 70px;
+    max-width: 400px;
+    @include bp(xxl) {
+      display: none;
+    }
   }
   &__img {
     position: absolute;
@@ -23,9 +57,6 @@
       width: 500px;
     }
     @include bp(xl) {
-      width: 400px;
-    }
-    @include bp(lg) {
       display: none;
     }
   }
@@ -52,38 +83,9 @@
     gap: 200px;
     justify-content: flex-end;
   }
-  &__decor {
-    position: absolute;
-    z-index: -1;
-    top: -22%;
-    right: 0;
-    transform: rotate(339deg) translateX(108px);
 
-    width: 500px;
-    height: 950px;
-    @include bp(xxl) {
-      top: -100px;
-      width: 300px;
-      height: auto;
-    }
-    @include bp(lg) {
-      transform: rotate(339deg) translateX(75px);
-      width: 200px;
-    }
-    @include bp(md) {
-      top: -50px;
-      width: 160px;
-    }
-  }
-  &__message {
-    top: 290px;
-    right: 70px;
-    max-width: 400px;
-    @include bp(xxl) {
-      display: none;
-    }
-  }
   &__services {
+    margin-bottom: 170px;
     padding: 50px 60px;
 
     color: $white;
@@ -91,6 +93,19 @@
     background: linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
     border-radius: $medium-radius;
     box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    @include bp(xxl) {
+      margin-bottom: 100px;
+    }
+    @include bp(xl) {
+      width: 100%;
+    }
+    @include bp(md) {
+      margin-bottom: 40px;
+    }
+
+    @include bp(lg) {
+      padding: 24px 8px;
+    }
     & h6 {
       margin-bottom: 36px;
       color: $white;
@@ -144,9 +159,13 @@
       justify-content: center;
       padding: 20px 0;
     }
-    @include bp(lg) {
-      width: 100%;
-      padding: 24px 8px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    @include bp(md) {
+      flex-direction: column;
     }
   }
 }
