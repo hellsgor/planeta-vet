@@ -87,11 +87,12 @@
       border-bottom-right-radius: $big-radius;
       border-bottom-left-radius: $big-radius;
 
-      transition: grid-template-rows 0.3s;
+      @include transition(grid-template-rows);
 
       & li {
         overflow: hidden;
         min-height: 0;
+        padding-left: 0;
 
         &::before {
           display: none;
@@ -138,7 +139,7 @@
 
     border-radius: $big-radius;
 
-    transition: all 0.3s var(--default-timing-function);
+    @include transition(all);
 
     & svg {
       max-width: unset;
