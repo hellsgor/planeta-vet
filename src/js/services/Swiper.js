@@ -1,14 +1,19 @@
 import Swiper from 'swiper';
 import 'swiper/css';
+import { Navigation, Pagination } from 'swiper/modules';
 // import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
 export class InitSlider {
   classSlider = '';
+  classSliderParent = null;
+  classSliderTitles = null;
   settingsSlider = {};
   slider = null;
 
   constructor(props) {
     this.classSlider = props.classSlider;
+    this.classSliderParent = props.classSliderParent || null;
+    this.classSliderTitles = props.classSliderTitles || null;
     this.settingsSlider = props.settingsSlider;
 
     this.checkSlider();
@@ -16,6 +21,8 @@ export class InitSlider {
     if (this.settingsSlider.destroySize) {
       this.checkResizeSlider();
     }
+
+    this.initTitles();
   }
 
   checkSlider() {
@@ -76,6 +83,26 @@ export class InitSlider {
     });
     document.querySelector(`${this.classSlider}__wrapper`)?.removeAttribute('style');
   }
+
+  initTitles() {
+    if (!this.classSliderParent || !this.classSliderTitles || !this.settingsSlider.pagination.bulletClass) return;
+
+    const titles = Array.from(
+      document.querySelector(`${this.classSliderParent}`).querySelectorAll(`.${this.classSliderTitles}`),
+    );
+
+    const paginationItems = document
+      .querySelector(`${this.classSlider}`)
+      .querySelectorAll(`.${this.settingsSlider.pagination.bulletClass}`);
+
+    if (!titles.length || !paginationItems.length || titles.length !== paginationItems.length) return;
+
+    titles.forEach((title) => {
+      title.addEventListener('click', () => {
+        paginationItems[titles.indexOf(title)].click();
+      });
+    });
+  }
 }
 
 const listSliders = [
@@ -85,6 +112,7 @@ const listSliders = [
       wrapperClass: 'start-in-numbers__wrapper',
       slideClass: 'start-in-numbers__card',
 
+      grabCursor: true,
       slidesPerView: 'auto',
       spaceBetween: 16,
 
@@ -94,9 +122,44 @@ const listSliders = [
         },
       },
 
-      setWrapperSize: true,
+      // setWrapperSize: true,
 
       destroySize: '(min-width: 1550px)',
+    },
+  },
+
+  {
+    classSlider: '.controlled-slider__inner',
+    classSliderParent: '.controlled-slider',
+    classSliderTitles: 'controlled-slider__slides-titles-item',
+    settingsSlider: {
+      wrapperClass: 'controlled-slider__wrapper',
+      slideClass: 'controlled-slider__slide',
+
+      modules: [Navigation, Pagination],
+
+      grabCursor: true,
+      slidesPerView: 1,
+      rewind: true,
+      spaceBetween: 16,
+
+      breakpoints: {
+        768: {
+          spaceBetween: 24,
+        },
+      },
+
+      navigation: {
+        nextEl: '.controlled-slider__button_next',
+        prevEl: '.controlled-slider__button_prev',
+      },
+
+      pagination: {
+        bulletClass: 'controlled-slider__pagination-item',
+        bulletActiveClass: 'controlled-slider__pagination-item_active',
+        el: '.controlled-slider__pagination',
+        clickable: true,
+      },
     },
   },
   // {
