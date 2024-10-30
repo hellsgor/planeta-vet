@@ -1,0 +1,18 @@
+<section class="approaches">
+  <div class="container">
+     {{> section-header numbered="true" classes="approaches-section-header" title="3 концепции" subtitle="Каждая из этих концепций может быть адаптирована под конкретные потребности рынка"}}
+       <div class="approaches__decor-wrapper">
+          <div class="approaches__decor">
+                    <img src="/assets/images/hamster.webp" alt="">
+          </div>
+        </div>
+
+    {{> message classes="approaches__message" position="right-bottom" text="Мы предлагаем уникальные возможности для франчайзи."}}
+    {{> elements/shadow-circle classes='approaches__shadow'}}
+
+    {{#each this.approaches.card}}
+      {{> approaches-card data=approaches}}
+    {{/each}}
+
+  </div>
+</section>

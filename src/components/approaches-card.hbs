@@ -1,0 +1,22 @@
+ 
+
+  <div class="approaches-card">
+    <img class="approaches-card__img" src="{{#if this.src}} /assets/images/{{this.src}}{{else}}ambassador.webp{{/if}}" alt="">
+
+    <div class="approaches-card__wrapper">
+      <div class="approaches-card__num"></div>
+      {{#if this.title}}
+      <h4>{{this.title}}</h4>
+      <p>{{#if this.text}}{{this.text}}{{/if}}</p>
+      {{#if this.tags}}
+      <div class="approaches-card-tags">
+        {{#each this.tags}}
+        <div class="approaches-card-tags__tag">{{this.name}}</div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{/if}}
+      {{> elements/button href="/ambassador.html" classes="button_white" text="Подробнее"}}
+    </div>
+  </div>
+
