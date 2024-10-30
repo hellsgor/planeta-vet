@@ -11,6 +11,10 @@
       {{/each}}
     </div>
 
+    
+  </div>
+
+  <div class="controlled-slider__inner">
     <div class="controlled-slider__controls">
       <div class="controlled-slider__pagination"></div>
       <div class="controlled-slider__navigation">
@@ -27,18 +31,18 @@
         </button>
       </div>
     </div>
-    </div>
-
-  <div class="controlled-slider__wrapper">
-    {{#each this.items}}
-      <div class="controlled-slider__item controlled-slider__slide">
-        <div class="controlled-slider__slide-image"><img src="{{this.imagePath}}" alt=""></div>
-        <div class="controlled-slider__slide-wrapper">
-          <p class="controlled-slider__slide-title">{{this.title}}</p>
-          <p class="controlled-slider__description">{{this.description}}</p>
+    
+    <div class="controlled-slider__wrapper">
+      {{#each this.items}}
+        <div class="controlled-slider__item controlled-slider__slide">
+          <div class="controlled-slider__slide-image"><img src="{{this.imagePath}}" alt=""></div>
+          <div class="controlled-slider__slide-wrapper">
+            <p class="controlled-slider__slide-title">{{this.title}}</p>
+            <p class="controlled-slider__description">{{this.description}}</p>
+          </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    </div>
   </div>
 
   

@@ -1,21 +1,37 @@
 .controlled-slider {
   display: flex;
   flex-wrap: nowrap;
-  column-gap: 24px;
   width: 615px;
+  height: 900px;
 
   &__wrapper {
     display: flex;
+    width: fit-content;
+    height: 100%;
+  }
+
+  &__inner {
+    position: relative;
+
+    overflow-x: hidden;
+
+    width: 1893px;
+    min-width: 1893px;
+    max-width: 1893px;
+    height: 900px;
+    margin-left: -615px;
+    padding-right: 639px;
+    padding-left: 639px;
+
+    border-radius: 50px;
   }
 
   &__item {
-    flex: 0 0 615px;
+    // width: 615px;
+    // max-width: 615px;
+    // margin-right: 24;
 
-    width: 100%;
-    max-width: 615px;
-    height: 900px;
     padding: 64px;
-
     border-radius: 50px;
     box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
   }
@@ -25,10 +41,14 @@
     z-index: 5;
 
     display: flex;
+    flex: 0 0 615px;
     flex-direction: column;
     row-gap: 44px;
 
+    height: 100%;
+
     background: linear-gradient(110deg, $orangeOld 1.85%, $orange-lighten 97.94%);
+    border-radius: 50px;
   }
 
   &__text-content {
@@ -106,9 +126,16 @@
 
   &__slide {
     position: relative;
+
     overflow: hidden;
+    flex: 0 0 615px;
+
+    width: 615px;
+    height: 100%;
+
     background: linear-gradient(180deg, rgba(14, 66, 1, 0) 40.22%, rgba(5, 71, 2, 0.7) 69.33%);
     background-blend-mode: multiply, normal;
+    border-radius: 50px;
 
     &-image {
       position: absolute;
@@ -142,10 +169,17 @@
   }
 
   &__controls {
+    position: absolute;
+    z-index: 11;
+    bottom: 64px;
+    left: 0px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: auto;
+
+    width: 615px;
+    padding: 0 64px;
   }
 
   &__pagination {

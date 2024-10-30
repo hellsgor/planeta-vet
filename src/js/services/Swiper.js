@@ -5,11 +5,15 @@ import { Navigation, Pagination } from 'swiper/modules';
 
 export class InitSlider {
   classSlider = '';
+  classSliderParent = null;
+  classSliderTitles = null;
   settingsSlider = {};
   slider = null;
 
   constructor(props) {
     this.classSlider = props.classSlider;
+    this.classSliderParent = props.classSliderParent || null;
+    this.classSliderTitles = props.classSliderTitles || null;
     this.settingsSlider = props.settingsSlider;
 
     this.checkSlider();
@@ -81,13 +85,15 @@ export class InitSlider {
   }
 
   initTitles() {
+    if (!this.classSliderParent || !this.classSliderTitles || !this.settingsSlider.pagination.bulletClass) return;
+
     const titles = Array.from(
-      document.querySelector(`${this.classSlider}`).querySelectorAll('.controlled-slider__slides-titles-item'),
+      document.querySelector(`${this.classSliderParent}`).querySelectorAll(`.${this.classSliderTitles}`),
     );
 
     const paginationItems = document
       .querySelector(`${this.classSlider}`)
-      .querySelectorAll('.controlled-slider__pagination-item');
+      .querySelectorAll(`.${this.settingsSlider.pagination.bulletClass}`);
 
     if (!titles.length || !paginationItems.length || titles.length !== paginationItems.length) return;
 
@@ -116,14 +122,16 @@ const listSliders = [
         },
       },
 
-      setWrapperSize: true,
+      // setWrapperSize: true,
 
       destroySize: '(min-width: 1550px)',
     },
   },
 
   {
-    classSlider: '.controlled-slider',
+    classSlider: '.controlled-slider__inner',
+    classSliderParent: '.controlled-slider',
+    classSliderTitles: 'controlled-slider__slides-titles-item',
     settingsSlider: {
       wrapperClass: 'controlled-slider__wrapper',
       slideClass: 'controlled-slider__slide',
