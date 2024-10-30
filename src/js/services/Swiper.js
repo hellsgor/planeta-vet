@@ -139,9 +139,15 @@ const listSliders = [
       modules: [Navigation, Pagination],
 
       grabCursor: true,
-      spaceBetween: 24,
       slidesPerView: 1,
       rewind: true,
+      spaceBetween: 16,
+
+      breakpoints: {
+        768: {
+          spaceBetween: 24,
+        },
+      },
 
       navigation: {
         nextEl: '.controlled-slider__button_next',

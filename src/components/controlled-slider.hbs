@@ -15,6 +15,26 @@
   </div>
 
   <div class="controlled-slider__inner">
+    <div class="controlled-slider__wrapper">
+      {{#each this.items}}
+        <div class="controlled-slider__item controlled-slider__slide">
+          <div class="controlled-slider__slide-image"><img src="{{this.imagePath}}" alt=""></div>
+          <div class="controlled-slider__slide-wrapper">
+            <p class="controlled-slider__slide-title">{{this.title}}</p>
+            <p class="controlled-slider__description">{{this.description}}</p>
+          </div>
+        </div>
+      {{/each}}
+
+      <div class="controlled-slider__plug">
+        <div class="controlled-slider__plug-logo">
+          <img src="../assets/images/logo-header.svg" alt="">
+        </div>
+
+        <p class="controlled-slider__plug-text">Ваш путь к успешной ветеринарной практике</p>
+      </div>
+    </div>
+
     <div class="controlled-slider__controls">
       <div class="controlled-slider__pagination"></div>
       <div class="controlled-slider__navigation">
@@ -29,22 +49,6 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
           </svg>
         </button>
-      </div>
-    </div>
-
-    <div class="controlled-slider__wrapper">
-      {{#each this.items}}
-        <div class="controlled-slider__item controlled-slider__slide">
-          <div class="controlled-slider__slide-image"><img src="{{this.imagePath}}" alt=""></div>
-          <div class="controlled-slider__slide-wrapper">
-            <p class="controlled-slider__slide-title">{{this.title}}</p>
-            <p class="controlled-slider__description">{{this.description}}</p>
-          </div>
-        </div>
-      {{/each}}
-
-      <div class="controlled-slider__test">
-        <p>hello</p>
       </div>
     </div>
   </div>
