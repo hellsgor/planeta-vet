@@ -1,11 +1,12 @@
 .modal {
-  &__close-button {
-    display: none;
-  }
   &_services-bubble {
     height: 90vh;
     padding: 32px 24px;
     background: linear-gradient(0deg, #91bd1f 0%, #91bd1f 100%), #fff;
+
+    .modal__close-button {
+      display: none;
+    }
   }
   &-services-bubble {
     display: flex;
