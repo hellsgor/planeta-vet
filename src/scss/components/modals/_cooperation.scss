@@ -1,0 +1,32 @@
+.modal-cooperation {
+  &__title {
+    margin-bottom: 70px;
+    color: $white;
+  }
+
+  &__bg-image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+
+.modal_cooperation {
+  max-width: 87.5vw;
+  padding: 64px 80px;
+  background: linear-gradient(110deg, $green 1.85%, $green-lighten 97.94%);
+
+  .modal__close-button {
+    svg {
+      stroke: $white;
+    }
+  }
+}

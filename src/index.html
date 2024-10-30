@@ -11,7 +11,6 @@
   
   <body>
     {{> sections/header data=header}}
-
     <main>
       {{> sections/hero}}
       {{> sections/concept data=concept}}
@@ -23,9 +22,10 @@
       {{> sections/path-to-success}}
       {{> sections/accordeon}}
     </main>
-    
+    {{> sections/footer data=footer}}
+
     {{> modal name='thank-you'}}
     {{> modal name='services-bubble'}}
-    {{> sections/footer data=footer}}
+    {{> modal name='cooperation'}}
   </body>
 </html>
