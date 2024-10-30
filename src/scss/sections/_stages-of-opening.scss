@@ -1,18 +1,8 @@
 .stages-of-opening {
   position: relative;
-  margin-bottom: 91px;
-
-  & + section {
-    margin-top: 91px;
-  }
 
   &__container {
     position: relative;
-    padding-bottom: 193px;
-
-    @include bp(xl) {
-      padding-bottom: 0;
-    }
   }
 
   &__header {
@@ -42,7 +32,7 @@
   &__rounded-img {
     position: absolute;
     z-index: -1;
-    bottom: 0;
+    bottom: -180px;
     left: 994px;
 
     width: 827px;
@@ -77,17 +67,5 @@
     top: 346px;
     left: 171px;
     max-width: 324px;
-  }
-}
-
-section.stages-of-opening {
-  &:not(:last-child) {
-    margin-bottom: 91px;
-  }
-
-  & + section {
-    &:not(:first-child) {
-      margin-top: 91px;
-    }
   }
 }
