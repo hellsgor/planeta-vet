@@ -100,16 +100,18 @@
       }
     }
 
-    &:hover {
-      & ul {
-        grid-template-rows: 1fr;
-        height: auto;
-        padding: 60px 20px 20px;
-      }
+    @media (hover: hover) {
+      &:hover {
+        & ul {
+          grid-template-rows: 1fr;
+          height: auto;
+          padding: 60px 20px 20px;
+        }
 
-      & .button {
-        &__icon {
-          fill: $white;
+        & .button {
+          &__icon {
+            fill: $white;
+          }
         }
       }
     }
@@ -146,11 +148,14 @@
       color: $orange;
     }
 
-    &:hover {
-      color: $white;
-      background-color: $orange;
-      & svg {
+    @media (hover: hover) {
+      &:hover {
         color: $white;
+        background-color: $orange;
+
+        & svg {
+          color: $white;
+        }
       }
     }
   }
