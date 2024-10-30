@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
 import 'swiper/css';
+import { Navigation, Pagination } from 'swiper/modules';
 // import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
 export class InitSlider {
@@ -16,6 +17,8 @@ export class InitSlider {
     if (this.settingsSlider.destroySize) {
       this.checkResizeSlider();
     }
+
+    this.initTitles();
   }
 
   checkSlider() {
@@ -76,6 +79,24 @@ export class InitSlider {
     });
     document.querySelector(`${this.classSlider}__wrapper`)?.removeAttribute('style');
   }
+
+  initTitles() {
+    const titles = Array.from(
+      document.querySelector(`${this.classSlider}`).querySelectorAll('.controlled-slider__slides-titles-item'),
+    );
+
+    const paginationItems = document
+      .querySelector(`${this.classSlider}`)
+      .querySelectorAll('.controlled-slider__pagination-item');
+
+    if (!titles.length || !paginationItems.length || titles.length !== paginationItems.length) return;
+
+    titles.forEach((title) => {
+      title.addEventListener('click', () => {
+        paginationItems[titles.indexOf(title)].click();
+      });
+    });
+  }
 }
 
 const listSliders = [
@@ -85,6 +106,7 @@ const listSliders = [
       wrapperClass: 'start-in-numbers__wrapper',
       slideClass: 'start-in-numbers__card',
 
+      grabCursor: true,
       slidesPerView: 'auto',
       spaceBetween: 16,
 
