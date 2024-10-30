@@ -63,7 +63,12 @@
     & .button {
       position: relative;
       z-index: 1;
+      overflow: hidden;
       display: flex;
+
+      &__icon {
+        @include transition(transform);
+      }
     }
 
     & ul {
@@ -77,6 +82,7 @@
       display: grid;
       grid-template-rows: 0fr;
       flex-direction: column;
+      gap: 8px;
       justify-content: center;
 
       height: 0;
@@ -97,6 +103,11 @@
         &::before {
           display: none;
         }
+
+        & a {
+          padding: 8px 20px;
+          white-space: nowrap;
+        }
       }
     }
 
@@ -110,6 +121,7 @@
 
         & .button {
           &__icon {
+            transform: rotate(180deg);
             fill: $white;
           }
         }
@@ -191,8 +203,10 @@
     &-select {
       display: flex;
       flex-direction: column;
+      row-gap: 16px;
       align-items: flex-start;
-      margin-bottom: 16px;
+
+      margin-bottom: 32px;
 
       & .button {
         overflow: unset;
@@ -212,7 +226,6 @@
         gap: 8px;
 
         height: auto;
-        margin-bottom: 32px;
 
         border: none;
 
@@ -230,6 +243,10 @@
           }
         }
       }
+    }
+
+    &-login {
+      width: fit-content;
     }
 
     &-menu {
