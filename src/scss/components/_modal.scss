@@ -8,6 +8,7 @@
   background-color: $white;
   border: none;
   border-radius: $medium-radius;
+
   &_burger-menu {
     top: 0;
     bottom: 0;
@@ -19,6 +20,7 @@
 
     border-radius: 0;
   }
+
   &__close-button {
     cursor: pointer;
 
