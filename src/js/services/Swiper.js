@@ -99,6 +99,33 @@ const listSliders = [
       destroySize: '(min-width: 1550px)',
     },
   },
+
+  {
+    classSlider: '.controlled-slider',
+    settingsSlider: {
+      wrapperClass: 'controlled-slider__wrapper',
+      slideClass: 'controlled-slider__slide',
+
+      modules: [Navigation, Pagination],
+
+      grabCursor: true,
+      spaceBetween: 24,
+      slidesPerView: 1,
+      rewind: true,
+
+      navigation: {
+        nextEl: '.controlled-slider__button_next',
+        prevEl: '.controlled-slider__button_prev',
+      },
+
+      pagination: {
+        bulletClass: 'controlled-slider__pagination-item',
+        bulletActiveClass: 'controlled-slider__pagination-item_active',
+        el: '.controlled-slider__pagination',
+        clickable: true,
+      },
+    },
+  },
   // {
   //   classSlider: '.products-main-page__inner',
   //   settingsSlider: {
