@@ -1,0 +1,63 @@
+.radio {
+  label {
+    cursor: pointer;
+
+    position: relative;
+
+    padding-left: 34px;
+
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.22px;
+
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+
+      overflow: hidden;
+      display: block;
+
+      border-radius: 50%;
+    }
+
+    &::before {
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background-color: $white;
+    }
+
+    &::after {
+      left: 6px;
+
+      width: 12px;
+      height: 12px;
+
+      opacity: 0;
+      background-color: $orangeOld;
+      @include transition(opacity);
+    }
+  }
+
+  input[type="radio"]:checked + label::after {
+    opacity: 1;
+  }
+}
+
+.radio-group {
+  display: flex;
+
+  &_row {
+    column-gap: 40px;
+    align-items: center;
+  }
+
+  &_column {
+    flex-direction: column;
+    row-gap: 8px;
+  }
+}

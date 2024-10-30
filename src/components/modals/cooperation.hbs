@@ -8,10 +8,33 @@
 
     <form action="" class="modal-cooperation__form">
       <div class="modal-cooperation__variant">
-        <span>Выберите вариант сотрудничества</span>
+        <span class="text">Выберите вариант сотрудничества</span>
 
         <div class="modal-cooperation__variant-radio radio-group radio-group_row">
+          {{> elements/radio
+            classes='radio-group__item modal-cooperation__variant-radio-item'
+            name='option-of-cooperation'
+            id='ambassador'
+            value='ambassador'
+            text='амбассадор'
+            checked=true
+          }}
           
+          {{> elements/radio
+            classes='radio-group__item modal-cooperation__variant-radio-item'
+            name='option-of-cooperation'
+            id='partner'
+            value='partner'
+            text='клиника партнер'
+          }}
+          
+          {{> elements/radio
+            classes='radio-group__item modal-cooperation__variant-radio-item'
+            name='option-of-cooperation'
+            id='doctor'
+            value='doctor'
+            text='врач клиники'
+          }}
         </div>
       </div>
     </form>
