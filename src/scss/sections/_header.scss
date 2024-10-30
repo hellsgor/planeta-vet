@@ -135,10 +135,16 @@
     }
   }
   &__burger {
+    overflow: visible;
     display: none;
     justify-content: center;
+
     & .button__wrapper {
       gap: 0;
+    }
+
+    & .button__icon {
+      flex: 0 0 24px;
     }
   }
   @include bp(xxl) {
