@@ -8,6 +8,7 @@ import { initHero } from './components/hero';
 import { initBurgerMenu } from './components/burger-menu';
 import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
+import { initAccordeon } from './components/accordeon';
 import { initSwipers } from './services/Swiper';
 
 export const resolutionChecker = new ResolutionChecker();
@@ -19,6 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   showServicesInfo();
   initBurgerMenu();
   initModals();
-
+  initAccordeon();
   initSwipers();
 });
