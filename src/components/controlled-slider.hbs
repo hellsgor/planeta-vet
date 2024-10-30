@@ -11,20 +11,23 @@
       {{/each}}
     </div>
 
-    <div class="controlled-slider__navigation">
-      <button class="controlled-slider__button controlled-slider__button_prev" type="button">
-        <svg>
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
-        </svg>
-      </button>
-
-      <button class="controlled-slider__button controlled-slider__button_next" type="button">
-        <svg>
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
-        </svg>
-      </button>
+    <div class="controlled-slider__controls">
+      <div class="controlled-slider__pagination"></div>
+      <div class="controlled-slider__navigation">
+        <button class="controlled-slider__button controlled-slider__button_prev" type="button">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
+          </svg>
+        </button>
+  
+        <button class="controlled-slider__button controlled-slider__button_next" type="button">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
+          </svg>
+        </button>
+      </div>
     </div>
-  </div>
+    </div>
 
   <div class="controlled-slider__wrapper">
     {{#each this.items}}
@@ -38,7 +41,5 @@
     {{/each}}
   </div>
 
-  <div class="controlled-slider__pagination"></div>
+  
 </div>
-
-<p></p>
