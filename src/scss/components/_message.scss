@@ -43,4 +43,13 @@
       }
     }
   }
+  &_left {
+    &-top {
+      &::before {
+        top: -19px;
+        left: -1px;
+        transform: scale(-1, 1);
+      }
+    }
+  }
 }

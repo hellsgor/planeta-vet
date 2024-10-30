@@ -1,3 +1,10 @@
 <div class="{{#if this.classes}}{{this.classes}} {{/if}}message message_{{this.position}}">
   <p>{{this.text}}</p>
+  {{#if this.list}}
+  <ul class="{{#if this.listClasses }}{{this.listClasses}}{{/if}}">
+    {{#each this.list}}
+    <li >{{this.text}}</li>
+    {{/each}}
+  </ul>
+  {{/if}}
 </div>
