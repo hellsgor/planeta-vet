@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 16px;
+    align-items: center;
   }
 
   &__enter-button {
@@ -28,19 +29,20 @@
   }
 
   &__forgot {
+    width: fit-content;
     font-size: px-to-rem(16);
     opacity: 0.5;
     border-radius: unset;
     @include transition(opacity);
 
-    .button__text {
-      color: $black;
-    }
-
     @media (hover: hover) {
       &:hover {
         opacity: 1;
       }
+    }
+
+    .button__text {
+      color: $black;
     }
   }
 }
