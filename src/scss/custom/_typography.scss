@@ -219,3 +219,14 @@ ul {
     }
   }
 }
+
+a {
+  color: $green;
+  @include transition(opacity);
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
