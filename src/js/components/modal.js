@@ -1,9 +1,11 @@
 class Modal {
   $modal = null;
   $restorePasswordButton = null;
+  $basicCloseButton = null;
 
   constructor($modal) {
     this.$modal = $modal;
+    this.$basicCloseButton = this.$modal.querySelector('.modal__close-button');
 
     if (this.$modal.classList.contains('modal_entrance')) {
       this.$restorePasswordButton = this.$modal.querySelector('.modal-entrance__forgot');
@@ -16,14 +18,18 @@ class Modal {
     this.$modal.addEventListener('toggle', this.handleModalToggle.bind(this));
 
     this.$restorePasswordButton &&
-      this.$restorePasswordButton.addEventListener('click', this.handleRestoreButtonClick.bind(this, 'modal-forgot'));
+      this.$restorePasswordButton.addEventListener('click', this.showPopover.bind(this, 'modal-forgot'));
+
+    if (this.$modal.classList.contains('modal_forgot')) {
+      this.$basicCloseButton.addEventListener('click', this.showPopover.bind(this, 'modal-entrance'));
+    }
   }
 
   handleModalToggle() {
     document.body.classList[`${this.$modal.matches(':popover-open') ? 'add' : 'remove'}`]('popover-opened');
   }
 
-  handleRestoreButtonClick(popoverId) {
+  showPopover(popoverId) {
     document.getElementById(popoverId).showPopover();
   }
 }
