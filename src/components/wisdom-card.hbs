@@ -1,0 +1,16 @@
+    <div class="wisdom__card  wisdom__card_{{#if this.color}}{{this.color}}{{else}}red{{/if}}">
+      <img class="wisdom__card-img" src="/assets/images/{{#if this.image}}{{this.image}}{{else}}ambassador-chameleon.webp{{/if}}" alt="">
+
+
+      {{#each this.wisdom.item}}
+        <div class="wisdom__card-item">
+          <svg class="wisdom__card-icon ">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-rocket" />
+          </svg>
+          <p class="wisdom__card-title">{{#if this.title}}{{this.title}}{{/if}}</p>
+          <p class="wisdom__card-text">{{#if this.text}}{{this.text}}{{/if}}</p>
+        </div>
+        {{/each}}
+
+    
+    </div>

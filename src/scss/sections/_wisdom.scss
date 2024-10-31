@@ -24,6 +24,19 @@
       padding: 0;
       border-radius: unset;
       box-shadow: none;
+      &.wisdom__card {
+        &_red {
+          & .wisdom__card-item {
+            background: linear-gradient(112deg, #f36f21 35.75%, #f9b233 102.05%);
+          }
+        }
+        &_green {
+          & .wisdom__card-item {
+            background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%),
+              linear-gradient(112deg, #f36f21 35.75%, #f9b233 102.05%);
+          }
+        }
+      }
     }
     @include bp(md) {
       gap: 16px;
@@ -45,12 +58,10 @@
       }
       @include bp(lg) {
         gap: 32px;
-
         padding: 16px;
-
-        background: linear-gradient(112deg, #f36f21 35.75%, #f9b233 102.05%);
         border-radius: 10px;
         box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+
         &:last-child {
           grid-column: span 2;
         }
@@ -59,12 +70,7 @@
     & p {
       color: $white;
     }
-    &_red {
-      background: linear-gradient(112deg, #f36f21 35.75%, #f9b233 102.05%);
-      @include bp(lg) {
-        background: none;
-      }
-    }
+
     &-title {
       margin-bottom: 16px;
       font-family: "BloggerSans-Medium", sans-serif;
@@ -97,6 +103,19 @@
       @include bp(lg) {
         display: none;
       }
+    }
+    &_red {
+      background: linear-gradient(112deg, #f36f21 35.75%, #f9b233 102.05%);
+      @include bp(lg) {
+        background: none;
+      }
+    }
+    &_green {
+      background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%),
+        linear-gradient(112deg, #f36f21 35.75%, #f9b233 102.05%);
+    }
+    @include bp(lg) {
+      background: none;
     }
   }
 }
