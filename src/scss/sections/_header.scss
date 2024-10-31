@@ -9,32 +9,40 @@
   background-color: $white;
   border-radius: $medium-radius;
   box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+
   @media (min-width: 1920px) {
     margin: 34px auto 0;
   }
+
   @include bp(lg) {
     margin: 0;
   }
+
   & .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     @include bp(xxl_custom) {
       padding: 0 50px;
     }
   }
+
   &__wrapper {
     display: flex;
     gap: 50px;
     align-items: center;
     justify-content: space-between;
   }
+
   &__logo {
     max-width: 205px;
+
     & img {
       width: 100%;
     }
   }
+
   & .button {
     white-space: nowrap;
 
@@ -42,6 +50,7 @@
       padding: 22px 40px;
     }
   }
+
   &-select {
     position: relative;
     z-index: 1;
@@ -50,11 +59,18 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     & .button {
       position: relative;
       z-index: 1;
+      overflow: hidden;
       display: flex;
+
+      &__icon {
+        @include transition(transform);
+      }
     }
+
     & ul {
       position: absolute;
       z-index: 0;
@@ -66,48 +82,64 @@
       display: grid;
       grid-template-rows: 0fr;
       flex-direction: column;
+      gap: 8px;
       justify-content: center;
 
       height: 0;
       min-height: 0;
-      // padding: 60px 20px 20px;
 
       background-color: $white;
       border: 1px solid $text-dark;
       border-bottom-right-radius: $big-radius;
       border-bottom-left-radius: $big-radius;
 
-      transition: grid-template-rows 0.3s;
+      @include transition(grid-template-rows);
+
       & li {
         overflow: hidden;
         min-height: 0;
+        padding-left: 0;
+
         &::before {
           display: none;
         }
+
+        & a {
+          padding: 8px 20px;
+          white-space: nowrap;
+        }
       }
     }
-    &:hover {
-      & ul {
-        grid-template-rows: 1fr;
-        height: auto;
-        padding: 60px 20px 20px;
-      }
-      & .button {
-        &__icon {
-          fill: $white;
+
+    @media (hover: hover) {
+      &:hover {
+        & ul {
+          grid-template-rows: 1fr;
+          height: auto;
+          padding: 60px 20px 20px;
+        }
+
+        & .button {
+          &__icon {
+            transform: rotate(180deg);
+            fill: $white;
+          }
         }
       }
     }
   }
+
   &-menu {
     display: flex;
     gap: 16px;
     align-items: center;
+
     & .button {
       padding: 10px 20px;
       border-radius: $big-radius;
     }
   }
+
   &-login {
     cursor: pointer;
 
@@ -121,51 +153,71 @@
 
     border-radius: $big-radius;
 
-    transition: all 0.3s var(--default-timing-function);
+    @include transition(all);
+
     & svg {
       max-width: unset;
       color: $orange;
     }
-    &:hover {
-      color: $white;
-      background-color: $orange;
-      & svg {
+
+    @media (hover: hover) {
+      &:hover {
         color: $white;
+        background-color: $orange;
+
+        & svg {
+          color: $white;
+        }
       }
     }
   }
+
   &__burger {
+    overflow: visible;
     display: none;
     justify-content: center;
+
     & .button__wrapper {
       gap: 0;
     }
+
+    & .button__icon {
+      flex: 0 0 24px;
+    }
   }
+
   @include bp(xxl) {
     & .container {
       gap: 50px;
     }
+
     &-logo {
       width: 100%;
     }
+
     &__wrapper:not(:has(.header__logo)) {
       justify-content: flex-end;
       width: 100%;
     }
+
     &-select {
       display: flex;
       flex-direction: column;
+      row-gap: 16px;
       align-items: flex-start;
-      margin-bottom: 16px;
+
+      margin-bottom: 32px;
+
       & .button {
         overflow: unset;
         padding: 10px 20px;
         border: none;
-        // display: none;
+
         &__icon {
           display: none;
         }
       }
+
       & ul {
         position: relative;
 
@@ -174,31 +226,40 @@
         gap: 8px;
 
         height: auto;
-        margin-bottom: 32px;
 
         border: none;
+
         & li {
           margin-bottom: 8px;
           font-size: 16px;
           color: $text-light;
+
           &::before {
             display: none;
           }
+
           & a {
             padding: 4px 20px;
           }
         }
       }
     }
+
+    &-login {
+      width: fit-content;
+    }
+
     &-menu {
       flex-direction: column;
       align-items: flex-start;
       margin-bottom: 32px;
     }
+
     &__burger {
       display: block;
     }
   }
+
   @include bp(md) {
     & .container {
       padding: 0 16px;

@@ -1,0 +1,142 @@
+.modal-cooperation {
+  color: $white;
+
+  &__title {
+    margin-bottom: 70px;
+    color: $white;
+
+    @include bp(xxl) {
+      margin-bottom: 54px;
+      font-size: px-to-rem(54);
+    }
+
+    @include bp(xl) {
+      margin-bottom: 40px;
+      font-size: px-to-rem(40);
+    }
+
+    @include bp(md) {
+      font-size: px-to-rem(36);
+    }
+
+    @include bp(xs) {
+      font-size: px-to-rem(24);
+    }
+  }
+
+  &__bg-image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+
+    @include bp(xxxl_custom) {
+      display: none;
+    }
+  }
+
+  &__variant {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 16px;
+    column-gap: 40px;
+    align-items: first baseline;
+
+    margin-bottom: 62px;
+
+    & > span {
+      font-family: "BloggerSans-Bold", sans-serif;
+      font-weight: 700;
+      color: $white;
+    }
+
+    &-radio {
+      @include bp(lg) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @include bp(xxl) {
+      margin-bottom: 52px;
+    }
+
+    @include bp(xl) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__text-inputs,
+  &__bottom-row {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 64px;
+    align-items: flex-start;
+
+    max-width: 1064px;
+
+    & > * {
+      flex: 0 0 calc((100% - 64px) / 2);
+    }
+  }
+
+  &__text-inputs {
+    margin-bottom: 88px;
+
+    @include bp(xxl) {
+      margin-bottom: 52px;
+    }
+
+    @include bp(xl) {
+      margin-bottom: 40px;
+    }
+
+    @include bp(sm) {
+      row-gap: 24px;
+
+      & > * {
+        flex: 0 0 100%;
+      }
+    }
+  }
+
+  &__bottom-row {
+    @include bp(xl) {
+      flex-direction: column-reverse;
+    }
+
+    @include bp(md) {
+      row-gap: 16px;
+    }
+  }
+
+  &__rules {
+    font-family: "BloggerSans-Light", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    color: $white;
+
+    opacity: 0.7;
+  }
+}
+
+.modal_cooperation {
+  max-width: 87.5vw;
+  max-height: 98vh;
+  background: linear-gradient(110deg, $green 1.85%, $green-lighten 97.94%);
+
+  .modal__close-button {
+    svg {
+      stroke: $white;
+    }
+  }
+}

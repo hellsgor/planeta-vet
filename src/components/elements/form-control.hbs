@@ -1,13 +1,18 @@
-<div class="form-control{{#if this.classes}} {{this.classes}}{{/if}}">
+<div class="form-control{{#if this.small}} form-control_small{{/if}}{{#if this.white}} form-control_white{{/if}}{{#if this.classes}} {{this.classes}}{{/if}}">
+  {{#if this.label}}
+    <label for="{{this.id}}">{{this.label}}</label>
+  {{/if}}
+
   <input 
     class="form-control__input"
     {{#if this.type}}type="{{this.type}}"{{else}} type="text"{{/if}} 
     {{#if this.inputmode}}inputmode="{{this.inputmode}}"{{/if}} 
-    {{#if this.placeholder}} placeholder="{{this.placeholder}}{{#if this.require}}*{{/if}}"{{/if}}
-    {{#if this.id}} id="{{this.id}}"{{/if}}
-    {{#if this.name}} name="{{this.name}}"{{/if}}
-    {{#if this.require}} require{{/if}}
-    {{#if this.autocomplete}} autocomplete="{{this.autocomplete}}"{{/if}}
+    {{#if this.placeholder}}placeholder="{{this.placeholder}}{{#if this.require}}*{{/if}}"{{/if}}
+    {{#if this.id}}id="{{this.id}}"{{/if}}
+    {{#if this.name}}name="{{this.name}}"{{/if}}
+    {{#if this.require}}require{{/if}}
+    {{#if this.autocomplete}}autocomplete="{{this.autocomplete}}"{{/if}}
   >
+
   <p class="form-control__error"></p>
 </div>

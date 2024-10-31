@@ -6,7 +6,7 @@
     {{#if this.attrs}}{{{this.attrs}}}{{/if}}
   >
     <div class="button__wrapper">
-      <span class="button__text">{{this.text}}</span>
+      {{#if this.text}}<span class="button__text">{{this.text}}</span>{{/if}}
       {{#if this.iconId}}
         <span class="button__icon">
           <svg>
@@ -26,7 +26,7 @@
     {{#if this.attrs}}{{{this.attrs}}}{{/if}}
   >
     <div class="button__wrapper">
-      <span class="button__text">{{this.text}}</span>
+      {{#if this.text}}<span class="button__text">{{this.text}}</span>{{/if}}
       {{#if this.iconId}}
         <span class="button__icon">
           <svg>
