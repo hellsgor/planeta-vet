@@ -8,7 +8,6 @@
     <title>PlanetaVet</title>
   </head>
   {{> svgSprite}}
-  
   <body>
     {{> sections/header data=header}}
     <main>
@@ -22,11 +21,6 @@
       {{> sections/path-to-success}}
     </main>
     {{> sections/footer data=footer}}
-
-    {{> modal name='thank-you'}}
-    {{> modal name='services-bubble'}}
-    {{> modal name='cooperation'}}
-    {{> modal name='entrance'}}
-    {{> modal name='forgot'}}
+    {{> modals}}
   </body>
 </html>
