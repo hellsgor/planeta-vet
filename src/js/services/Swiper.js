@@ -87,6 +87,8 @@ export class InitSlider {
   initTitles() {
     if (!this.classSliderParent || !this.classSliderTitles || !this.settingsSlider.pagination.bulletClass) return;
 
+    if (!document.querySelector(`${this.classSliderParent}`)) return;
+
     const titles = Array.from(
       document.querySelector(`${this.classSliderParent}`).querySelectorAll(`.${this.classSliderTitles}`),
     );
@@ -106,6 +108,26 @@ export class InitSlider {
 }
 
 const listSliders = [
+  {
+    classSlider: '.four-steps-slider',
+    settingsSlider: {
+      wrapperClass: 'four-steps-slider__wrapper',
+      slideClass: 'four-steps-slider__card',
+
+      grabCursor: true,
+      slidesPerView: 3,
+      spaceBetween: 16,
+
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+      },
+
+      destroySize: '(min-width: 1550px)',
+    },
+  },
   {
     classSlider: '.start-in-numbers__container',
     settingsSlider: {
@@ -162,6 +184,7 @@ const listSliders = [
       },
     },
   },
+
   // {
   //   classSlider: '.products-main-page__inner',
   //   settingsSlider: {
