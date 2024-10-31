@@ -10,6 +10,7 @@ import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
 import { initAccordeon } from './components/accordeon';
 import { initSwipers } from './services/Swiper';
+import { initTabs } from './utils/Tabs';
 
 export const resolutionChecker = new ResolutionChecker();
 
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initAccordeon();
   initSwipers();
+  initTabs();
 });
