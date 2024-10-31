@@ -50,8 +50,10 @@
 
 .radio-group {
   display: flex;
+  align-items: baseline;
 
   &_row {
+    row-gap: 12px;
     column-gap: 40px;
     align-items: center;
   }
