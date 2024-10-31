@@ -61,7 +61,10 @@ export default defineConfig({
 
   plugins: [
     viteStaticCopy({
-      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
+      targets: [
+        { src: 'assets/data/*.json', dest: 'data' },
+        { src: 'assets/images/*', dest: 'images' },
+      ],
     }),
     handlebars({
       partialDirectory: resolve(__dirname, './src/components'),
@@ -122,7 +125,7 @@ export default defineConfig({
       gif: {},
       webp: {
         // https://sharp.pixelplumbing.com/api-output#webp
-        lossless: true,
+        quality: 80,
       },
       avif: {
         // https://sharp.pixelplumbing.com/api-output#avif
