@@ -73,7 +73,7 @@ class Hero {
    */
   transferImg() {
     if (resolutionChecker.isLaptop()) {
-      this.$subtitle.appendChild(this.$img);
+      this.$subtitle.insertAdjacentElement('afterend', this.$img);
     } else {
       this.$section.prepend(this.$img);
     }

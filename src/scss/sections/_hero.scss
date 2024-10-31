@@ -1,8 +1,23 @@
 .hero {
-  margin: 0 34px;
-  padding: 70px 36px 36px;
+  margin: 34px 34px 0;
+  padding: 0 36px 36px;
   background-color: $white;
   border-radius: $medium-radius;
+  &_orange {
+    color: $white;
+    background: linear-gradient(112deg, #f9b233 35.75%, #f36f21 102.05%),
+      linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+    & .hero-title span {
+      color: inherit;
+    }
+  }
+  &_green {
+    color: $white;
+    background: linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+    & .hero-title span {
+      color: inherit;
+    }
+  }
   @media (min-width: 1920px) {
     margin: auto;
   }
@@ -24,6 +39,13 @@
     border-radius: $medium-radius;
     @include bp(xxl) {
       width: 100%;
+      max-width: unset;
+    }
+    @include bp(lg) {
+      max-height: 620px;
+    }
+    @include bp(sm) {
+      max-height: 260px;
     }
   }
 
@@ -33,13 +55,45 @@
     flex-direction: column;
     gap: 30px;
     align-items: flex-start;
-    justify-content: space-around;
+
+    padding-top: 40px;
     @include bp(xxl) {
       flex-basis: auto;
+    }
+    & .button {
+      margin-bottom: 80px;
+      padding: 22px 107px;
+      font-size: 28px;
+      @include bp(xxl_custom) {
+        margin-bottom: 30px;
+      }
+      @include bp(lg) {
+        width: 100%;
+        padding: 20px 0;
+      }
+      @include bp(md) {
+        margin-bottom: 0;
+      }
     }
   }
   &-title {
     line-height: 1;
+    color: inherit;
+    & span {
+      font-size: 5rem;
+      @include bp(xxl) {
+        font-size: 3rem;
+      }
+    }
+  }
+  &__subtitle {
+    max-width: 600px;
+    font-size: 2rem;
+    color: inherit;
+    @include bp(xxl) {
+      max-width: unset;
+      font-size: 1.5rem;
+    }
   }
   & ul {
     display: flex;
@@ -49,25 +103,16 @@
     align-items: center;
     & li {
       flex-basis: 45%;
-      // font-size: var(--small-text-size);
+      @include bp(md) {
+        font-size: 14px;
+      }
+      @include bp(xs) {
+        flex-basis: 100%;
+      }
     }
   }
-}
-
-@include bp(lg) {
-  .hero {
+  @include bp(lg) {
     margin: 0;
     padding: 30px 16px 16px;
-
-    & .button {
-      width: 100%;
-      padding: 20px 0;
-    }
-  }
-  :root {
-    --title-size: 6.25vw;
-    --subtitle-size: 3.95vw;
-    --text-size: 3.35vw;
-    --small-text-size: 2.2vw;
   }
 }
