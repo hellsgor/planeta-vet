@@ -1,0 +1,46 @@
+.modal-entrance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin-bottom: 72px;
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    row-gap: 64px;
+
+    width: 100%;
+    margin-bottom: 146px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &__enter-button {
+    width: 100%;
+    max-width: 328px;
+  }
+
+  &__forgot {
+    font-size: px-to-rem(16);
+    opacity: 0.5;
+    border-radius: unset;
+    @include transition(opacity);
+
+    .button__text {
+      color: $black;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

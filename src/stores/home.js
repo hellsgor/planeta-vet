@@ -1,6 +1,7 @@
 export const home = {
   startInNumbers: {
     title: 'Старт в цифрах',
+    subtitle: 'полноценного исследовательского центра с командой профессионалов',
     cards: [
       { title: 'от 600 т. р.', subtitle: 'Минимальная стоимость запуска', iconId: 'rocket' },
       { title: '2 недели', subtitle: 'Средний срок запуска', iconId: 'hourglass' },

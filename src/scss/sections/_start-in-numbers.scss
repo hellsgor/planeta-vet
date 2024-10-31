@@ -9,6 +9,10 @@
     }
   }
 
+  &__header {
+    max-width: 980px;
+  }
+
   &__wrapper {
     display: grid;
     grid-gap: 20px;

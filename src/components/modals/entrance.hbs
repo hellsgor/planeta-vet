@@ -1,0 +1,34 @@
+<div class="{{#if classes}}{{this.classes}} {{/if}}modal-entrance">
+  <h6 class="modal-entrance__title">Вход</h6>
+  <div class="modal-entrance__controls">
+    {{> elements/form-control
+      classes='modal-entrance__control'
+      small=false
+      white=false
+      id='entrance-email'
+      type='email'
+      placeholder='Email'
+      name='email'
+      require=true
+      autocomplete='email'
+    }}
+    
+    {{> elements/form-control
+      classes='modal-entrance__control'
+      small=false
+      white=false
+      id='entrance-password'
+      type='password'
+      placeholder='Пароль'
+      name='password'
+      require=true
+      autocomplete='current-password'
+    }}
+  </div>
+
+  <div class="modal-entrance__buttons">
+    {{> elements/button classes='button_white_bordered modal-entrance__enter-button' white=true bordered=true type='button' text='Войти' attrs='popovertarget="modal-entrance" popovertargetaction="hide"'}}
+  
+    {{> elements/button classes='button_null modal-entrance__forgot' type='button' text='Забыли пароль?' attrs='popovertarget="modal-entrance" popovertargetaction="hide"'}}
+  </div>
+</div>
