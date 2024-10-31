@@ -1,5 +1,29 @@
 <div class="services">
   <div class="container services__container">
     <h2 class="services__heading">Анализы</h2>
+
+    <div class="services__wrapper">
+      <div class="services__catalog">
+        <div class="services__tabs">
+          {{#each this}}
+            <div class="services__tab" data-tab="{{this.name}}">
+              <span>{{this.heading}}</span>
+            </div>
+          {{/each}}
+        </div>
+
+        <div class="services__items-wrapper">
+          {{#each this}}
+            <div class="services__items" data-tab-content="{{this.name}}">
+              {{#each this.items}}
+                <p action="{{this.name}}" class="services__item">{{{this.nameRu}}}</p>
+              {{/each}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      
+      <div class="services__service-content"></div>
+    </div>
   </div>
 </div>
