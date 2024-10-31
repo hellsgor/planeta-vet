@@ -23,13 +23,7 @@
     </div>
 
     <div class="header__wrapper">
-      <div class="header-login">
-        <svg class="button__icon header-login__icon ">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-profile" />
-        </svg>
-
-        <span>Войти</span>
-      </div>
+      {{> elements/button text='Войти' iconId='icon-profile' classes='header__entrance' white=true attrs='popovertarget="modal-entrance"'}}
 
       {{> elements/button text="Оставить заявку" href="#path-to-success" classes="button_white button_white_bordered button__request"}}
     </div>

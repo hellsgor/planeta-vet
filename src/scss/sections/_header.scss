@@ -140,7 +140,7 @@
     }
   }
 
-  &-login {
+  &__entrance {
     cursor: pointer;
 
     display: flex;
@@ -154,6 +154,10 @@
     border-radius: $big-radius;
 
     @include transition(all);
+
+    .button__wrapper {
+      flex-direction: row-reverse;
+    }
 
     & svg {
       max-width: unset;

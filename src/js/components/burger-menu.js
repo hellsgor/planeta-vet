@@ -55,7 +55,7 @@ class BurgerMenu {
     section: '.header',
     select: '.header-select',
     menu: '.header-menu',
-    login: '.header-login',
+    login: '.header__entrance',
     headerContainer: '.header__wrapper',
     burgerMenuContainer: '.burger-menu',
     request: '.button__request',
