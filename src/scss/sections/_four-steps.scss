@@ -45,20 +45,23 @@
       }
     }
     &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
       margin-bottom: 40px;
+
       font-size: 40px;
     }
-    & svg {
+    &-line {
       position: absolute;
       right: 0;
       bottom: 0;
       left: 0;
-      & text {
-        padding: 8px;
-        color: $white;
-        background-color: #fff;
-        border-radius: 50%;
-      }
+    }
+    &-icon {
+      width: 54px;
+      height: 54px;
     }
     @include bp(xxl_custom) {
       flex: 0 0 405px;
