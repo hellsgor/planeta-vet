@@ -8,4 +8,108 @@
   &__heading {
     max-width: 1322px;
   }
+
+  &__wrapper {
+    display: flex;
+    column-gap: 22px;
+    align-items: flex-start;
+  }
+
+  &__catalog {
+    flex: 0 1 406px;
+    filter: drop-shadow(0px 0px 20px rgba(4, 86, 0, 0.05));
+  }
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+
+    padding-bottom: 20px;
+
+    background-color: $orange-lighten;
+    border-top-left-radius: $medium-radius;
+    border-top-right-radius: $medium-radius;
+  }
+
+  &__tab {
+    cursor: pointer;
+
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: -20px;
+    padding-top: 32px;
+    padding-bottom: 52px;
+
+    font-family: "BloggerSans-Bold", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+
+    span {
+      align-items: center;
+    }
+
+    &.active {
+      pointer-events: none;
+
+      overflow: hidden;
+
+      background: linear-gradient(130deg, $green-lighten 1.39%, $green 73.43%);
+      border-top-left-radius: $medium-radius;
+      border-top-right-radius: $medium-radius;
+    }
+  }
+
+  &__items-wrapper {
+    position: relative;
+    top: -20px;
+
+    display: flex;
+
+    padding: 32px 16px 16px;
+
+    background: linear-gradient(130deg, $green-lighten 1.39%, $green 73.43%);
+    border-top-left-radius: $medium-radius;
+    border-top-right-radius: $medium-radius;
+    border-bottom-right-radius: $medium-radius;
+    border-bottom-left-radius: $medium-radius;
+  }
+
+  ul.custom.custom_plus.services__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    width: 100%;
+
+    li.services__item {
+      display: inline-block;
+
+      width: 100%;
+      margin: 0;
+      padding: 10px 22px;
+
+      color: $white;
+
+      &::before {
+        content: none;
+        display: none;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: $green-custom;
+        }
+      }
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
 }
