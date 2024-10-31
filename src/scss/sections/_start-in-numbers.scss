@@ -75,7 +75,12 @@
       margin-bottom: 24px;
 
       & > div {
-        flex: 0 405px;
+        flex: 0 0 405px;
+      }
+    }
+    @include bp(md) {
+      & > div {
+        flex: 0 0 298px;
       }
     }
   }
