@@ -10,10 +10,12 @@
 
   <div class="container">
     {{> section-header 
-        numbered="true" 
-        classes="concept-section-header" 
-        title=this.data.title 
-        subtitle=this.data.subtitle}}
+      numbered="true" 
+      classes="concept-section-header" 
+      title=this.data.title 
+      subtitle=this.data.subtitle
+      accent-color=data.accentColor
+    }}
 
     {{#if this.data.message}}
       {{> message 
