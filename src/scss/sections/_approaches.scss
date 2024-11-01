@@ -1,23 +1,28 @@
 .approaches {
   counter-reset: approaches-card-num;
   position: relative;
+
   &-section {
     &-header {
       max-width: 60%;
       margin-bottom: 80px;
+
       @include bp(xxl) {
         max-width: 90%;
       }
+
       @include bp(md) {
         margin-bottom: 32px;
       }
     }
   }
+
   &__decor-wrapper {
     position: absolute;
     z-index: -1;
     inset: 0;
   }
+
   &__decor {
     position: absolute;
     z-index: -1;
@@ -27,24 +32,29 @@
 
     width: 960px;
     height: 999px;
+
     @include bp(xxl_custom) {
       top: 0;
       transform: translate(45%, 0%);
       width: 700px;
       height: 800px;
     }
+
     @include bp(xxl) {
       width: 500px;
       height: auto;
     }
+
     @include bp(lg) {
       display: none;
     }
   }
+
   &__message {
     top: 0px;
     right: 32dvw;
     max-width: 345px;
+
     @include bp(xxl_custom) {
       right: 250px;
     }
@@ -53,6 +63,7 @@
       display: none;
     }
   }
+
   &__shadow {
     position: absolute;
     z-index: -2;
@@ -64,12 +75,14 @@
     height: min(100%, 976px);
 
     background: radial-gradient(50% 50% at 50% 50%, rgba(145, 189, 31, 0.15) 0%, rgba(244, 251, 240, 0.15) 100%);
+
     &:nth-child(1) {
       top: 82px;
       left: 82px;
       transform: translate(0, 0);
     }
   }
+
   &-card {
     counter-increment: approaches-card-num;
 
@@ -83,18 +96,22 @@
 
     background: linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
     border-radius: $big-radius;
+
     &:nth-child(2n) {
       flex-direction: row;
     }
+
     &:not(:last-child) {
       margin-bottom: 40px;
     }
+
     @include bp(xxl) {
       flex-direction: row;
       flex-wrap: wrap;
       gap: 40px;
       padding: 25px;
     }
+
     &__wrapper {
       display: flex;
       flex-basis: 100%;
@@ -102,35 +119,43 @@
       align-items: flex-start;
       justify-content: space-between;
     }
+
     & p,
     h4 {
       margin-bottom: 8px;
       color: inherit;
     }
+
     & p {
       margin-bottom: 32px;
     }
+
     & h4 {
       text-transform: uppercase;
     }
+
     &__num {
       position: relative;
       width: 150px;
       height: 150px;
       margin-bottom: 16px;
+
       &::before {
         content: "0" counter(approaches-card-num);
         font-size: 10rem;
         color: $white-transparent;
       }
+
       @include bp(xxl) {
         width: 70px;
         height: 70px;
+
         &::before {
           font-size: 5rem;
         }
       }
     }
+
     &-tags {
       display: flex;
       flex: 0 1 auto;
@@ -141,16 +166,19 @@
       margin-bottom: 56px;
 
       font-size: 18px;
+
       &__tag {
         padding: 10px 20px;
         border: 1px solid $white;
         border-radius: $big-radius;
       }
     }
+
     &__img {
       overflow: hidden;
       object-fit: cover;
       border-radius: $medium-radius;
+
       @include bp(xxl) {
         aspect-ratio: 1/0.4;
       }
