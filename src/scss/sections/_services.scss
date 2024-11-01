@@ -59,23 +59,56 @@
     border-radius: $medium-radius;
 
     @include bp(lg) {
-      display: none;
+      pointer-events: auto;
+
+      position: fixed;
+      top: 100px;
+
+      overflow: visible;
+
+      width: 100%;
+      max-width: 94vw;
+      height: 100%;
+      max-height: calc(98dvh - 100px);
+      padding: 87px 0 0 0;
+
+      border: none;
+      border-radius: $medium-radius;
+
+      &::backdrop {
+        pointer-events: none;
+        opacity: 0.5;
+        background-color: $black;
+      }
+    }
+  }
+
+  &__catalog-close-button {
+    display: none;
+
+    svg {
+      stroke: $white;
+    }
+
+    @include bp(lg) {
+      top: -60px;
+      display: block;
     }
   }
 
   &__tabs {
     position: absolute;
     z-index: -1;
-    top: 0;
+    inset: 0;
 
     overflow: hidden;
     display: flex;
     align-items: center;
 
-    width: 100%;
-    height: 100%;
+    padding: 0;
 
     background-color: $orange-lighten;
+    border-radius: $medium-radius;
   }
 
   &__tab {
@@ -84,11 +117,11 @@
     position: relative;
 
     display: flex;
-    flex: 1 1 100%;
+    flex: 0 1 100%;
     justify-content: center;
 
     height: 100%;
-    padding-top: 32px;
+    padding: 32px 0 0 0;
 
     font-family: "BloggerSans-Bold", sans-serif;
     font-size: 22px;
@@ -116,18 +149,42 @@
         background: linear-gradient(130deg, #84ba22 1.39%, $green 73.43%);
       }
     }
+
+    @include bp(lg) {
+      flex: 0 1 50%;
+    }
   }
 
   &__items-wrapper {
+    scrollbar-width: none;
+
     display: flex;
 
+    width: 100%;
     padding: 32px 16px 16px;
 
     background: linear-gradient(130deg, $green-lighten 1.39%, $green 73.43%);
     border-top-left-radius: $medium-radius;
     border-top-right-radius: $medium-radius;
-    border-bottom-right-radius: $medium-radius;
-    border-bottom-left-radius: $medium-radius;
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    @include bp(lg) {
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      height: 100%;
+      margin: 0;
+
+      border: none;
+    }
+  }
+
+  &__items {
+    width: 100%;
+    height: fit-content;
   }
 
   ul.custom.custom_plus.services__items {

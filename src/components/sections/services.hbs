@@ -12,6 +12,12 @@
 
     <div class="services__wrapper">
       <nav class="services__catalog" data-tab-parent="" id="modal-catalog">
+        <button class="modal__close-button services__catalog-close-button" type="button" popovertarget="modal-catalog" popovertargetaction="hide">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" />
+          </svg>
+        </button>
+
         <div class="services__tabs">
           {{#each this.services}}
             <a href="#{{this.name}}" class="services__tab" data-tab="{{this.name}}">
