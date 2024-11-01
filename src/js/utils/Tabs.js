@@ -27,11 +27,18 @@ class Tabs {
   }
 
   prepare() {
-    this.activeIndex = window.location.hash
-      ? Array.from(this.tabs).findIndex(
-          ($tab) => $tab.getAttribute(`${this.attrs.tab}`) === window.location.hash?.slice(1),
-        )
-      : 0;
+    if (window.location.hash?.slice(1)) {
+      this.activeIndex = window.location.hash
+        ? Array.from(this.tabs).findIndex(
+            ($tab) => $tab.getAttribute(`${this.attrs.tab}`) === window.location.hash.slice(1),
+          )
+        : 0;
+    } else {
+      this.activeIndex = 0;
+    }
+
+    if (this.activeIndex < 0) this.activeIndex = 0;
+
     this.tabs[this.activeIndex].classList.add('active');
     this.showTabContentBlock();
   }
