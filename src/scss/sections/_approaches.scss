@@ -17,47 +17,30 @@
     }
   }
 
-  &__decor-wrapper {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-  }
-
   &__decor {
     position: absolute;
     z-index: -1;
-    top: 0;
-    right: 0;
-    transform: translate(35%, -20%);
+    top: -665px;
+    right: -520px;
 
-    width: 960px;
+    width: 967px;
     height: 999px;
 
-    @include bp(xxl_custom) {
-      top: 0;
-      transform: translate(45%, 0%);
-      width: 700px;
-      height: 800px;
+    & img {
+      @include bp(xxl) {
+        display: none;
+      }
     }
 
-    @include bp(xxl) {
-      width: 500px;
-      height: auto;
-    }
-
-    @include bp(lg) {
-      display: none;
+    @include bp(md) {
+      top: 400px;
     }
   }
 
   &__message {
-    top: 0px;
-    right: 32dvw;
+    bottom: 358px;
+    left: -300px;
     max-width: 345px;
-
-    @include bp(xxl_custom) {
-      right: 250px;
-    }
 
     @include bp(xxl) {
       display: none;
@@ -66,21 +49,15 @@
 
   &__shadow {
     position: absolute;
-    z-index: -2;
-    top: -50%;
-    left: -50%;
-    transform: translate(50%, 50%);
+    z-index: -1;
+    top: 0;
+    left: -229px;
 
-    width: min(100%, 976px);
-    height: min(100%, 976px);
+    width: 976px;
+  }
 
-    background: radial-gradient(50% 50% at 50% 50%, rgba(145, 189, 31, 0.15) 0%, rgba(244, 251, 240, 0.15) 100%);
-
-    &:nth-child(1) {
-      top: 82px;
-      left: 82px;
-      transform: translate(0, 0);
-    }
+  &__cards {
+    position: relative;
   }
 
   &-card {
