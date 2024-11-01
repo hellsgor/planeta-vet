@@ -1,7 +1,9 @@
 .header {
-  position: sticky;
+  position: fixed;
   z-index: 99;
   top: 0;
+  right: 0;
+  left: 0;
 
   margin: 34px 34px 0;
   padding: 20px 0;
@@ -10,7 +12,9 @@
   border-radius: $medium-radius;
   box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
 
-  @media (min-width: 1920px) {
+  transition: margin-top 0.3s;
+
+  @media (min-width: 1921px) {
     margin: 34px auto 0;
   }
 
@@ -82,7 +86,7 @@
       display: grid;
       grid-template-rows: 0fr;
       flex-direction: column;
-      gap: 8px;
+      gap: 28px;
       justify-content: center;
 
       height: 0;

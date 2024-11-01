@@ -12,10 +12,14 @@
   <body>
     {{> sections/header data=header}}
     <main>
-      {{> sections/hero}}
-      {{> sections/wisdom}}
-      {{> sections/four-steps}}
-      {{> sections/accordeon}}
+      {{> sections/hero this.hero}}
+      {{> sections/concept data = concept}}
+
+      {{> sections/wisdom data = wisdom}}
+      {{> sections/four-steps this.fourSteps}}
+      {{> sections/accordeon this.qa}}
+      {{> sections/path-to-success}}
+
     </main>
     {{> sections/footer data=footer}}
     {{> modals}}

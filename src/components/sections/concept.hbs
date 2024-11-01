@@ -1,27 +1,41 @@
 <section class="concept">
+
+  {{#if this.data.decor}}
   <div class="concept__decor-wrapper">
       <div class="concept__decor">
-                <img src="/assets/images/frog.webp" alt="">
+                <img src="/assets/images/{{this.data.decor.src}}" alt="">
       </div>
   </div>
-
+{{/if}}
 
   <div class="container">
-    {{> section-header numbered="true" classes="concept-section-header" title="PlanetaVet" subtitle="Это клиентоориентированные ветеринарные клиники с высокоточным лабораторным оборудованием для диагностики и лучшие ветеринарные врачи"}}
+    {{> section-header 
+        numbered="true" 
+        classes="concept-section-header" 
+        title=this.data.title 
+        subtitle=this.data.subtitle}}
 
-    {{> message classes="concept__message" position="right-top" text="У нас более 500 видов исследований. И мы постоянно обновляем каталог"}}
+    {{#if this.data.message}}
+      {{> message 
+          classes=this.data.message.class 
+          position=this.data.message.position 
+          text=this.data.message.text}}
+    {{/if}}
+
     {{> elements/shadow-circle classes='concept__shadow'}}
 
     <div class="concept__wrapper">
+
     {{> elements/shadow-circle classes='concept__shadow'}}
 
   
-  {{> rounded-img classes="concept__img" src="/images/concept-planeta-vet.webp"}}
+  {{> rounded-img classes="concept__img" src=this.data.image}}
 
+  {{#if this.data.services}}
     <div class="services concept__services">
       <h6>Ветеринарные услуги</h6>
       <ul class="custom custom_plus">
-       {{#each data.services}}
+       {{#each this.data.services}}
        <li>{{this.name}}
         {{#if this.info}} <p>{{this.info}}</p> {{/if}}
        </li>
@@ -29,12 +43,34 @@
       </ul>
       {{> elements/button href="/services.html" text="Перейти в каталог" classes="button_white" }}
     </div>
+  {{/if}}
+    {{#if this.data.advantages}}
 
-    </div>
-    <ul class="concept__list">
-      <li>Наша франшиза ветеринарной клиники предлагает уникальную возможность стать частью быстрорастущей индустрии заботы о домашних животных. Мы предоставляем <a href="javascript:void(0)"> полный пакет поддержки для франчайзи</a>, включая обучение, маркетинговые материалы и доступ к современному оборудованию.</li>
-      <li>Наша цель — создать комфортную и безопасную среду для животных и их владельцев, обеспечивая высококачественные ветеринарные услуги и профилактическую помощь. Мы понимаем, что каждое животное — это член семьи, и поэтому наши специалисты подходят к каждому пациенту с любовью и вниманием.</li>
+    <ul class="concept__advantages">
+      {{#each this.data.advantages}}
+      <li>
+        <h6>{{#if this.title}}{{this.title}}{{/if}} </h6>
+        {{#if this.text}}{{this.text}}{{/if}}
+      </li>
+      {{/each}}
     </ul>
-    
+    {{/if}}
+    </div>
+
+    {{#if this.data.advantagesBottom}}
+    <ul class="concept__list">
+      {{#each this.data.advantagesBottom}}
+      <li>
+        {{#if this.item.link}}
+        {{#if this.item.textBeforeLink}}{{this.item.textBeforeLink}}{{/if}}
+        <a href={{this.item.link}}>{{this.item.linkText}} </a>
+        {{#if this.item.textAfterLink}}{{this.item.textAfterLink}}{{/if}}
+        {{else}}
+        {{this.item}}
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
   </div>
 </section>

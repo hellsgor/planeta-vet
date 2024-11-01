@@ -129,6 +129,26 @@ const listSliders = [
     },
   },
   {
+    classSlider: '.options__slider',
+    settingsSlider: {
+      wrapperClass: 'options__wrapper',
+      slideClass: 'options__card',
+
+      grabCursor: true,
+      slidesPerView: 1,
+      spaceBetween: 16,
+
+      breakpoints: {
+        768: {
+          slidesPerView: 'auto',
+          spaceBetween: 20,
+        },
+      },
+
+      destroySize: '(min-width: 1400px)',
+    },
+  },
+  {
     classSlider: '.start-in-numbers__container',
     settingsSlider: {
       wrapperClass: 'start-in-numbers__wrapper',

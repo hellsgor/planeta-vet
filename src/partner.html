@@ -5,20 +5,21 @@
     <link rel="icon" type="image/svg+xml" href="./assets/images/footer-logo-image.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/js/main.js" defer></script>
-    <title>PlanetaVet</title>
+    <title>Клиника-партнёр</title>
   </head>
   {{> svgSprite}}
+  
   <body>
     {{> sections/header data=header}}
     <main>
       {{> sections/hero this.hero}}
-      {{> sections/concept data=concept}}
-      {{> sections/approaches }}
-      {{> sections/join }}
-      {{> sections/advantages this.advantages }}
-      {{> sections/stages-of-opening this.stagesOfOpening}}
-      {{> sections/start-in-numbers this.startInNumbers}}
+      {{> sections/concept data = concept}}
+      {{> sections/wisdom data = wisdom}}
+      {{> sections/countdown}}
+      {{> sections/four-steps this.fourSteps}}
+      {{> sections/accordeon this.qa}}
       {{> sections/path-to-success}}
+
     </main>
     {{> sections/footer data=footer}}
     {{> modals}}

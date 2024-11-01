@@ -18,6 +18,8 @@ import { context } from './src/stores/context';
 import { home } from './src/stores/home';
 import { ambassador } from './src/stores/ambassador';
 import { services } from './src/stores/services';
+import { partner } from './src/stores/partner';
+import { vet } from './src/stores/vet';
 
 Handlebars.registerHelper('eq', function (a, b) {
   return a === b;
@@ -32,6 +34,8 @@ const pageData = {
   '/index.html': home,
   '/ambassador.html': ambassador,
   '/services.html': services,
+  '/partner.html': partner,
+  '/vet.html': vet,
 };
 
 export default defineConfig({

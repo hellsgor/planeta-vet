@@ -1,0 +1,68 @@
+.become-part {
+  color: $white;
+  &__card {
+    position: relative;
+    z-index: 1;
+
+    padding: 120px 120px 196px;
+
+    background: linear-gradient(110deg, #f36f21 1.85%, #f9b233 97.94%);
+    border-radius: $medium-radius;
+    box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    @include bp(xl) {
+      padding: 70px 70px 130px;
+    }
+    @include bp(lg) {
+      padding: 40px 40px 350px;
+    }
+    @include bp(sm) {
+      padding: 24px 24px 350px;
+    }
+  }
+  & h5 {
+    max-width: 60%;
+    margin-bottom: 48px;
+    color: inherit;
+    @include bp(xxl) {
+      max-width: 80%;
+    }
+    @include bp(xl) {
+      max-width: 100%;
+    }
+    @include bp(lg) {
+      font-size: 28px;
+      line-height: 111%;
+    }
+  }
+  &__message {
+    z-index: 0;
+    right: 40px;
+    bottom: 40px;
+    max-width: 350px;
+    @include bp(lg) {
+      display: none;
+    }
+  }
+  &__img {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+
+    max-width: 30dvw;
+    @include bp(lg) {
+      right: 0;
+      bottom: 0;
+      max-width: 40%;
+    }
+    @include bp(sm) {
+      max-width: 60%;
+    }
+  }
+  & .button {
+    @include bp(sm) {
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+}
