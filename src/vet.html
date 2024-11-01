@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="./assets/images/footer-logo-image.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/js/main.js" defer></script>
-    <title>Амбассадор</title>
+    <title>Ветеринарный врач</title>
   </head>
   {{> svgSprite}}
   
@@ -13,9 +13,10 @@
     {{> sections/header data=header}}
     <main>
       {{> sections/hero this.hero}}
-      {{> sections/concept data = concept}}
-
-      {{> sections/wisdom data = wisdom}}
+      {{> sections/concept data=concept}}
+      {{> sections/wisdom data=wisdom}}
+      {{> sections/options}}
+      {{> sections/become-part}}
       {{> sections/four-steps this.fourSteps}}
       {{> sections/accordeon this.qa}}
       {{> sections/path-to-success}}

@@ -18,7 +18,14 @@
       color: inherit;
     }
   }
-  @media (min-width: 1920px) {
+  &_yellow {
+    color: $white;
+    background: linear-gradient(112deg, #f9b233 53.98%, #f9d932 102.05%);
+    & .hero-title span {
+      color: inherit;
+    }
+  }
+  @media (min-width: 1921px) {
     margin: auto;
   }
   & .container {
