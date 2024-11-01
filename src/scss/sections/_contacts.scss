@@ -34,26 +34,3 @@
     font-size: 16px;
   }
 }
-
-.hint_window {
-  position: absolute;
-  transform: translate(40px, -50%);
-
-  width: 246px;
-  padding: 14px 16px;
-
-  color: #7b7d85;
-
-  background: white;
-  border-radius: 8px;
-  box-shadow:
-    0px 4px 12px 0px rgba(95, 105, 131, 0.1),
-    0px 4px 24px 0px rgba(95, 105, 131, 0.04);
-
-  .hint_window__title {
-    margin-bottom: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #050d33;
-  }
-}
