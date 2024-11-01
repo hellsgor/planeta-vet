@@ -1,9 +1,17 @@
-<div class="services">
+<section class="services">
   <div class="container services__container">
-    <h2 class="services__heading">Анализы</h2>
+    <div class="services__header">
+      <h2 class="services__heading">Анализы</h2>
+      {{> elements/button
+        classes='services__show-catalog'
+        type='button'
+        attrs='popovertarget="modal-catalog"'
+        text='Перейти в каталог'
+      }}
+    </div>
 
     <div class="services__wrapper">
-      <nav class="services__catalog" data-tab-parent="">
+      <nav class="services__catalog" data-tab-parent="" id="modal-catalog">
         <div class="services__tabs">
           {{#each this.services}}
             <a href="#{{this.name}}" class="services__tab" data-tab="{{this.name}}">
@@ -30,6 +38,6 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 
