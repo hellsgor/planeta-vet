@@ -25,10 +25,18 @@
     @include bp(xl) {
       width: 100%;
     }
+
+    @include bp(lg) {
+      align-items: center;
+    }
   }
 
   & h5 {
     margin-bottom: 40px;
+
+    @include bp(lg) {
+      text-align: center;
+    }
   }
 
   &__decor-wrapper {
