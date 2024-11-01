@@ -76,17 +76,24 @@
 
     &:nth-child(2n) {
       flex-direction: row;
-    }
+      padding-right: 74px;
+      padding-left: 40px;
 
-    &:not(:last-child) {
-      margin-bottom: 40px;
+      @include bp(xxl) {
+        padding: 32px;
+      }
     }
 
     @include bp(xxl) {
       flex-direction: row;
       flex-wrap: wrap;
       gap: 40px;
-      padding: 25px;
+      padding: 32px;
+    }
+
+    @include bp(md) {
+      padding: 16px;
+      border-radius: $medium-radius;
     }
 
     &__wrapper {
@@ -149,6 +156,10 @@
         border: 1px solid $white;
         border-radius: $big-radius;
       }
+
+      @include bp(md) {
+        margin-bottom: 32px;
+      }
     }
 
     &__img {
@@ -158,6 +169,12 @@
 
       @include bp(xxl) {
         aspect-ratio: 1/0.4;
+      }
+
+      @include bp(md) {
+        aspect-ratio: unset;
+        height: 170px;
+        object-position: center 20%;
       }
     }
   }
