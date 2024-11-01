@@ -4,7 +4,6 @@
   background-color: $white;
   border-radius: $medium-radius;
 
-  @media (min-width: 1920px) {
   &_orange {
     color: $white;
     background: linear-gradient(112deg, #f9b233 35.75%, #f36f21 102.05%),
@@ -31,10 +30,6 @@
     & .hero-title span {
       color: inherit;
     }
-  }
-
-  @media (min-width: 1921px) {
-    margin: auto;
   }
 
   & .container {
@@ -77,10 +72,6 @@
 
     padding-top: 40px;
 
-    @include bp(xxl) {
-      flex-basis: auto;
-    }
-
     & .button {
       margin-bottom: 80px;
       padding: 22px 107px;
@@ -98,6 +89,14 @@
       @include bp(md) {
         margin-bottom: 0;
       }
+    }
+
+    @include bp(xxl) {
+      flex-basis: auto;
+    }
+
+    @include bp(lg) {
+      padding-top: 0;
     }
   }
 
@@ -144,13 +143,18 @@
       }
     }
   }
-}
 
-@include bp(lg) {
-  section.hero {
+  @media (min-width: 1921px) {
+    margin: auto;
+  }
 
   @include bp(lg) {
-    margin: 0;
-    padding: 30px 16px 16px;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: unset;
+  }
+
+  @include bp(md) {
+    padding-top: 72px;
   }
 }
