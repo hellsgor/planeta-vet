@@ -240,4 +240,8 @@
       line-height: 150%;
     }
   }
+
+  @include bp(md) {
+    padding-top: 32px;
+  }
 }
