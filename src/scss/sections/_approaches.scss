@@ -58,6 +58,13 @@
 
   &__cards {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    @include bp(md) {
+      row-gap: 24px;
+    }
   }
 
   &-card {
