@@ -6,9 +6,9 @@
       <div class="services__catalog" data-tab-parent="">
         <div class="services__tabs">
           {{#each this}}
-            <div class="services__tab" data-tab="{{this.name}}">
+            <a href="#{{this.name}}" class="services__tab" data-tab="{{this.name}}">
               <span>{{this.heading}}</span>
-            </div>
+            </a>
           {{/each}}
         </div>
 
@@ -16,14 +16,17 @@
           {{#each this}}
             <ul class="custom custom_plus services__items" data-tab-content="{{this.name}}">
               {{#each this.items}}
-                <li action="{{this.name}}" class="services__item">{{{this.nameRu}}}</li>
+                <li class="services__item"><a href="#{{this.name}}">{{{this.nameRu}}}</a></li>
               {{/each}}
             </ul>
           {{/each}}
         </div>
       </div>
       
-      <div class="services__service-content"></div>
+      <div class="services__service-content">
+      </div>
     </div>
   </div>
 </div>
+
+
