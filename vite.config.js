@@ -19,6 +19,7 @@ import { home } from './src/stores/home';
 import { ambassador } from './src/stores/ambassador';
 import { partner } from './src/stores/partner';
 import { vet } from './src/stores/vet';
+import { contacts } from './src/stores/contacts';
 
 Handlebars.registerHelper('eq', function (a, b) {
   return a === b;
@@ -34,6 +35,7 @@ const pageData = {
   '/ambassador.html': ambassador,
   '/partner.html': partner,
   '/vet.html': vet,
+  '/contacts.html': contacts,
 };
 
 export default defineConfig({
