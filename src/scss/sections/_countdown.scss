@@ -1,0 +1,122 @@
+.countdown {
+  color: $white;
+  &__card {
+    position: relative;
+    z-index: 1;
+
+    padding: 100px 117px;
+
+    background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%),
+      linear-gradient(110deg, #f36f21 1.85%, #f9b233 97.94%);
+    border-radius: $medium-radius;
+    box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    @include bp(lg) {
+      padding: 30px 25px;
+    }
+    @include bp(md) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 300px;
+    }
+  }
+
+  & h5,
+  span {
+    color: inherit;
+  }
+  & h5 {
+    max-width: 57%;
+    margin-bottom: 48px;
+    line-height: 111%;
+    @include bp(xxl) {
+      max-width: 100%;
+    }
+    @include bp(sm) {
+      margin-bottom: 32px;
+      font-size: 28px;
+    }
+  }
+  & &__timer {
+    display: flex;
+    column-gap: 80px;
+    align-items: center;
+    margin-bottom: 56px;
+    @include bp(sm) {
+      margin-bottom: 40px;
+    }
+    @include bp(md) {
+      gap: 16px;
+    }
+    &-block {
+      display: flex;
+      flex-direction: column;
+      row-gap: 8px;
+      align-items: center;
+    }
+    &-time {
+      font-size: 150px;
+      @include bp(lg) {
+        font-size: 90px;
+      }
+      @include bp(md) {
+        font-size: 60px;
+      }
+    }
+    &-name {
+      text-transform: uppercase;
+    }
+  }
+  &__message {
+    z-index: 0;
+    top: 320px;
+    right: 20dvw;
+
+    max-width: 270px;
+    padding: 15px 27px;
+    @media (min-width: 1920px) {
+      right: 540px;
+    }
+    @include bp(xxl_custom) {
+      top: unset;
+      bottom: 100px;
+    }
+    @include bp(xl) {
+      right: 15dvw;
+    }
+    @include bp(lg) {
+      bottom: 20px;
+      max-width: min-content;
+      font-size: 16px;
+    }
+    @include bp(md) {
+      right: 40%;
+      padding: 11px;
+    }
+  }
+  &__img {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+
+    max-width: 45dvw;
+    @media (min-width: 1920px) {
+      max-width: 860px;
+    }
+    @include bp(xxl) {
+      max-width: 33dvw;
+    }
+    @include bp(md) {
+      max-width: unset;
+      max-height: 300px;
+      object-fit: contain;
+    }
+  }
+  & .button {
+    @include bp(sm) {
+      width: 100%;
+      padding: 22px 0;
+    }
+  }
+}
