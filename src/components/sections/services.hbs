@@ -3,9 +3,9 @@
     <h2 class="services__heading">Анализы</h2>
 
     <div class="services__wrapper">
-      <div class="services__catalog" data-tab-parent="">
+      <nav class="services__catalog" data-tab-parent="">
         <div class="services__tabs">
-          {{#each this}}
+          {{#each this.services}}
             <a href="#{{this.name}}" class="services__tab" data-tab="{{this.name}}">
               <span>{{this.heading}}</span>
             </a>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="services__items-wrapper">
-          {{#each this}}
+          {{#each this.services}}
             <ul class="custom custom_plus services__items" data-tab-content="{{this.name}}">
               {{#each this.items}}
                 <li class="services__item"><a href="#{{this.name}}">{{{this.nameRu}}}</a></li>
@@ -21,9 +21,12 @@
             </ul>
           {{/each}}
         </div>
-      </div>
+      </nav>
       
       <div class="services__service-content">
+        {{#each this.serviceContent}}
+          {{> sections/service this classes='services__service'}}
+        {{/each}}
       </div>
     </div>
   </div>
