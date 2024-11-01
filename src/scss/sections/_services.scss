@@ -1,0 +1,249 @@
+.services {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    @include bp(md) {
+      row-gap: 24px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include bp(md) {
+      flex-wrap: wrap;
+      // flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__heading {
+    max-width: 1322px;
+  }
+
+  &__show-catalog {
+    display: none;
+
+    @include bp(lg) {
+      display: block;
+    }
+
+    @include bp(md) {
+      width: 100%;
+      max-width: 400px;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    column-gap: 54px;
+    align-items: flex-start;
+  }
+
+  &__catalog {
+    position: relative;
+
+    overflow: hidden;
+    flex: 0 0 406px;
+
+    padding-top: 87px;
+
+    filter: drop-shadow(0px 0px 20px rgba(4, 86, 0, 0.05));
+    border-radius: $medium-radius;
+
+    @include bp(lg) {
+      pointer-events: auto;
+
+      position: fixed;
+      top: 100px;
+
+      overflow: visible;
+
+      width: 100%;
+      max-width: 94vw;
+      height: 100%;
+      max-height: calc(98dvh - 100px);
+      padding: 87px 0 0 0;
+
+      border: none;
+      border-radius: $medium-radius;
+
+      &::backdrop {
+        pointer-events: none;
+        opacity: 0.5;
+        background-color: $black;
+      }
+    }
+  }
+
+  &__catalog-close-button {
+    display: none;
+
+    svg {
+      stroke: $white;
+    }
+
+    @include bp(lg) {
+      top: -60px;
+      display: block;
+    }
+  }
+
+  &__tabs {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    padding: 0;
+
+    background-color: $orange-lighten;
+    border-radius: $medium-radius;
+  }
+
+  &__tab {
+    cursor: pointer;
+
+    position: relative;
+
+    display: flex;
+    flex: 0 1 100%;
+    justify-content: center;
+
+    height: 100%;
+    padding: 32px 0 0 0;
+
+    font-family: "BloggerSans-Bold", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+
+    span {
+      align-items: center;
+    }
+
+    &.active {
+      pointer-events: none;
+      overflow: hidden;
+      border-top-left-radius: $medium-radius;
+      border-top-right-radius: $medium-radius;
+
+      &:first-child {
+        background: linear-gradient(130deg, $green-lighten 1.39%, #84ba22 73.43%);
+      }
+
+      &:last-child {
+        background: linear-gradient(130deg, #84ba22 1.39%, $green 73.43%);
+      }
+    }
+
+    @include bp(lg) {
+      flex: 0 1 50%;
+    }
+  }
+
+  &__items-wrapper {
+    scrollbar-width: none;
+
+    display: flex;
+
+    width: 100%;
+    padding: 32px 16px 16px;
+
+    background: linear-gradient(130deg, $green-lighten 1.39%, $green 73.43%);
+    border-top-left-radius: $medium-radius;
+    border-top-right-radius: $medium-radius;
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
+    }
+
+    @include bp(lg) {
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      height: 100%;
+      margin: 0;
+
+      border: none;
+      border-radius: $medium-radius;
+    }
+  }
+
+  &__items {
+    width: 100%;
+    height: fit-content;
+  }
+
+  ul.custom.custom_plus.services__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    width: 100%;
+
+    li.services__item {
+      overflow: hidden;
+      display: block;
+
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      color: $white;
+
+      &::before {
+        content: none;
+        display: none;
+      }
+
+      a {
+        display: inline-block;
+        width: 100%;
+        padding: 10px 22px;
+        color: inherit;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: $green-custom;
+        }
+      }
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &__service-content {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    row-gap: 22px;
+
+    section.services__service {
+      margin: 0;
+    }
+  }
+
+  @include bp(lg) {
+    padding-top: 64px;
+  }
+
+  @include bp(md) {
+    padding-top: 32px;
+  }
+}

@@ -1,0 +1,39 @@
+<section class="{{#if this.classes}}{{this.classes}} {{/if}}service">
+  <div class="service__header">
+    {{#if this.heading}}
+      <h3 class="service__heading">{{this.heading}}</h3>
+    {{/if}}
+    
+    {{#if this.description}}
+      <div class="paragraphs service__description">
+        {{#each this.description}}
+          <p class="service__paragraph">{{this}}</p>
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
+
+  {{#if this.table}}
+    <table class="service__table">
+      {{#if this.table.columns}}
+        <thead>
+          <tr>
+            {{#each this.table.columns}}
+              <th>{{this}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+      {{/if}}
+
+      <tbody>
+        {{#each this.table.rows}}
+        <tr>
+          {{#each this}}
+            <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
+</section>
