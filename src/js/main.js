@@ -10,7 +10,7 @@ import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
 import { initAccordeon } from './components/accordeon';
 import { header } from './components/header';
-import { initCountdownTimer } from './components/countdown';
+import { initCountdownTimer } from './components/init';
 import { initSwipers } from './services/Swiper';
 
 export const resolutionChecker = new ResolutionChecker();

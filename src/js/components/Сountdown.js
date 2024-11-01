@@ -3,7 +3,7 @@
  * время (дни, часы, минуты) в выбранных HTML элементах. Целевая дата сохраняется в `localStorage`
  * для сохранения данных при обновлении страницы.
  */
-class CountdownTimer {
+export class CountdownTimer {
   /** @type {Date} Целевая дата обратного отсчета. */
   targetDate = null;
 
@@ -79,11 +79,3 @@ class CountdownTimer {
     this.countdownInterval = setInterval(() => this.updateCountdown(), 1000);
   }
 }
-
-// Пример использования
-const targetDate = new Date().getTime() + 1000 * 3600 * 24 * 100; // 100 дней от текущего времени
-export const initCountdownTimer = new CountdownTimer(targetDate, {
-  days: '.countdown__timer-block:nth-child(1) .countdown__timer-time',
-  hours: '.countdown__timer-block:nth-child(2) .countdown__timer-time',
-  minutes: '.countdown__timer-block:nth-child(3) .countdown__timer-time',
-});
