@@ -1,0 +1,29 @@
+<section class="countdown">
+  <div class="container">
+    <div class="countdown__card">
+    <h5>До конца регистрации в программе осталось</h5>
+    <div class="countdown__timer">
+      <div class="countdown__timer-block">
+        <span class="countdown__timer-time">99</span>
+        <span class="countdown__timer-name">дней</span>
+      </div>
+
+      <div class="countdown__timer-block">
+        <span class="countdown__timer-time">1</span>
+        <span class="countdown__timer-name">часа</span>
+      </div>
+
+      <div class="countdown__timer-block">
+        <span class="countdown__timer-time">12</span>
+        <span class="countdown__timer-name">минут</span>
+      </div>
+    </div>
+      {{> elements/button text="Стать партнёром" white=true}}
+ 
+
+      {{> message text="Успей присоединиться к нашей партнёрской программе" position="right-top" classes="countdown__message"}}
+
+      <img class="countdown__img" src="/assets/images/{{#if this.image}}{{this.image}}{{else}}countdown.webp{{/if}}" alt="">
+    </div>
+    </div>
+</section>
