@@ -3,17 +3,8 @@
     {{> section-header numbered="true" classes="accordeon-section-header" title="Часто спрашивают" }}
 
     <ul class="accordeon-list">
-      {{#each accordeon.list}}
-      <li class="accordeon-list__item">
-        <div class="accordeon-list__question">
-           {{this.question}}
-        <div class="accordeon-list__icon"></div>
-        </div>
-       
-        <div class="accordeon-list__answer">
-          <p>{{this.answer}}</p>
-        </div>
-      </li>
+      {{#each this.list}}
+         {{> accordeon-item this}}
       {{/each}}
    
     </ul>
