@@ -3,6 +3,7 @@
   padding: 70px 36px 36px;
   background-color: $white;
   border-radius: $medium-radius;
+
   @media (min-width: 1920px) {
     margin: auto;
   }
@@ -55,7 +56,7 @@
 }
 
 @include bp(lg) {
-  .hero {
+  section.hero {
     margin: 0;
     padding: 30px 16px 16px;
 
