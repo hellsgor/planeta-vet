@@ -27,146 +27,114 @@ export const services = {
       heading: 'Анализы',
       items: [
         {
-          nameRu: 'Covid-19',
-          name: 'covid-19',
-        },
-        {
           nameRu: 'Общеклинические исследования',
           name: 'general-clinical-studies',
         },
         {
-          nameRu: 'Иммуногематология',
-          name: 'immunohematology',
+          nameRu: 'Микроскопия',
+          name: 'microscopy',
         },
         {
-          nameRu: 'Гемостазиологические исследования',
-          name: 'hemostasiological-studies',
+          nameRu: 'Анализ мочи',
+          name: 'urine-analysis',
         },
         {
-          nameRu: 'Биохимические исследования',
-          name: 'biochemical-studies',
+          nameRu: 'Анализ кала',
+          name: 'analyz-kali',
         },
         {
-          nameRu: 'Аминокислоты и&nbsp;органические кислоты',
-          name: 'amino-acids-and-organic-acids',
+          nameRu: 'Биохимия крови',
+          name: 'biochemistry-of-blood',
         },
         {
-          nameRu: 'Жирные кислоты',
-          name: 'fatty-acids',
+          nameRu: 'Гемостазиограмма',
+          name: 'hemostasiogram',
         },
         {
-          nameRu: 'Жирные кислоты',
-          name: 'fatty-acids',
+          nameRu: 'Гормоны',
+          name: 'hormone',
         },
         {
-          nameRu: 'Гормональные исследования',
-          name: 'hormonal-studies',
+          nameRu: 'Молекулярная диагностика',
+          name: 'molecular-diagnostics',
         },
         {
-          nameRu: 'Онкомаркеры',
-          name: 'oncomarkers',
+          nameRu: 'ИФА',
+          name: 'elisa',
         },
         {
-          nameRu: 'Иммунологические исследования',
-          name: 'immunological-studies',
+          nameRu: 'Бактериология',
+          name: 'bacteriology',
         },
         {
           nameRu: 'Аллергология',
-          name: 'allergology',
+          name: 'аллергология',
         },
         {
-          nameRu: 'Аутоимунные заболевания',
-          name: 'autoimmune-diseases',
+          nameRu: 'Аллергология',
+          name: 'аллергология',
         },
         {
-          nameRu: 'Анализы для спортсменов',
-          name: 'analyzes-for-athletes',
-        },
-        {
-          nameRu: 'Микроэлементы и&nbsp;лекарственный мониторинг',
-          name: 'trace-elements-and-drug-monitoring',
-        },
-        {
-          nameRu: 'Наркотические и&nbsp;психоактивные вещества',
-          name: 'narcotic-and-psychoactive-substances',
-        },
-        {
-          nameRu: 'Инфекции',
-          name: 'infections',
-        },
-        {
-          nameRu: 'Бактериологические исследования',
-          name: 'bacteriological-studies',
-        },
-        {
-          nameRu: 'Цитология и микроскопия',
-          name: 'cytology-and-microscopy',
+          nameRu: 'Цитология',
+          name: 'cytology',
         },
         {
           nameRu: 'Гистология',
           name: 'histology',
         },
         {
-          nameRu: 'Иммуногистохимические исследования',
-          name: 'immunogymic-studies',
+          nameRu: 'Иммуногистохимические (ИГХ) исследования',
+          name: 'immunogymic-igc-research',
         },
         {
-          nameRu: 'Генетические исследования',
-          name: 'genetic-studies',
+          nameRu: 'Иммуноцитохимические (ицх) исследования',
+          name: 'immunocytochemical-ich-research',
         },
         {
-          nameRu: 'Цитогенетические исследования',
-          name: 'cytogenetic-studies',
-        },
-        {
-          nameRu: 'Молекулярно-цитогенетические исследования (FISH)',
-          name: 'molecular-cytogenetic-studies-fish',
-        },
-        {
-          nameRu: 'Q тест - тесты для саморазвития',
-          name: 'q-test-tests-for-self-development',
-        },
-        {
-          nameRu: 'Исследования эякулята',
-          name: 'ejaculate-research',
-        },
-        {
-          nameRu: 'Капиллярная кровь',
-          name: 'capillary-blood',
-        },
-        {
-          nameRu: 'Микологические исследования',
-          name: 'mycological-studies',
-        },
-        {
-          nameRu: 'ПЦР',
-          name: 'pcr',
+          nameRu: 'Лекарственный мониторинг',
+          name: 'drug-monitoring',
         },
       ],
     },
     {
-      name: 'complexes',
-      heading: 'Комплексы',
+      name: 'genetics',
+      heading: 'Генетика',
       items: [
         {
-          nameRu: 'Комплекс 1',
-          name: 'complex-1',
+          nameRu: 'Генетика окрасов собак',
+          name: 'genetics-of-dog-colors',
         },
         {
-          nameRu: 'Комплекс 2',
-          name: 'complex-2',
+          nameRu: 'Генетика окрасов собак',
+          name: 'genetics-of-dog-colors',
         },
         {
-          nameRu: 'Комплекс 3',
-          name: 'complex-3',
+          nameRu: 'Генетика морфологических признаков собак',
+          name: 'genetics-of-morphological-signs-of-dogs',
         },
         {
-          nameRu: 'Комплекс 4',
-          name: 'complex-4',
+          nameRu: 'Генетика заболеваний собак',
+          name: 'genetics-of-dog-diseases',
         },
         {
-          nameRu: 'Комплекс 5',
-          name: 'complex-5',
+          nameRu: 'Генетика заболеваний собак',
+          name: 'genetics-of-dog-diseases',
+        },
+        {
+          nameRu: 'Генетика окрасов кошек',
+          name: 'genetics-of-cat-colors',
+        },
+        {
+          nameRu: 'Генетика морфологических признаков кошек',
+          name: 'genetics-of-morphological-signs-of-cats',
+        },
+        {
+          nameRu: 'Генетика заболеваний кошек',
+          name: 'genetics-of-cat-diseases',
+        },
+        {
+          nameRu: 'Определение группы крови кошек',
+          name: 'determining-the-blood-group-of-cats',
         },
       ],
     },
