@@ -28,4 +28,29 @@ export const context = {
     ],
     social: [{ href: 'javascript:void(0)', text: 'Написать в Telegram', iconId: 'external' }],
   },
+
+  contacts: [
+    {
+      modifier: 'moscow',
+      city: 'г. Москва',
+      address: 'Бережковская набережная, д. 20, стр. 13, 3 этаж',
+      phone: { text: '+7 499 110-65-83', href: 'tel:74991106583' },
+      email: { text: 'okp@planetvet.ru', href: 'mailto:okp@planetvet.ru' },
+      map: {
+        blockId: 'map-moscow',
+        cords: '55.732920, 37.546210',
+      },
+    },
+    {
+      modifier: 'saint-petersburg',
+      city: 'г. Санкт-Петербург',
+      address: 'ул. Смоленская, 33 лит. А',
+      phone: { text: '+7 499 110 65 83', href: 'tel:74991106583' },
+      email: { text: 'okp@planetavet.ru', href: 'mailto:okp@planetavet.ru' },
+      map: {
+        blockId: 'map-saint-petersburg',
+        cords: '59.904690, 30.328651',
+      },
+    },
+  ],
 };

@@ -1,0 +1,28 @@
+<div class="contact-card contact-card_modifier{{#if this.classes}} {{this.classes}}{{/if}}">
+  <address class="contact-card__wrapper">
+    {{#if this.city}}
+      <h6 class="contact-card__city">{{this.city}}</h6>
+    {{/if}}
+    
+    {{#if this.address}}
+      <p class="contact-card__address">{{this.address}}</p>
+    {{/if}}
+    
+    {{#if this.phone}}
+      <a class="contact-card__phone" href="{{this.phone.href}}">{{this.phone.text}}</a>
+    {{/if}}
+    
+    {{#if this.email}}
+      <a class="contact-card__email" href="{{this.email.href}}">{{this.email.text}}</a>
+    {{/if}}
+  </address>
+
+  {{#if this.map}}
+    <div 
+      class="contact-card__map"
+      id="{{this.map.blockId}}"
+      data-cords="{{this.map.cords}}"
+      data-ymap=""
+    ></div>
+  {{/if}}
+</div>

@@ -14,6 +14,7 @@ import { initCountdownTimer } from './components/init';
 import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/services-catalog';
+import { initYaMap } from './services/YaMap';
 
 export const resolutionChecker = new ResolutionChecker();
 
@@ -30,4 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCatalog();
   header();
   initCountdownTimer();
+  initYaMap();
 });

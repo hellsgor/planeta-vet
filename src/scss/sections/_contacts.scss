@@ -1,0 +1,31 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+
+    @include bp(lg) {
+      row-gap: 32px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    column-gap: 80px;
+    justify-content: space-between;
+    width: 100%;
+
+    @include bp(lg) {
+      flex-direction: column;
+      row-gap: 32px;
+    }
+  }
+
+  &__contact-card {
+    flex: 1 1 100%;
+  }
+}
