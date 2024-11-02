@@ -1,0 +1,19 @@
+<div class="form-wrapper{{#if this.classes}} {{this.classes}}{{/if}}">
+
+{{#if this.radioInputs}}
+  {{#each this.radioInputs}}
+
+    {{> elements/inputRadio value=this.value  }}
+
+  {{/each}}
+
+  {{else if this.checkboxInputs}}
+ 
+  {{#each this.checkboxInputs}}
+
+    {{> elements/inputCheckbox value=this.value  }}
+
+  {{/each}}
+  {{/if}}
+</div>
+<!-- /.input-wrapper -->

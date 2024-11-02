@@ -2,18 +2,22 @@
   cursor: pointer;
 
   overflow: hidden;
+  display: inline-block;
 
-  width: fit-content;
-  padding: 16px 48px;
+  padding: 20px 100px;
 
-  font-size: 20px;
-  color: $text;
+  font-size: 22px;
+  color: $white;
 
-  background-color: $darken;
-  border: 1px solid $darken;
-  border-radius: $radius;
+  background-image: linear-gradient(90deg, #e86608 0%, #f9b233 100%), linear-gradient(#f36f21, #f36f21);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 500% 100%;
+  border: none;
+  border-radius: $big-radius;
   outline: none;
-  @include transition(border-color);
+
+  @include transition(background-size);
 
   &__wrapper {
     display: flex;
@@ -26,30 +30,101 @@
     align-items: center;
     justify-content: center;
 
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
       fill: var(--text-secondary-default);
     }
   }
 
   &_white {
-    color: $text-dark;
-    background-color: #fff;
-
+    color: $text;
+    background: #fff;
+    transition: all 0.3s var(--default-timing-function);
     .button__icon svg {
       fill: $text-dark;
     }
+
+    @media (hover: hover) {
+      &:hover {
+        color: $white;
+        background: $orange;
+      }
+    }
+
+    &_bordered {
+      border: 1px solid $black-light;
+
+      @media (hover: hover) {
+        &:hover {
+          border: 1px solid $orange;
+        }
+      }
+    }
+  }
+  &_big {
+    font-size: 28px;
   }
 
   &_wide {
     width: 100%;
+    max-width: unset;
   }
 
-  &:hover {
-    border-color: $primary;
+  @media (hover: hover) {
+    &:hover {
+      background-size: 100% 100%;
+    }
+  }
+
+  &_empty {
+    display: inline-block;
+
+    width: fit-content;
+    padding: 0;
+
+    line-height: normal;
+
+    background: transparent;
+    border-radius: unset;
+    @include transition(opacity);
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .button__wrapper {
+      width: fit-content;
+    }
+  }
+  &_null {
+    padding: 0;
+    background: transparent;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  &_underlined {
+    .button__wrapper {
+      position: relative;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        bottom: 11%;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: $white;
+      }
+    }
   }
 }

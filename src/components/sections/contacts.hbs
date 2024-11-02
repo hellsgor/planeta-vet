@@ -1,0 +1,11 @@
+<section class="contacts">
+  <div class="container contacts__container"> 
+    <h1>Контакты</h1>
+    
+    <div class="contacts__wrapper">
+      {{#each data}}
+        {{> contact-card this classes='contacts__contact-card'}}
+      {{/each}}
+    </div>
+  </div>
+</section>

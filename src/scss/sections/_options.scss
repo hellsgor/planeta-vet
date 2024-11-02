@@ -1,0 +1,106 @@
+.options {
+  color: $white;
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    @include bp(xxl) {
+      flex-wrap: nowrap;
+      gap: 0;
+      justify-content: space-between;
+    }
+  }
+  &__card {
+    position: relative;
+
+    flex: 1 0 30%;
+
+    min-height: 360px;
+    padding: 40px;
+
+    border-radius: $medium-radius;
+    box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    &:first-child {
+      flex-basis: 45%;
+      background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+      @include bp(xxl) {
+        flex-basis: 405px;
+      }
+      @include bp(sm) {
+        flex-basis: 86dvw;
+      }
+    }
+    &:nth-child(2) {
+      flex-basis: 45%;
+      background: linear-gradient(110deg, #91bd1f 1.85%, #f9b233 97.94%);
+      @include bp(xxl) {
+        flex-basis: 405px;
+      }
+      @include bp(sm) {
+        flex-basis: 86dvw;
+      }
+    }
+    &:nth-child(3) {
+      background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+    }
+    &:nth-child(4) {
+      background: linear-gradient(110deg, #91bd1f 1.85%, #f9b233 97.94%);
+      @include bp(xxl) {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      background: linear-gradient(110deg, #f9b233 1.85%, #f36f21 97.94%);
+    }
+    &:nth-child(6) {
+      background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+    }
+    &:nth-child(7) {
+      background: linear-gradient(110deg, #91bd1f 1.85%, #f9b233 97.94%),
+        linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+      box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    }
+    &:nth-child(8) {
+      background: linear-gradient(110deg, #f9b233 1.85%, #f36f21 97.94%),
+        linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+    }
+    &-img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    & h6,
+    p {
+      color: inherit;
+    }
+    & h6 {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      margin-bottom: 30px;
+    }
+    &-icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      @include bp(sm) {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+      }
+    }
+    @include bp(xxl) {
+      flex: 0 0 405px;
+    }
+    @include bp(sm) {
+      flex: 0 0 86dvw;
+      padding: 24px;
+      padding-bottom: 100px;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="container">
+    <div class=" header__wrapper">
+      <a href="/" class="header__logo">
+        <img src="./assets/images/logo-header.svg" alt="">
+      </a>
+
+      <div class="header-select">
+        {{> elements/button text="Сотрудничество" classes="button_white button_white_bordered" iconId="arrow-down-circle"}}
+    
+        <ul>
+          <li><a href="/ambassador.html">Амбассадор</a></li>
+          <li><a href="/partner.html">Клиника-партнёр</a></li>
+          <li><a href="/vet.html">Ветеринарный врач</a></li>
+        </ul>
+      </div>
+
+      <nav class="header-menu">
+        {{#each data.navigation}}
+          {{> elements/button href=this.href text=this.text classes="button_white" }}
+        {{/each}}
+      </nav>
+    </div>
+
+    <div class="header__wrapper">
+      {{> elements/button text='Войти' iconId='icon-profile' classes='header__entrance' white=true attrs='popovertarget="modal-entrance"'}}
+
+      {{> elements/button text="Оставить заявку" href="#path-to-success" classes="button_white button_white_bordered button__request"}}
+    </div>
+
+
+    {{> elements/button  classes="button_null header__burger" iconId="icon-burger" attrs='popovertarget="modal-burger-menu"'}}
+  </div>
+  
+  {{> modal name="burger-menu"}}
+</header>

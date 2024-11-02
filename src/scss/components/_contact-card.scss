@@ -1,0 +1,110 @@
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 62px;
+  justify-content: space-between;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    @include bp(lg) {
+      row-gap: 12px;
+    }
+
+    @include bp(lg) {
+      row-gap: 8px;
+    }
+  }
+
+  &__city {
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $orangeOld;
+
+    @include bp(xl) {
+      font-size: calc(44px - (44 - 24) * ((1200px - 100vw) / (1200 - 768)));
+    }
+
+    @include bp(md) {
+      font-size: px-to-rem(24);
+    }
+  }
+
+  &__email,
+  &__phone,
+  &__address {
+    position: relative;
+
+    width: fit-content;
+    margin-left: 64px;
+    padding: 8px 0 8px 0;
+
+    line-height: 1.2;
+    color: $text;
+
+    &::before {
+      pointer-events: none;
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: -64px;
+      translate: 0 -50%;
+
+      display: block;
+
+      width: 40px;
+      height: 40px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+  }
+
+  &__email,
+  &__phone {
+    text-decoration: underline;
+    text-decoration-color: $gray;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+
+    @include transition(text-decoration-color);
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration-color: $green;
+      }
+    }
+  }
+
+  &__address::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='41' viewBox='0 0 40 41' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.1503 9.36613C17.3365 7.51477 21.253 7.54713 24.4093 9.45089C27.5347 11.3934 29.4341 14.8603 29.4165 18.5896C29.3437 22.2945 27.3069 25.7771 24.7609 28.4693C23.2914 30.0302 21.6476 31.4104 19.8629 32.5818C19.6791 32.688 19.4778 32.7592 19.2688 32.7917C19.0678 32.7831 18.8719 32.7237 18.699 32.6188C15.9744 30.8588 13.584 28.6122 11.643 25.9871C10.0188 23.7958 9.09601 21.1484 9 18.4044C8.99789 14.6679 10.964 11.2175 14.1503 9.36613ZM15.9929 19.9507C16.5288 21.2721 17.7939 22.1339 19.1975 22.134C20.117 22.1406 21.0008 21.7723 21.6522 21.1111C22.3035 20.45 22.6681 19.5509 22.6649 18.6143C22.6698 17.1846 21.8281 15.893 20.5328 15.3424C19.2375 14.7918 17.7442 15.0909 16.75 16.1001C15.7558 17.1093 15.4569 18.6294 15.9929 19.9507Z' fill='%233AA635'/%3E%3C/svg%3E");
+  }
+
+  &__phone::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='41' viewBox='0 0 40 41' fill='none'%3E%3Cpath d='M12.8267 18.3867C14.7467 22.16 17.84 25.24 21.6133 27.1733L24.5467 24.24C24.9067 23.88 25.44 23.76 25.9067 23.92C27.4 24.4133 29.0133 24.68 30.6667 24.68C31.4 24.68 32 25.28 32 26.0133V30.6667C32 31.4 31.4 32 30.6667 32C18.1467 32 8 21.8533 8 9.33333C8 8.6 8.6 8 9.33333 8H14C14.7333 8 15.3333 8.6 15.3333 9.33333C15.3333 11 15.6 12.6 16.0933 14.0933C16.24 14.56 16.1333 15.08 15.76 15.4533L12.8267 18.3867Z' fill='%233AA635'/%3E%3C/svg%3E");
+  }
+
+  &__email::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='41' viewBox='0 0 40 41' fill='none'%3E%3Cpath d='M6.66797 17.9933V25.5C6.66797 26.8261 7.19475 28.0979 8.13243 29.0355C9.07012 29.9732 10.3419 30.5 11.668 30.5H28.3346C29.6607 30.5 30.9325 29.9732 31.8702 29.0355C32.8079 28.0979 33.3346 26.8261 33.3346 25.5V17.9933L20.6846 23.6867C20.4698 23.7833 20.2369 23.8332 20.0013 23.8332C19.7657 23.8332 19.5328 23.7833 19.318 23.6867L6.66797 17.9933ZM6.7913 14.3933L20.0013 20.34L33.2113 14.3933C32.9603 13.2876 32.341 12.3 31.4549 11.5925C30.5688 10.8851 29.4685 10.4998 28.3346 10.5H11.668C10.5341 10.4998 9.43384 10.8851 8.54773 11.5925C7.66161 12.3 7.04227 13.2876 6.7913 14.3933Z' fill='%233AA635'/%3E%3C/svg%3E");
+  }
+
+  &__map {
+    overflow: hidden;
+    flex: 0 0 540px;
+
+    width: 100%;
+
+    background-color: $gray-max-lighten;
+    border-radius: $medium-radius;
+    box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+
+    @include bp(md) {
+      flex-basis: 202px;
+    }
+  }
+}

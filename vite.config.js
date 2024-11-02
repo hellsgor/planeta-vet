@@ -8,6 +8,7 @@ import { URL } from 'url';
 import dotenv from 'dotenv';
 
 import handlebars from 'vite-plugin-handlebars';
+import Handlebars from 'handlebars';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import autoprefixer from 'autoprefixer';
@@ -15,6 +16,15 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
+import { ambassador } from './src/stores/ambassador';
+import { services } from './src/stores/services';
+import { partner } from './src/stores/partner';
+import { vet } from './src/stores/vet';
+import { contacts } from './src/stores/contacts';
+
+Handlebars.registerHelper('eq', function (a, b) {
+  return a === b;
+});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,6 +33,11 @@ dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 
 const pageData = {
   '/index.html': home,
+  '/ambassador.html': ambassador,
+  '/services.html': services,
+  '/partner.html': partner,
+  '/vet.html': vet,
+  '/contacts.html': contacts,
 };
 
 export default defineConfig({
@@ -54,7 +69,10 @@ export default defineConfig({
 
   plugins: [
     viteStaticCopy({
-      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
+      targets: [
+        { src: 'assets/data/*.json', dest: 'data' },
+        { src: 'assets/images/*', dest: 'images' },
+      ],
     }),
     handlebars({
       partialDirectory: resolve(__dirname, './src/components'),
@@ -115,7 +133,7 @@ export default defineConfig({
       gif: {},
       webp: {
         // https://sharp.pixelplumbing.com/api-output#webp
-        lossless: true,
+        quality: 80,
       },
       avif: {
         // https://sharp.pixelplumbing.com/api-output#avif

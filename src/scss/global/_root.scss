@@ -2,6 +2,12 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  --default-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 
   font-synthesis: none;
+
+  --title-size: 5vw;
+  --subtitle-size: 3.5vw;
+  --text-size: 1.9vw;
+  --small-text-size: 1.2vw;
 }

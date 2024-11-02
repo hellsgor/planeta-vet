@@ -1,0 +1,153 @@
+.card-start-in-numbers {
+  position: relative;
+  z-index: 1;
+
+  overflow: hidden;
+
+  height: 252px;
+  padding: 24px;
+
+  border-radius: $medium-radius;
+  box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+
+  &__icon {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+
+    width: 56px;
+    height: 56px;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: -1;
+    top: 16px;
+    left: 340px;
+
+    aspect-ratio: 1 / 1;
+    width: 634px;
+
+    @include bp(xxl_custom) {
+      top: -108px;
+      left: 452px;
+      width: 870px;
+    }
+
+    @include bp(xl) {
+      top: 16px;
+      left: 400px;
+      width: 540px;
+    }
+
+    @include bp(lg) {
+      right: -100px;
+      left: unset;
+    }
+
+    @include bp(md) {
+      top: unset;
+      right: unset;
+      bottom: -24px;
+      left: 50%;
+      translate: -50% 0;
+
+      width: 412px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &__title {
+    font-family: "CTC_Bold", sans-serif;
+    font-size: min(68px, calc(68px - (68 - 48) * ((1920px - 100vw) / (1920 - 1400))));
+    font-weight: 700;
+    line-height: normal;
+    color: $white;
+    @include bp(md) {
+      font-size: 48px;
+    }
+  }
+
+  &__subtitle {
+    max-width: 219px;
+
+    font-family: "BloggerSans", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: normal;
+    color: $white;
+  }
+
+  @include bp(xl) {
+    height: 198px;
+  }
+
+  &_big {
+    height: 524px;
+    padding-top: 48px;
+    padding-bottom: 68px;
+
+    .card-start-in-numbers__wrapper {
+      justify-content: space-between;
+      height: 100%;
+
+      @include bp(xxl_custom) {
+        row-gap: 32px;
+        justify-content: center;
+      }
+    }
+
+    .card-start-in-numbers__title {
+      max-width: 374px;
+
+      font-family: "BloggerSans", sans-serif;
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.11;
+
+      @include bp(xl) {
+        font-size: calc(48px - (48 - 32) * ((1200px - 100vw) / (1200 - 768)));
+      }
+    }
+
+    .card-start-in-numbers__link {
+      width: fit-content;
+      padding-right: 73px;
+      padding-left: 73px;
+    }
+
+    @include bp(xxl_custom) {
+      padding: 72px;
+    }
+
+    @include bp(xl) {
+      height: 400px;
+      padding: 24px;
+    }
+
+    @include bp(md) {
+      height: fit-content;
+      max-height: 524px;
+      padding: 38px 16px 78px;
+
+      .card-start-in-numbers__wrapper {
+        row-gap: 249px;
+      }
+
+      .card-start-in-numbers__title {
+        max-width: unset;
+        font-size: 32px;
+      }
+
+      .card-start-in-numbers__link {
+        width: 100%;
+        padding: 22px 12px;
+      }
+    }
+  }
+}

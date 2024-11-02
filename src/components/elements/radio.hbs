@@ -1,0 +1,13 @@
+<div class="radio{{#if this.classes}} {{this.classes}}{{/if}}">
+  <input 
+    hidden
+    type="radio"
+    id="{{this.name}}-{{this.id}}"
+    name="{{name}}"
+    value="{{this.value}}"
+    {{#if this.checked}}checked{{/if}}
+  >
+  <label for="{{this.name}}-{{this.id}}">
+    <span>{{this.text}}</span>
+  </label>
+</div>

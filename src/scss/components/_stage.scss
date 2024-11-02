@@ -1,0 +1,60 @@
+.stage {
+  counter-increment: stages-counter;
+  display: flex;
+  column-gap: 40px;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1 / 1;
+    width: 133px;
+    height: 133px;
+
+    background-color: $green;
+    border-radius: $medium-radius;
+
+    svg {
+      width: 64px;
+      height: 64px;
+    }
+
+    @include bp(md) {
+      width: 64px;
+      height: 64px;
+      border-radius: $regular-radius;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  &__title {
+    &::before {
+      content: "0" counter(stages-counter) "\00A0";
+    }
+  }
+
+  &__description {
+    @include bp(md) {
+      font-size: px-to-rem(16);
+    }
+  }
+
+  @include bp(md) {
+    column-gap: 24px;
+  }
+}
+
+.stages-list {
+  counter-reset: stages-counter;
+}

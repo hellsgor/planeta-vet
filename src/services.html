@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/images/footer-logo-image.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/js/main.js" defer></script>
+    <title>Услуги</title>
+  </head>
+  {{> svgSprite}}
+  
+  <body>
+    {{> sections/header data=header}}
+    <main>
+      {{> sections/hero this.hero}}
+      {{> sections/services this.services}}
+      {{> sections/path-to-success}}
+    </main>
+    {{> sections/footer data=footer}}
+    {{> modals}}
+  </body>
+</html>

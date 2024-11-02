@@ -1,0 +1,76 @@
+.four-steps {
+  &__wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    @include bp(xxl_custom) {
+      gap: 0;
+    }
+  }
+  &__card {
+    position: relative;
+
+    display: flex;
+    flex: 0 0 24%;
+    flex-direction: column;
+
+    padding-top: 32px;
+    padding-bottom: 313px;
+
+    color: $white;
+
+    border-radius: $medium-radius;
+    box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    &:first-child {
+      background: linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+    }
+    &:nth-child(2) {
+      background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%),
+        linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+    }
+    &:nth-child(3) {
+      background: linear-gradient(110deg, #91bd1f 1.85%, #f9b233 97.94%),
+        linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%), linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+    }
+    &:last-child {
+      background: linear-gradient(110deg, #f9b233 1.85%, #f36f21 97.94%),
+        linear-gradient(110deg, #91bd1f 1.85%, #f9b233 97.94%), linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+    }
+    & p {
+      padding: 0 32px;
+      color: inherit;
+      @include bp(md) {
+        padding: 0 24px;
+      }
+    }
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+
+      font-size: 40px;
+    }
+    &-line {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &-icon {
+      width: 54px;
+      height: 54px;
+    }
+    @include bp(xxl_custom) {
+      flex: 0 0 405px;
+    }
+    @include bp(md) {
+      padding-bottom: 250px;
+    }
+    @include bp(sm) {
+      flex: 0 0 84vw;
+    }
+  }
+}

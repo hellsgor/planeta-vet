@@ -1,0 +1,57 @@
+<div class="controlled-slider{{#if this.classes}} {{this.classes}}{{/if}}">
+  <div class="controlled-slider__item controlled-slider__main-item">
+    <div class="controlled-slider__text-content">
+      <p class="controlled-slider__heading">{{this.heading}}</p>
+      <p class="controlled-slider__description">{{this.description}}</p>
+    </div>
+
+    <div class="controlled-slider__slides-titles">
+      {{#each this.items}}
+        {{> elements/button classes='controlled-slider__slides-titles-item' type='button' empty=true text=this.title}}
+      {{/each}}
+    </div>
+
+    
+  </div>
+
+  <div class="controlled-slider__inner">
+    <div class="controlled-slider__wrapper">
+      {{#each this.items}}
+        <div class="controlled-slider__item controlled-slider__slide">
+          <div class="controlled-slider__slide-image"><img src="{{this.imagePath}}" alt=""></div>
+          <div class="controlled-slider__slide-wrapper">
+            <p class="controlled-slider__slide-title">{{this.title}}</p>
+            <p class="controlled-slider__description">{{this.description}}</p>
+          </div>
+        </div>
+      {{/each}}
+
+      <div class="controlled-slider__plug">
+        <div class="controlled-slider__plug-logo">
+          <img src="../assets/images/logo-header.svg" alt="">
+        </div>
+
+        <p class="controlled-slider__plug-text">Ваш путь к успешной ветеринарной практике</p>
+      </div>
+    </div>
+
+    <div class="controlled-slider__controls">
+      <div class="controlled-slider__pagination"></div>
+      <div class="controlled-slider__navigation">
+        <button class="controlled-slider__button controlled-slider__button_prev" type="button">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
+          </svg>
+        </button>
+  
+        <button class="controlled-slider__button controlled-slider__button_next" type="button">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#slider-arrow" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+</div>

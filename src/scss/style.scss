@@ -6,16 +6,56 @@
 
 // custom
 @import "./custom/variables";
+@import "./custom/media";
 @import "./custom/colors";
 @import "./custom/fonts";
 @import "./custom/typography";
-@import "./custom/media";
 @import "./custom/base";
-
-// vendor
 
 // elements
 @import "./elements/button";
+@import "./elements/input";
+@import "./elements/shadow-circle";
+@import "./elements/radio";
+@import "./elements/table";
 
 // components
-@import "./components/demo";
+@import "./components/section-header";
+@import "./components/message";
+@import "./components/card-start-in-numbers";
+@import "./components/modal";
+@import "./components/rounded-img";
+@import "./components/stage";
+@import "./components/controlled-slider";
+@import "./components/contact-card";
+
+// modals
+@import "./components/modals/thank-you";
+@import "./components/modals/services-bubble";
+@import "./components/modals/burger-menu";
+@import "./components/modals/cooperation";
+@import "./components/modals/entrance";
+@import "./components/modals/forgot";
+
+// sections
+@import "./sections/header";
+@import "./sections/footer";
+@import "./sections/hero";
+@import "./sections/concept";
+@import "./sections/approaches";
+@import "./sections/join";
+@import "./sections/start-in-numbers";
+@import "./sections/path-to-success";
+@import "./sections/stages-of-opening";
+@import "./sections/advantages";
+@import "./sections/accordeon";
+@import "./sections/wisdom";
+@import "./sections/four-steps";
+@import "./sections/services";
+@import "./sections/service";
+@import "./sections/countdown";
+@import "./sections/options";
+@import "./sections/become-part";
+@import "./sections/contacts";
+
+// vendor

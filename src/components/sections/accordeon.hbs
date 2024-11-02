@@ -1,0 +1,13 @@
+<section class="accordeon">
+  <div class="container">
+    {{> section-header numbered="true" classes="accordeon-section-header" title="Часто спрашивают" accent-color=this.accentColor}}
+
+    <ul class="accordeon-list">
+      {{#each this.list}}
+         {{> accordeon-item this}}
+      {{/each}}
+   
+    </ul>
+
+  </div>
+</section>

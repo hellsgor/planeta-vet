@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/images/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/js/main.js" defer></script>
+    <title>UI-KIT</title>
+  </head>
+  <body>
+    <main>
+
+      <section class="ui-kit">
+        {{> elements/button text='Кнопка'}}
+        {{> elements/button classes="button_big" text='Кнопка со шрифтом побольше'}}
+        {{> elements/button classes="button_white" text='Белая Кнопка'}}
+       
+
+
+        {{> elements/form-control placeholder="Плейсхолдер"}}
+        {{> elements/inputCheckbox title="Чекбокс" }}
+        {{> elements/inputRadio title="Радио"}}
+     
+      </section>
+      <!-- /.ui-kit -->
+  
+
+    </main>
+    
+  </body>
+</html>

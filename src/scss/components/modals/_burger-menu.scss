@@ -1,0 +1,16 @@
+.modal_burger-menu {
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 260px;
+  height: 100vmax;
+  margin: unset;
+  padding: 80px 16px 32px;
+
+  border-radius: 0;
+
+  @include bp(xs) {
+    padding-top: 40px;
+  }
+}

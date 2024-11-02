@@ -1,0 +1,14 @@
+<div class="form-control{{#if this.classes}} {{this.classes}}{{/if}}">
+<input 
+  class="form-control__input"
+  type="radio" 
+  {{#if this.id}} id="{{this.id}}"{{/if}}
+  {{#if this.name}} name="{{this.name}}"{{/if}}
+>
+<div class="form-control__indicator"></div>
+<label 
+{{#if this.id}} for="{{this.id}}"{{/if}}
+>
+{{#if this.title}} {{this.title}} {{/if}}
+</label>
+</div>

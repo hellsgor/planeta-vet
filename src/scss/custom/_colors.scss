@@ -1,1 +1,33 @@
 @use "sass:color";
+
+$black: #000;
+$black-light: #1c1c1c;
+$black-transparent: rgba(0, 0, 0, 0.7);
+$black-light-transparent: rgb(28, 28, 28, 0.5);
+
+$white: #fff;
+$white-transparent-half: rgba(255, 255, 255, 0.5);
+$white-transparent: rgba(255, 255, 255, 0.2);
+$gray: #a4a4a4;
+$gray-lighten: #cdcdcd;
+$gray-max-lighten: rgba(205, 205, 205, 0.2);
+
+$green: #3aa635;
+$green-lighten: #91bd1f;
+$green-light: #f4fbf0;
+$green-custom: #46aa33;
+
+$green-orange: #94ac34;
+$orange-green: #f9b032;
+
+$orangeOld: #e86608;
+$orange-lighten: #f9b233;
+$orange: #f36f21;
+
+$red: #ff0000;
+
+$headings: $black-light;
+$text-dark: $black;
+$text: $black-light;
+$text-light: #00000080;
+$table-borders: rgba(28, 28, 28, 0.1);

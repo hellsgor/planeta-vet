@@ -1,58 +1,228 @@
 body,
-.paragraph {
-  // font-family: "Roboto", sans-serif;
-  font-size: px-to-rem(16);
-  font-weight: 400;
+.paragraph,
+.text,
+p {
+  font-family: "BloggerSans", sans-serif;
+  font-size: px-to-rem(22);
   font-style: normal;
   color: $text;
+  @include bp(xl) {
+    font-size: calc(22px - (22 - 20) * ((1200px - 100vw) / (1200 - 768)));
+  }
 
-  &_sub {
-    color: $text-sub;
+  @include bp(md) {
+    font-size: px-to-rem(20);
   }
 }
 
+.paragraph,
+.text,
+p {
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .heading {
-  // font-family: "Roboto", sans-serif;
   font-weight: 700;
-  color: $text;
+  color: $headings;
+}
+
+h1,
+h2,
+h3,
+.heading_h1,
+.heading_h2,
+.heading_h3 {
+  font-family: "CTC_Bold", sans-serif;
+}
+
+h4,
+h5,
+h6,
+.heading_h4,
+.heading_h5,
+.heading_h6 {
+  font-family: "BloggerSans", sans-serif;
 }
 
 h1,
 .heading_h1 {
-  // font-size: px-to-rem(48);
+  font-size: px-to-rem(68);
+  line-height: normal;
+
+  @include bp(xl) {
+    font-size: calc(68px - (68 - 28) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(28);
+    line-height: 1.2;
+  }
 }
 
 h2,
 .heading_h2 {
-  // font-size: px-to-rem(48);
+  font-size: px-to-rem(80);
+  line-height: 1;
+
+  @include bp(xl) {
+    font-size: calc(80px - (80 - 40) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(40);
+  }
 }
 
 h3,
 .heading_h3 {
-  // font-size: px-to-rem(32);
+  font-size: px-to-rem(64);
+  line-height: 1.3;
+
+  @include bp(xl) {
+    font-size: calc(64px - (64 - 24) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(24);
+  }
 }
 
 h4,
 .heading_h4 {
-  // font-size: px-to-rem(28);
+  font-size: px-to-rem(64);
+  line-height: 1;
+
+  @include bp(xl) {
+    font-size: calc(64px - (64 - 40) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(40);
+  }
 }
 
 h5,
 .heading_h5 {
-  // font-size: px-to-rem(24);
+  font-size: px-to-rem(54);
+  line-height: 1.5;
+
+  @include bp(xl) {
+    font-size: calc(54px - (54 - 20) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(20);
+  }
 }
 
 h6,
 .heading_h6 {
-  // font-size: px-to-rem(20);
+  font-size: px-to-rem(44);
+  line-height: 1.11;
+
+  @include bp(xl) {
+    font-size: calc(44px - (44 - 32) * ((1200px - 100vw) / (1200 - 768)));
+  }
+
+  @include bp(md) {
+    font-size: px-to-rem(32);
+  }
 }
 
 .paragraphs {
   display: flex;
   flex-direction: column;
-  // row-gap: 8px;
+  row-gap: 16px;
+}
+
+.text {
+  &-green {
+    color: $green;
+  }
+  &-orange {
+    color: $orange;
+  }
+}
+
+.hint {
+  color: $gray;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  & li {
+    position: relative;
+    padding-left: 60px;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 25px;
+      height: 25px;
+
+      background-color: $green;
+      border-radius: $tiny-radius;
+    }
+  }
+  &.center {
+    & li {
+      padding-left: 26px;
+      &::before {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+  &.custom {
+    &_plus {
+      & li {
+        cursor: pointer;
+        margin-bottom: 20px;
+        padding: 5px 46px 0;
+        transition: all 0.3s var(--default-timing-function);
+        &::before {
+          content: "";
+
+          width: 30px;
+          height: 30px;
+
+          background-color: unset;
+          background-image: url("/assets/images/icons/icon-plus.svg");
+          background-position: center;
+          border: 1px solid $white;
+          border-radius: 50%;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: $green-custom;
+            background-color: $white;
+            border-radius: $big-radius;
+            &::before {
+              background-color: $green-custom;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 a {
-  // color: $primary;
+  color: $green;
 }

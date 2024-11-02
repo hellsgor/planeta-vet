@@ -1,0 +1,106 @@
+<div class="{{#if classes}}{{this.classes}} {{/if}}modal-cooperation">
+  <div class="modal-cooperation__bg-image">
+    <img src="images/spider.webp" alt="">
+  </div>
+  
+  <div class="modal-cooperation__wrapper">
+    <p class="heading heading_h3 modal-cooperation__title">Заполните форму и мы вам перезвоним</p>
+
+    <form action="" class="modal-cooperation__form">
+      <div class="modal-cooperation__variant">
+        <span class="text">Выберите вариант сотрудничества</span>
+
+        <div class="radio-group radio-group_row modal-cooperation__variant-radio">
+          {{> elements/radio
+            classes='radio-group__item modal-cooperation__variant-radio-item'
+            name='option-of-cooperation'
+            id='ambassador'
+            value='ambassador'
+            text='амбассадор'
+            checked=true
+          }}
+          
+          {{> elements/radio
+            classes='radio-group__item modal-cooperation__variant-radio-item'
+            name='option-of-cooperation'
+            id='partner'
+            value='partner'
+            text='клиника партнер'
+          }}
+          
+          {{> elements/radio
+            classes='radio-group__item modal-cooperation__variant-radio-item'
+            name='option-of-cooperation'
+            id='doctor'
+            value='doctor'
+            text='врач клиники'
+          }}
+        </div>
+      </div>
+
+      <div class="modal-cooperation__text-inputs">
+        {{> elements/form-control
+          classes='modal-cooperation__text-input'
+          small=true
+          white=true
+          id='fio'
+          type='text'
+          placeholder='ФИО'
+          name='fio'
+          require=true
+          autocomplete='name'
+        }}
+        
+        {{> elements/form-control
+          classes='modal-cooperation__text-input'
+          small=true
+          white=true
+          id='email'
+          type='email'
+          placeholder='Ваша почта'
+          name='email'
+          require=true
+          autocomplete='email'
+        }}
+        
+        {{> elements/form-control
+          classes='modal-cooperation__text-input'
+          small=true
+          white=true
+          id='phone'
+          type='text'
+          inputmode='tel'
+          placeholder='Ваш номер телефона'
+          name='phone'
+          require=true
+          autocomplete='tel'
+        }}
+        
+        {{> elements/form-control
+          classes='modal-cooperation__text-input'
+          small=true
+          white=true
+          id='city'
+          type='text'
+          placeholder='Город'
+          name='city'
+          require=true
+          autocomplete='address-level2'
+        }}
+      </div>
+
+      <div class="modal-cooperation__bottom-row">
+        <p class="modal-cooperation__rules">Нажимая кнопку «Отправить», я даю своё согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года № 152-ФЗ «О персональных данных», на условиях и для целей, определённых в Согласии на обработку персональных данных</p>
+
+        {{> elements/button
+          classes='modal-cooperation__submit-button'
+          type='button'
+          wide=true
+          white=true
+          text='Отправить'
+          attrs='popovertarget="modal-cooperation" popovertargetaction="hide"'
+        }}
+      </div>
+    </form>
+  </div>
+</div>

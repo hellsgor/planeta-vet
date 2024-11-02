@@ -1,0 +1,14 @@
+<div popover class="modal modal_{{this.name}}" id="modal-{{this.name}}">
+  <button class="modal__close-button" type="button" popovertarget="modal-{{this.name}}" popovertargetaction="hide">
+    <svg>
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" />
+    </svg>
+  </button>
+
+  {{#if (eq this.name 'thank-you')}}{{> modals/thank-you classes='modal__body'}}{{/if}}
+  {{#if (eq this.name 'burger-menu')}}{{> modals/burger-menu }}{{/if}}     
+  {{#if (eq this.name 'services-bubble')}}{{> modals/services-bubble }}{{/if}}     
+  {{#if (eq this.name 'cooperation')}}{{> modals/cooperation }}{{/if}}     
+  {{#if (eq this.name 'entrance')}}{{> modals/entrance }}{{/if}}     
+  {{#if (eq this.name 'forgot')}}{{> modals/forgot }}{{/if}}     
+</div>

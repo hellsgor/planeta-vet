@@ -1,0 +1,34 @@
+<section class="hero{{#if this.mode}} hero_{{this.mode}}{{/if}}">
+  <div class="container">
+    
+    <img src="{{this.src}}" alt="" class="hero__img">
+    
+    <div class="hero-wrapper">
+      <h1 class="hero-title hero__title">
+        {{#if this.corpName}}
+        <span class="hero-title__orange text-orange">{{this.corpName.first}}</span>
+        <span class="hero-title__green text-green">{{this.corpName.second}}</span><br>
+        {{/if}}
+        {{#if this.title}}{{this.title}}{{/if}}
+        
+        </h1>
+        <p class="hero__subtitle">
+        {{#if this.subtitle}}{{this.subtitle}}{{/if}}
+         </p>
+
+         {{> elements/button white = this.buttonWhite type='button' text=this.buttonText attrs='popovertarget="modal-cooperation"'}}
+
+            {{#if this.advantages}}
+              <ul class="center">
+                  {{#each this.advantages }}
+                    <li> {{this.text}}
+                        {{#if this.highlighted}}
+                        <span class="text-green">{{this.highlighted}}</spa>
+                        {{/if}}
+        </li>
+                  {{/each}}
+              </ul>
+            {{/if}}
+    </div>
+  </div>
+</section>

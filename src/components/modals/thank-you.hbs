@@ -1,0 +1,7 @@
+<div class="{{#if classes}}{{this.classes}} {{/if}}modal-thank-you">
+  <div class="modal-thank-you__wrapper">
+    <h6 class="modal-thank-you__title">Спасибо за обращение.</h6>
+    <p class="modal-thank-you__text">Наш специалист свяжется с вами в ближайшее время.</p>
+  </div>
+  {{> elements/button classes='button_white_bordered modal-thank-you__close-button' white=true bordered=true type='button' text='Закрыть' attrs='popovertarget="modal-thank-you" popovertargetaction="hide"'}}
+</div>

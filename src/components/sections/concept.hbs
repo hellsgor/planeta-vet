@@ -1,0 +1,78 @@
+<section {{#if this.data.id}}id='{{this.data.id}}'{{/if}} class="concept">
+
+  {{#if this.data.decor}}
+  <div class="concept__decor-wrapper">
+      <div class="concept__decor">
+                <img src="/assets/images/{{this.data.decor.src}}" alt="">
+      </div>
+  </div>
+{{/if}}
+
+  <div class="container">
+    {{> section-header 
+      numbered="true" 
+      classes="concept-section-header" 
+      title=this.data.title 
+      subtitle=this.data.subtitle
+      accent-color=data.accentColor
+    }}
+
+    {{#if this.data.message}}
+      {{> message 
+          classes=this.data.message.class 
+          position=this.data.message.position 
+          text=this.data.message.text}}
+    {{/if}}
+
+    {{> elements/shadow-circle classes='concept__shadow'}}
+
+    <div class="concept__wrapper">
+
+    {{> elements/shadow-circle classes='concept__shadow'}}
+
+  
+  {{> rounded-img classes="concept__img" src=this.data.image}}
+
+  {{#if this.data.services}}
+    <div class="services concept__services">
+      <h6>Ветеринарные услуги</h6>
+      <ul class="custom custom_plus">
+       {{#each this.data.services}}
+       <li>{{this.name}}
+        {{#if this.info}} <p>{{this.info}}</p> {{/if}}
+       </li>
+       {{/each}}
+      </ul>
+      {{> elements/button href="/services.html" text="Перейти в каталог" classes="button_white" }}
+    </div>
+  {{/if}}
+    {{#if this.data.advantages}}
+
+    <ul class="concept__advantages">
+      {{#each this.data.advantages}}
+      <li>
+        <h6>{{#if this.title}}{{this.title}}{{/if}} </h6>
+        {{#if this.text}}{{this.text}}{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    </div>
+
+    {{#if this.data.advantagesBottom}}
+    <ul class="concept__list">
+      {{#each this.data.advantagesBottom}}
+      <li>
+        {{#if this.item.link}}
+        {{#if this.item.textBeforeLink}}{{this.item.textBeforeLink}}{{/if}}
+        <a href={{this.item.link}}>{{this.item.linkText}} </a>
+        {{#if this.item.textAfterLink}}{{this.item.textAfterLink}}{{/if}}
+        {{else}}
+        {{this.item}}
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+</section>

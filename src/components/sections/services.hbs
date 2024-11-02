@@ -1,0 +1,51 @@
+<section class="services">
+  <div class="container services__container">
+    <div class="services__header">
+      <h2 class="services__heading">Анализы</h2>
+      {{> elements/button
+        classes='services__show-catalog'
+        type='button'
+        attrs='popovertarget="modal-catalog"'
+        text='Перейти в каталог'
+      }}
+    </div>
+
+    <div class="services__wrapper">
+      <nav class="services__catalog" data-tab-parent="" id="modal-catalog">
+        <button class="modal__close-button services__catalog-close-button" type="button" popovertarget="modal-catalog" popovertargetaction="hide">
+          <svg>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close" />
+          </svg>
+        </button>
+
+        <div class="services__tabs">
+          {{#each this}}
+            <a href="#{{this.tabName}}" class="services__tab" data-tab="{{this.tabName}}">
+              <span>{{this.heading}}</span>
+            </a>
+          {{/each}}
+        </div>
+
+        <div class="services__items-wrapper">
+          {{#each this}}
+            <ul class="custom custom_plus services__items" data-tab-content="{{this.tabName}}">
+              {{#each this.items}}
+                <li class="services__item"><a href="#{{this.id}}">{{{this.heading}}}</a></li>
+              {{/each}}
+            </ul>
+          {{/each}}
+        </div>
+      </nav>
+      
+      <div class="services__service-content">
+        {{#each this}}
+          {{#each this.items}}
+            {{> sections/service this classes='services__service'}}
+          {{/each}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
+
+
