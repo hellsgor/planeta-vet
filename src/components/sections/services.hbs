@@ -19,18 +19,18 @@
         </button>
 
         <div class="services__tabs">
-          {{#each this.services}}
-            <a href="#{{this.name}}" class="services__tab" data-tab="{{this.name}}">
+          {{#each this}}
+            <a href="#{{this.tabName}}" class="services__tab" data-tab="{{this.tabName}}">
               <span>{{this.heading}}</span>
             </a>
           {{/each}}
         </div>
 
         <div class="services__items-wrapper">
-          {{#each this.services}}
-            <ul class="custom custom_plus services__items" data-tab-content="{{this.name}}">
+          {{#each this}}
+            <ul class="custom custom_plus services__items" data-tab-content="{{this.tabName}}">
               {{#each this.items}}
-                <li class="services__item"><a href="#{{this.name}}">{{{this.nameRu}}}</a></li>
+                <li class="services__item"><a href="#{{this.id}}">{{{this.heading}}}</a></li>
               {{/each}}
             </ul>
           {{/each}}
@@ -38,8 +38,10 @@
       </nav>
       
       <div class="services__service-content">
-        {{#each this.serviceContent}}
-          {{> sections/service this classes='services__service'}}
+        {{#each this}}
+          {{#each this.items}}
+            {{> sections/service this classes='services__service'}}
+          {{/each}}
         {{/each}}
       </div>
     </div>
