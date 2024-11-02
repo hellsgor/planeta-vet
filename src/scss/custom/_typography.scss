@@ -206,13 +206,16 @@ ul {
           border: 1px solid $white;
           border-radius: 50%;
         }
-        &:hover {
-          color: $green-custom;
-          background-color: $white;
-          border-radius: $big-radius;
-          &::before {
-            background-color: $green-custom;
-            border: none;
+
+        @media (hover: hover) {
+          &:hover {
+            color: $green-custom;
+            background-color: $white;
+            border-radius: $big-radius;
+            &::before {
+              background-color: $green-custom;
+              border: none;
+            }
           }
         }
       }
