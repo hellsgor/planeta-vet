@@ -43,10 +43,10 @@
 
     width: 35vw;
     max-width: 880px;
-    max-height: 690px;
+    height: 690px;
 
     object-fit: cover;
-    object-position: top;
+    object-position: top center;
     border-radius: $medium-radius;
 
     @include bp(xxl) {
@@ -69,6 +69,7 @@
     flex-direction: column;
     gap: 30px;
     align-items: flex-start;
+    justify-content: center;
 
     padding-top: 40px;
 
@@ -92,7 +93,7 @@
     }
 
     @include bp(xxl) {
-      flex-basis: auto;
+      flex-basis: 100%;
     }
 
     @include bp(lg) {
