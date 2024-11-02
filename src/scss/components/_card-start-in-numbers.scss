@@ -68,6 +68,9 @@
     font-weight: 700;
     line-height: normal;
     color: $white;
+    @include bp(md) {
+      font-size: 48px;
+    }
   }
 
   &__subtitle {
