@@ -12,22 +12,25 @@
     {{> sections/header data=header}}
     <main>
       {{> sections/hero this.hero}}
-      {{> sections/ contacts this.contacts}}
+      {{> sections/contacts data=contacts}}
       {{> sections/path-to-success}}
     </main>
     {{> sections/footer data=footer}}
     {{> modals}}
-    <script>
+    <!-- <script>
       initMap();
 
 async function initMap() {
     // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
     await ymaps3.ready;
-    
+    await ymaps3.import.registerCdn(
+          'https://cdn.jsdelivr.net/npm/{package}',
+          '@yandex/ymaps3-default-ui-theme@0.0.2'
+        );
     const {YMap, YMapDefaultSchemeLayer,YMapDefaultFeaturesLayer} = ymaps3;
     const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-default-ui-theme');
-    const {YMapDefaultMarkerProps} = await ymaps3.import('@yandex/ymaps3-default-ui-theme');
-    const {YMapHint, YMapHintContext} = await ymaps3.import('@yandex/ymaps3-hint@0.0.1');
+    // const {YMapDefaultMarkerProps} = await ymaps3.import('@yandex/ymaps3-default-ui-theme');
+    // const {YMapHint, YMapHintContext} = await ymaps3.import('@yandex/ymaps3-hint@0.0.1');
     // Иницилиазируем карту
     const map = new YMap(
         // Передаём ссылку на HTMLElement контейнера
@@ -53,35 +56,36 @@ async function initMap() {
     );
 
     // Добавляем слой для отображения схематической карты
-    map.addChild(new YMapDefaultSchemeLayer());
-    const hint = new YMapHint({hint: (object = {
-  coordinates: [37.546210, 55.732920],
-  color: 'red',
-  size: 'normal',
-  iconName: 'fallback',
-  properties: {
-    hint: {
-      title: 'Title of that pop up',
-      text: 'Some useful information about a place. You can add whatever you want: pictures, buttons, different headings.'
-    }
-  }
-}) => object?.properties?.hint});
-          map.addChild(hint);
-  //   map.addChild(new YMapHint({
-  //             coordinates: [37.546210, 55.732920],
-  //             title: 'North America',
-  //   subtitle: 'The biggest amount of islands',
-  //   color: 'lavender',
-  //   size: 'normal',
-  //   iconName: 'fallback'
-  //           }
+//     map.addChild(new YMapDefaultSchemeLayer());
+//     const hint = new YMapHint({hint: (object = {
+//   coordinates: [37.546210, 55.732920],
+//   color: 'red',
+//   size: 'normal',
+//   iconName: 'fallback',
+//   properties: {
+//     hint: {
+//       title: 'Title of that pop up',
+//       text: 'Some useful information about a place. You can add whatever you want: pictures, buttons, different headings.'
+//     }
+//   }
+// }) => object?.properties?.hint});
+//           map.addChild(hint);
+const marker = new YMapDefaultMarker({
+              coordinates: [37.546210, 55.732920],
+              title: 'North America',
+    subtitle: 'The biggest amount of islands',
+    color: 'lavender',
+    size: 'normal',
+    iconName: 'fallback'
+            });
+map.addChild(marker);
+  //   map.addChild(new YMapHint(
       
   //   )
   // )
 
 
 }
-
-    </script>
+    </script> -->
   </body>
 </html>
