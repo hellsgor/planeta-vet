@@ -1,7 +1,7 @@
 export const context = {
   header: {
     navigation: [
-      { href: '#about', text: 'О нас' },
+      { href: '/#about', text: 'О нас' },
       { href: '/services.html', text: 'Услуги' },
       { href: '/contacts.html', text: 'Контакты' },
     ],
@@ -18,9 +18,8 @@ export const context = {
   footer: {
     navigation: [
       { href: '/ambassador.html', text: 'Амбассадор' },
-      { href: '/partner-clinic.html', text: 'Клиника-партнёр' },
+      { href: '/partner.html', text: 'Клиника-партнёр' },
       { href: '/vet.html', text: 'Врач клиники' },
-      { href: '/advantages.html', text: 'Преимущества' },
       { href: '/contacts.html', text: 'Контакты' },
     ],
     contacts: [
