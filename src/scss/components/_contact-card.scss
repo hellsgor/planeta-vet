@@ -101,6 +101,7 @@
 
     background-color: $gray-max-lighten;
     border-radius: $medium-radius;
+    box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
 
     @include bp(md) {
       flex-basis: 202px;
