@@ -24,17 +24,40 @@ export const context = {
       { href: '/contacts.html', text: 'Контакты' },
     ],
     contacts: [
-      {
-        city: 'г. Москва',
-        address: 'Бережковская набережная, д. 20, стр. 13, 3 этаж.',
-        phone: { text: '+7 499 110-65-83', href: 'tel:74991106583' },
-        email: { text: 'okp@planetvet.ru', href: 'mailto: okp@planetvet.ru' },
-      },
-      {
-        city: 'г. Санкт-Петербург',
-        address: 'ул. Смоленская 33',
-      },
+      { href: 'tel:79681876936', text: '+7 968 187-69-36' },
+      { href: 'mailto:okp@planetvet.ru', text: 'okp@planetvet.ru' },
     ],
     social: [{ href: 'javascript:void(0)', text: 'Написать в Telegram', iconId: 'external' }],
   },
+
+  contacts: [
+    {
+      modifier: 'moscow',
+      city: 'г. Москва',
+      address: 'Бережковская набережная, д. 20, стр. 13, 3 этаж',
+      phone: { text: '+7 499 110-65-83', href: 'tel:74991106583' },
+      email: { text: 'okp@planetvet.ru', href: 'mailto:okp@planetvet.ru' },
+      map: {
+        blockId: 'map-moscow',
+        cords: {
+          x: 123,
+          y: 1231,
+        },
+      },
+    },
+    {
+      modifier: 'saint-petersburg',
+      city: 'г. Санкт-Петербург',
+      address: 'ул. Смоленская, 33 лит. А',
+      phone: { text: '+7 499 110 65 83', href: 'tel:74991106583' },
+      email: { text: 'okp@planetavet.ru', href: 'mailto:okp@planetavet.ru' },
+      map: {
+        blockId: 'map-saint-petersburg',
+        cords: {
+          x: 123,
+          y: 1231,
+        },
+      },
+    },
+  ],
 };
