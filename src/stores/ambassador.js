@@ -37,6 +37,8 @@ export const ambassador = {
   },
   wisdom: {
     title: 'Основные преимущества',
+    image: 'ambassador-chameleon.webp',
+
     item: [
       {
         title: 'Право эксклюзивного присутствия',
