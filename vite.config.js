@@ -17,6 +17,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { context } from './src/stores/context';
 import { home } from './src/stores/home';
 import { ambassador } from './src/stores/ambassador';
+import { services } from './src/stores/services';
 import { partner } from './src/stores/partner';
 import { vet } from './src/stores/vet';
 import { contacts } from './src/stores/contacts';
@@ -33,6 +34,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 const pageData = {
   '/index.html': home,
   '/ambassador.html': ambassador,
+  '/services.html': services,
   '/partner.html': partner,
   '/vet.html': vet,
   '/contacts.html': contacts,

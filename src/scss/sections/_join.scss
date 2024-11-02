@@ -1,34 +1,50 @@
 .join {
   position: relative;
-  padding: 150px 0;
+  padding: 85px 0 108px;
+
   & .container {
     display: flex;
     justify-content: flex-end;
+
     @include bp(xxl) {
       flex-direction: column;
       gap: 32px;
     }
   }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 50%;
+
     @include bp(xxl) {
       width: 100%;
     }
+
     @include bp(xl) {
       width: 100%;
     }
+
+    @include bp(lg) {
+      align-items: center;
+    }
   }
+
   & h5 {
     margin-bottom: 40px;
+
+    @include bp(lg) {
+      text-align: center;
+    }
   }
+
   &__decor-wrapper {
     position: absolute;
     z-index: -1;
     inset: 0;
   }
+
   &__decor {
     position: absolute;
     z-index: -1;
@@ -38,6 +54,7 @@
 
     width: 800px;
     height: 600px;
+
     @include bp(xxl_custom) {
       top: -10%;
       width: 500px;
@@ -49,13 +66,16 @@
     left: 17%;
     max-width: 500px;
     font-family: "CTC_Bold", sans-serif;
+
     & p {
       margin-bottom: 32px;
       text-transform: uppercase;
     }
+
     @include bp(xxl_custom) {
       left: 30px;
     }
+
     @include bp(xxl) {
       position: relative;
       inset: unset;
@@ -70,6 +90,7 @@
       min-height: 50px;
       margin-bottom: 16px;
       padding-left: 90px;
+
       &::before {
         width: 50px;
         height: 50px;
@@ -88,6 +109,7 @@
     height: min(100%, 976px);
 
     background: radial-gradient(50% 50% at 50% 50%, rgba(145, 189, 31, 0.15) 0%, rgba(244, 251, 240, 0.15) 100%);
+
     &:nth-child(1) {
       top: 82px;
       left: 82px;

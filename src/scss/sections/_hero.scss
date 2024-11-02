@@ -3,31 +3,35 @@
   padding: 0 36px 36px;
   background-color: $white;
   border-radius: $medium-radius;
+
   &_orange {
     color: $white;
     background: linear-gradient(112deg, #f9b233 35.75%, #f36f21 102.05%),
       linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+
     & .hero-title span {
       color: inherit;
     }
   }
+
   &_green {
     color: $white;
     background: linear-gradient(110deg, #91bd1f 1.85%, #3aa635 97.94%);
+
     & .hero-title span {
       color: inherit;
     }
   }
+
   &_yellow {
     color: $white;
     background: linear-gradient(112deg, #f9b233 53.98%, #f9d932 102.05%);
+
     & .hero-title span {
       color: inherit;
     }
   }
-  @media (min-width: 1921px) {
-    margin: auto;
-  }
+
   & .container {
     display: flex;
     gap: 80px;
@@ -44,13 +48,16 @@
     object-fit: cover;
     object-position: top;
     border-radius: $medium-radius;
+
     @include bp(xxl) {
       width: 100%;
       max-width: unset;
     }
+
     @include bp(lg) {
       max-height: 620px;
     }
+
     @include bp(sm) {
       max-height: 260px;
     }
@@ -64,62 +71,91 @@
     align-items: flex-start;
 
     padding-top: 40px;
-    @include bp(xxl) {
-      flex-basis: auto;
-    }
+
     & .button {
       margin-bottom: 80px;
       padding: 22px 107px;
       font-size: 28px;
+
       @include bp(xxl_custom) {
         margin-bottom: 30px;
       }
+
       @include bp(lg) {
         width: 100%;
         padding: 20px 0;
       }
+
       @include bp(md) {
         margin-bottom: 0;
       }
     }
+
+    @include bp(xxl) {
+      flex-basis: auto;
+    }
+
+    @include bp(lg) {
+      padding-top: 0;
+    }
   }
+
   &-title {
     line-height: 1;
     color: inherit;
+
     & span {
       font-size: 5rem;
+
       @include bp(xxl) {
         font-size: 3rem;
       }
     }
   }
+
   &__subtitle {
     max-width: 600px;
     font-size: 2rem;
     color: inherit;
+
     @include bp(xxl) {
       max-width: unset;
       font-size: 1.5rem;
     }
   }
+
   & ul {
     display: flex;
     flex-wrap: wrap;
     row-gap: 16px;
     column-gap: 32px;
     align-items: center;
+
     & li {
       flex-basis: 45%;
+
       @include bp(md) {
         font-size: 14px;
       }
+
       @include bp(xs) {
         flex-basis: 100%;
       }
     }
   }
+
+  @media (min-width: 1921px) {
+    margin: auto;
+    margin-top: 34px;
+  }
+
   @include bp(lg) {
-    margin: 0;
-    padding: 30px 16px 16px;
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: unset;
+  }
+
+  @include bp(md) {
+    padding-top: 72px;
   }
 }

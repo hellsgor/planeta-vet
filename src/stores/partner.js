@@ -37,6 +37,8 @@ export const partner = {
   },
   wisdom: {
     title: 'Основные преимущества',
+    image: 'turtle.webp',
+    color: 'green',
     item: [
       {
         title: 'Право эксклюзивного присутствия',

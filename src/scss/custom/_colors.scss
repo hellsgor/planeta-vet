@@ -3,6 +3,7 @@
 $black: #000;
 $black-light: #1c1c1c;
 $black-transparent: rgba(0, 0, 0, 0.7);
+$black-light-transparent: rgb(28, 28, 28, 0.5);
 
 $white: #fff;
 $white-transparent-half: rgba(255, 255, 255, 0.5);
@@ -29,3 +30,4 @@ $headings: $black-light;
 $text-dark: $black;
 $text: $black-light;
 $text-light: #00000080;
+$table-borders: rgba(28, 28, 28, 0.1);

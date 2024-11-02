@@ -16,6 +16,7 @@
 
     flex: 1 0 30%;
 
+    min-height: 360px;
     padding: 40px;
 
     border-radius: $medium-radius;
@@ -49,8 +50,21 @@
         display: none;
       }
     }
-    &:last-child {
+
+    &:nth-child(5) {
       background: linear-gradient(110deg, #f9b233 1.85%, #f36f21 97.94%);
+    }
+    &:nth-child(6) {
+      background: linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+    }
+    &:nth-child(7) {
+      background: linear-gradient(110deg, #91bd1f 1.85%, #f9b233 97.94%),
+        linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
+      box-shadow: 0px 0px 20px 0px rgba(4, 86, 0, 0.05);
+    }
+    &:nth-child(8) {
+      background: linear-gradient(110deg, #f9b233 1.85%, #f36f21 97.94%),
+        linear-gradient(110deg, #3aa635 1.85%, #91bd1f 97.94%);
     }
     &-img {
       position: absolute;

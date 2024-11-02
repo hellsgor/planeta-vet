@@ -6,6 +6,15 @@ body {
   counter-reset: numbered-title-counter;
   overflow-x: hidden;
   background-color: $green-light;
+  &.accent-color {
+    &_green {
+      .section-header__title {
+        &::before {
+          background: linear-gradient(110deg, $green-lighten 1.85%, $green 97.94%);
+        }
+      }
+    }
+  }
 }
 
 main {
@@ -44,12 +53,16 @@ section {
   &:not(:last-child) {
     margin-bottom: 216px;
 
-    @include bp(md) {
+    @include bp(lg) {
       margin-bottom: 128px;
     }
   }
   &.hero {
     margin-bottom: 108px;
+
+    @include bp(md) {
+      margin-bottom: 0px;
+    }
   }
 }
 

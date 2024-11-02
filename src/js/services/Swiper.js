@@ -115,12 +115,11 @@ const listSliders = [
       slideClass: 'four-steps-slider__card',
 
       grabCursor: true,
-      slidesPerView: 1,
+      slidesPerView: 'auto',
       spaceBetween: 16,
 
       breakpoints: {
         768: {
-          slidesPerView: 'auto',
           spaceBetween: 20,
         },
       },
@@ -135,12 +134,11 @@ const listSliders = [
       slideClass: 'options__card',
 
       grabCursor: true,
-      slidesPerView: 1,
+      slidesPerView: 'auto',
       spaceBetween: 16,
 
       breakpoints: {
         768: {
-          slidesPerView: 'auto',
           spaceBetween: 20,
         },
       },

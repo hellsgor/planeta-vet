@@ -1,0 +1,34 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  line-height: 1.5;
+
+  tr {
+    width: 100%;
+    border-bottom: 1px solid $table-borders;
+
+    th {
+      padding: 0 0 16px;
+    }
+
+    td {
+      padding: 16px 0 16px;
+      vertical-align: top;
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+
+      td {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  thead {
+    tr {
+      color: $black-light-transparent;
+      text-align: left;
+    }
+  }
+}

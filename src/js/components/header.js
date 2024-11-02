@@ -1,14 +1,32 @@
+import { resolutionChecker } from '../main';
+
 export const header = function () {
   const header = document.querySelector('header');
   const hero = document.querySelector('.hero');
-  const headerHeight = header.offsetHeight;
-  hero.style.paddingTop = headerHeight + 8 + 34 + 'px';
+
+  managementHeroPaddingTop();
+
+  window.addEventListener('resize', () => {
+    managementHeroPaddingTop();
+  });
+
   window.addEventListener('scroll', () => {
+    managementHeaderMarginTopOnScroll();
+  });
+
+  function managementHeroPaddingTop() {
+    if (resolutionChecker.isMobile()) {
+      hero.style.removeProperty('padding-top');
+    } else {
+      hero.style.paddingTop = header.offsetHeight + 8 + 34 + 'px';
+    }
+  }
+
+  function managementHeaderMarginTopOnScroll() {
     if (window.scrollY >= 34) {
       header.style.marginTop = '0';
     } else {
       header.style.removeProperty('margin-top');
-      // Убираем стиль, если прокрутка меньше 34px
     }
-  });
+  }
 };

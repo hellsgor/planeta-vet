@@ -36,6 +36,8 @@ export const vet = {
   },
   wisdom: {
     title: 'Основные преимущества',
+    image: 'hedgehog.webp',
+    color: 'green',
     item: [
       {
         title: 'Современное  лабораторное оборудовани',

@@ -20,6 +20,7 @@ export const home = {
     buttonText: 'Стать партнером',
   },
   concept: {
+    id: 'about',
     decor: {
       src: 'frog.webp',
     },
@@ -142,9 +143,11 @@ export const home = {
     title: 'Старт в цифрах',
     subtitle: 'полноценного исследовательского центра с командой профессионалов',
     cards: [
-      { title: 'от 700 т. р.', subtitle: 'Минимальная стоимость запуска', iconId: 'rocket' },
-      { title: '4 недели', subtitle: 'Средний срок запуска', iconId: 'hourglass' },
-      { title: 'от 8 месяцев', subtitle: 'Средний срок возврата инвестиций', iconId: 'return-of-investment' },
+      { title: '2%', subtitle: 'Роялти', iconId: 'money-bag' },
+
+      { title: '1 месяц', subtitle: 'Средний срок запуска', iconId: 'hourglass' },
+      { title: '50%', subtitle: 'Агентское вознаграждение по анализам', iconId: 'cash-register' },
+
       { title: '190 т. р.', subtitle: 'Паушальный взнос', iconId: 'contribution' },
       {
         title: 'Откройте свою ветеринарную клинику с нами!',
@@ -153,14 +156,14 @@ export const home = {
         scrollToId: 'path-to-success',
         imageName: 'raccoon.webp',
       },
-      { title: '7,1 млн ₽', subtitle: 'Средняя выручка', iconId: 'money-bag' },
-      { title: '600 000 тысяч рублей.', subtitle: 'Чистая прибыль в рамках месяца', iconId: 'cash-register' },
+      { title: 'от 2 млн. руб.', subtitle: 'Минимальная стоимость запуска', iconId: 'rocket' },
+      { title: 'от 13 месяцев', subtitle: 'Средний срок возврата инвестиций', iconId: 'return-of-investment' },
     ],
   },
 
   stagesOfOpening: {
     title: 'Этапы открытия',
-
+    subtitle: 'полноценного исследовательского центра с командой профессионалов',
     stages: [
       {
         title: 'Заявка',

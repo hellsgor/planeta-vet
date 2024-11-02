@@ -1,5 +1,6 @@
 .stages-of-opening {
   position: relative;
+  padding-bottom: 68px;
 
   &__container {
     position: relative;
@@ -67,5 +68,9 @@
     top: 346px;
     left: 171px;
     max-width: 324px;
+  }
+
+  @include bp(xl) {
+    padding-bottom: unset;
   }
 }
