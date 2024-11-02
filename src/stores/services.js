@@ -1,7 +1,7 @@
 export const services = {
   hero: {
     src: '/images/hero-main-page.webp',
-    corpName: {
+    corpid: {
       first: 'Planeta',
       second: 'Vet',
     },
@@ -23,151 +23,161 @@ export const services = {
 
   services: [
     {
-      name: 'analyzes',
+      tabName: 'analyzes',
       heading: 'Анализы',
       items: [
         {
-          nameRu: 'Общеклинические исследования',
-          name: 'general-clinical-studies',
+          heading: 'Общеклинические исследования',
+          id: 'general-clinical-studies',
+          table: {
+            columns: ['Код исследования', 'Название исследования', 'Биологический материал'],
+            rows: [
+              [
+                'VETK001',
+                'Клинический анализ крови (общий анализ крови с лейкоцитарной формулой и СОЭ)',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+              ['VETK002', 'Ретикулоциты', 'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)'],
+              [
+                'VETK003',
+                'Общий анализ крови без лейкоцитарной формулы + СОЭ',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+              [
+                'VETK004',
+                'Скорость оседания эритроцитов (СОЭ)',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+              [
+                'VETK028',
+                'Тромбоциты, микроскопия (подсчет в окрашенном мазке по методу Фонио)',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+              [
+                'VETK005',
+                'Общий анализ крови с лейкоцитарной формулой',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+              [
+                'VETK006',
+                'Общий анализ крови без лейкоцитарной формулы',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+              [
+                'VETK007',
+                'Патологические включения в эритроцитах (тельца Гейнца, базофильная зернистость)',
+                'кровь венозная/ кровь капиллярная (пробирка c фиолетовой кршкой)',
+              ],
+            ],
+          },
         },
         {
-          nameRu: 'Микроскопия',
-          name: 'microscopy',
+          heading: 'Микроскопия',
+          id: 'microscopy',
         },
         {
-          nameRu: 'Анализ мочи',
-          name: 'urine-analysis',
+          heading: 'Анализ мочи',
+          id: 'urine-analysis',
         },
         {
-          nameRu: 'Анализ кала',
-          name: 'analyz-kali',
+          heading: 'Анализ кала',
+          id: 'analyz-kali',
         },
         {
-          nameRu: 'Биохимия крови',
-          name: 'biochemistry-of-blood',
+          heading: 'Биохимия крови',
+          id: 'biochemistry-of-blood',
         },
         {
-          nameRu: 'Гемостазиограмма',
-          name: 'hemostasiogram',
+          heading: 'Гемостазиограмма',
+          id: 'hemostasiogram',
         },
         {
-          nameRu: 'Гормоны',
-          name: 'hormone',
+          heading: 'Гормоны',
+          id: 'hormone',
         },
         {
-          nameRu: 'Молекулярная диагностика',
-          name: 'molecular-diagnostics',
+          heading: 'Молекулярная диагностика',
+          id: 'molecular-diagnostics',
         },
         {
-          nameRu: 'ИФА',
-          name: 'elisa',
+          heading: 'ИФА',
+          id: 'elisa',
         },
         {
-          nameRu: 'Бактериология',
-          name: 'bacteriology',
+          heading: 'Бактериология',
+          id: 'bacteriology',
         },
         {
-          nameRu: 'Аллергология',
-          name: 'аллергология',
+          heading: 'Аллергология',
+          id: 'аллергология',
         },
         {
-          nameRu: 'Аллергология',
-          name: 'аллергология',
+          heading: 'Аллергология',
+          id: 'аллергология',
         },
         {
-          nameRu: 'Цитология',
-          name: 'cytology',
+          heading: 'Цитология',
+          id: 'cytology',
         },
         {
-          nameRu: 'Гистология',
-          name: 'histology',
+          heading: 'Гистология',
+          id: 'histology',
         },
         {
-          nameRu: 'Иммуногистохимические (ИГХ) исследования',
-          name: 'immunogymic-igc-research',
+          heading: 'Иммуногистохимические (ИГХ) исследования',
+          id: 'immunogymic-igc-research',
         },
         {
-          nameRu: 'Иммуноцитохимические (ицх) исследования',
-          name: 'immunocytochemical-ich-research',
+          heading: 'Иммуноцитохимические (ицх) исследования',
+          id: 'immunocytochemical-ich-research',
         },
         {
-          nameRu: 'Лекарственный мониторинг',
-          name: 'drug-monitoring',
+          heading: 'Лекарственный мониторинг',
+          id: 'drug-monitoring',
         },
       ],
     },
     {
-      name: 'genetics',
+      tabName: 'genetics',
       heading: 'Генетика',
       items: [
         {
-          nameRu: 'Генетика окрасов собак',
-          name: 'genetics-of-dog-colors',
+          heading: 'Генетика окрасов собак',
+          id: 'genetics-of-dog-colors',
         },
         {
-          nameRu: 'Генетика окрасов собак',
-          name: 'genetics-of-dog-colors',
+          heading: 'Генетика окрасов собак',
+          id: 'genetics-of-dog-colors',
         },
         {
-          nameRu: 'Генетика морфологических признаков собак',
-          name: 'genetics-of-morphological-signs-of-dogs',
+          heading: 'Генетика морфологических признаков собак',
+          id: 'genetics-of-morphological-signs-of-dogs',
         },
         {
-          nameRu: 'Генетика заболеваний собак',
-          name: 'genetics-of-dog-diseases',
+          heading: 'Генетика заболеваний собак',
+          id: 'genetics-of-dog-diseases',
         },
         {
-          nameRu: 'Генетика заболеваний собак',
-          name: 'genetics-of-dog-diseases',
+          heading: 'Генетика заболеваний собак',
+          id: 'genetics-of-dog-diseases',
         },
         {
-          nameRu: 'Генетика окрасов кошек',
-          name: 'genetics-of-cat-colors',
+          heading: 'Генетика окрасов кошек',
+          id: 'genetics-of-cat-colors',
         },
         {
-          nameRu: 'Генетика морфологических признаков кошек',
-          name: 'genetics-of-morphological-signs-of-cats',
+          heading: 'Генетика морфологических признаков кошек',
+          id: 'genetics-of-morphological-signs-of-cats',
         },
         {
-          nameRu: 'Генетика заболеваний кошек',
-          name: 'genetics-of-cat-diseases',
+          heading: 'Генетика заболеваний кошек',
+          id: 'genetics-of-cat-diseases',
         },
         {
-          nameRu: 'Определение группы крови кошек',
-          name: 'determining-the-blood-group-of-cats',
+          heading: 'Определение группы крови кошек',
+          id: 'determining-the-blood-group-of-cats',
         },
       ],
-    },
-  ],
-
-  serviceContent: [
-    {
-      heading: 'Иммунологические исследования',
-      description: [
-        'Анализ крови позволяет оценить общее состояние здоровья животного, выявить воспалительные процессы и нарушения в работе органов.',
-        'Анализ крови позволяет оценить общее состояние здоровья животного, выявить воспалительные процессы и нарушения в работе органов.',
-      ],
-      table: {
-        columns: ['Код', 'Наименование'],
-        rows: [
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-        ],
-      },
-    },
-    {
-      heading: 'Вид иммунологического исследования',
-      table: {
-        columns: ['Код', 'Наименование'],
-        rows: [
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-          ['G006', 'Альдостерон-рениновое соотношение (АРС)'],
-        ],
-      },
     },
   ],
 };
