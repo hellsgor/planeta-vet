@@ -9,4 +9,8 @@
   padding: 80px 16px 32px;
 
   border-radius: 0;
+
+  @include bp(xs) {
+    padding-top: 40px;
+  }
 }

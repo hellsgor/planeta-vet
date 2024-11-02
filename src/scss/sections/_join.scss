@@ -31,6 +31,14 @@
     }
   }
 
+  &__partner-button {
+    @include bp(xs) {
+      width: 100%;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
   & h5 {
     margin-bottom: 40px;
 
@@ -115,5 +123,9 @@
       left: 82px;
       transform: translate(0, 0);
     }
+  }
+
+  @include bp(md) {
+    padding-bottom: 0;
   }
 }

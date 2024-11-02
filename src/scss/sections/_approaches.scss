@@ -2,18 +2,29 @@
   counter-reset: approaches-card-num;
   position: relative;
 
-  &-section {
-    &-header {
-      max-width: 60%;
-      margin-bottom: 80px;
+  &__container {
+    @include bp(xs) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
 
-      @include bp(xxl) {
-        max-width: 90%;
-      }
+  &__section-header {
+    max-width: 60%;
+    margin-bottom: 80px;
 
-      @include bp(md) {
-        margin-bottom: 32px;
-      }
+    @include bp(xxl) {
+      max-width: 90%;
+    }
+
+    @include bp(md) {
+      margin-bottom: 32px;
+    }
+
+    @include bp(xs) {
+      max-width: unset;
+      padding-right: 16px;
+      padding-left: 16px;
     }
   }
 
@@ -88,6 +99,10 @@
 
       @include bp(xxl) {
         padding: 32px;
+      }
+
+      @include bp(md) {
+        padding: 16px;
       }
     }
 
