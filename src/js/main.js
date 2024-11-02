@@ -12,6 +12,7 @@ import { initAccordeon } from './components/accordeon';
 import { header } from './components/header';
 import { initCountdownTimer } from './components/init';
 import { initSwipers } from './services/Swiper';
+import { initYaMap } from './services/YaMap';
 
 export const resolutionChecker = new ResolutionChecker();
 
@@ -26,4 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSwipers();
   header();
   initCountdownTimer();
+  initYaMap();
 });
