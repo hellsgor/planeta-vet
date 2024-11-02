@@ -50,6 +50,10 @@ section {
   }
   &.hero {
     margin-bottom: 108px;
+
+    @include bp(md) {
+      margin-bottom: 0px;
+    }
   }
 }
 

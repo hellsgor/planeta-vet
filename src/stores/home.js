@@ -160,7 +160,7 @@ export const home = {
 
   stagesOfOpening: {
     title: 'Этапы открытия',
-
+    subtitle: 'полноценного исследовательского центра с командой профессионалов',
     stages: [
       {
         title: 'Заявка',
