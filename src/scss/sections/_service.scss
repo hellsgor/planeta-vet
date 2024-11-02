@@ -26,7 +26,11 @@
       td,
       th {
         &:nth-child(1) {
-          width: 136px;
+          width: 191px;
+        }
+
+        &:nth-child(3) {
+          width: 288px;
         }
       }
     }
