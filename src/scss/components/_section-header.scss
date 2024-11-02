@@ -49,18 +49,10 @@
         padding-left: 81px;
       }
     }
-
-    &_orange {
-      &::before {
-        background: $orangeOld;
-      }
+    &::before {
+      background: $orangeOld;
     }
 
-    &_green {
-      &::before {
-        background: linear-gradient(110deg, $green-lighten 1.85%, $green 97.94%);
-      }
-    }
     @include bp(xs) {
       font-size: 2rem;
     }
