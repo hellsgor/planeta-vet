@@ -158,4 +158,9 @@
   @include bp(md) {
     padding-top: 72px;
   }
+
+  @include bp(md) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
