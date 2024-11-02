@@ -39,10 +39,7 @@ export const context = {
       email: { text: 'okp@planetvet.ru', href: 'mailto:okp@planetvet.ru' },
       map: {
         blockId: 'map-moscow',
-        cords: {
-          x: 123,
-          y: 1231,
-        },
+        cords: '55.732920, 37.546210',
       },
     },
     {
@@ -53,10 +50,7 @@ export const context = {
       email: { text: 'okp@planetavet.ru', href: 'mailto:okp@planetavet.ru' },
       map: {
         blockId: 'map-saint-petersburg',
-        cords: {
-          x: 123,
-          y: 1231,
-        },
+        cords: '59.904690, 30.328651',
       },
     },
   ],
