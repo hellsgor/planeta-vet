@@ -26,10 +26,10 @@
     @include bp(xl) {
       row-gap: 40px;
       max-width: unset;
+      padding-top: 0;
     }
 
     @include bp(md) {
-      padding-top: 0;
       padding-bottom: 0;
     }
   }
