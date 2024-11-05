@@ -212,26 +212,22 @@ export const home = {
       },
       {
         title: 'Поддержка бренда',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/1-investment.webp',
       },
       {
         title: 'Обучение и подготовка',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/2-flexibility.webp',
       },
       {
         title: 'Сетевое взаимодействие',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/1-investment.webp',
       },
       {
         title: 'Доступ к эксклюзивным продуктам',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/2-flexibility.webp',
       },
     ],
