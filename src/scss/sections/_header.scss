@@ -41,6 +41,9 @@
 
   &__logo {
     max-width: 205px;
+    @include bp(md) {
+      width: 80px;
+    }
 
     & img {
       width: 100%;
