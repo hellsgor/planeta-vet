@@ -4,52 +4,38 @@
  * для сохранения данных при обновлении страницы.
  */
 export class CountdownTimer {
-  /** @type {Date} Целевая дата обратного отсчета. */
-  targetDate = null;
-
-  /** @type {HTMLElement} HTML элемент для отображения оставшихся дней. */
-  daysElem = null;
-
-  /** @type {HTMLElement} HTML элемент для отображения оставшихся часов. */
-  hoursElem = null;
-
-  /** @type {HTMLElement} HTML элемент для отображения оставшихся минут. */
-  minutesElem = null;
-
-  /** @type {number} Идентификатор интервала для обновления таймера. */
-  countdownInterval = null;
-
   /**
    * Создает экземпляр CountdownTimer.
-   * @param {Date} targetDate - Целевая дата обратного отсчета.
-   * @param {Object} selectors - Объект с селекторами для отображения оставшегося времени.
-   * @param {string} selectors.days - Селектор для элемента дней.
-   * @param {string} selectors.hours - Селектор для элемента часов.
-   * @param {string} selectors.minutes - Селектор для элемента минут.
+   * @param {HTMLElement} section - Элемент секции, содержащий таймер.
    */
-  constructor(targetDate, selectors) {
-    const storedTargetDate = localStorage.getItem('countdownTargetDate');
+  constructor(section) {
+    this.$section = section;
 
-    if (storedTargetDate) {
-      this.targetDate = new Date(parseInt(storedTargetDate));
-    } else {
-      this.targetDate = targetDate;
-      localStorage.setItem('countdownTargetDate', this.targetDate);
+    // Получаем целевую дату из атрибута data-time
+    const targetDateAttr = this.$section.getAttribute('data-time');
+    if (!targetDateAttr) {
+      console.error('Отсутствует атрибут data-time для целевой даты.');
+      return;
     }
+    // Преобразуем дату в формат Date
+    const [day, month, year] = targetDateAttr.split('.').map(Number);
+    this.targetDate = new Date(year, month - 1, day).getTime();
 
-    this.daysElem = document.querySelector(selectors.days);
-    this.hoursElem = document.querySelector(selectors.hours);
-    this.minutesElem = document.querySelector(selectors.minutes);
+    // Инициализируем элементы для отображения
+    this.daysElem = this.$section.querySelector('.countdown-days');
+    this.hoursElem = this.$section.querySelector('.countdown-hours');
+    this.minutesElem = this.$section.querySelector('.countdown-minutes');
 
+    // Запуск таймера
     this.start();
   }
 
   /**
    * Обновляет значения обратного отсчета и отображает оставшееся время в HTML элементах.
-   * Если время истекло, таймер останавливается и удаляется из `localStorage`.
+   * Если время истекло, таймер останавливается.
    */
   updateCountdown() {
-    const now = new Date().getTime();
+    const now = Date.now();
     const timeRemaining = this.targetDate - now;
 
     if (timeRemaining <= 0) {
@@ -57,7 +43,6 @@ export class CountdownTimer {
       this.daysElem.textContent = '0';
       this.hoursElem.textContent = '0';
       this.minutesElem.textContent = '0';
-      localStorage.removeItem('countdownTargetDate');
       return;
     }
 
@@ -65,7 +50,7 @@ export class CountdownTimer {
     const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 
-    // Обновляет значения в таймере
+    // Обновляем значения в HTML
     this.daysElem.textContent = days;
     this.hoursElem.textContent = hours;
     this.minutesElem.textContent = minutes;
