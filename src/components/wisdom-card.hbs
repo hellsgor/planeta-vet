@@ -1,5 +1,11 @@
     <div class="wisdom__card  wisdom__card_{{#if this.wisdom.color}}{{this.wisdom.color}}{{else}}red{{/if}}">
-      <img class="wisdom__card-img" src="/assets/images/{{#if this.wisdom.image}}{{this.wisdom.image}}{{else}}ambassador-chameleon.webp{{/if}}" alt="">
+
+
+      {{> elements/image 
+        src=this.wisdom.image 
+        classes="wisdom__card-img"}}
+
+      
 
 
       {{#each this.wisdom.item}}

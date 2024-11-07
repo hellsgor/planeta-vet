@@ -3,7 +3,10 @@
   {{#if this.data.decor}}
   <div class="concept__decor-wrapper">
       <div class="concept__decor">
-                <img src="/assets/images/{{this.data.decor.src}}" alt="">
+
+         {{> elements/image 
+        src=this.data.decor.src 
+       }}
       </div>
   </div>
 {{/if}}

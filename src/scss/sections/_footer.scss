@@ -34,7 +34,8 @@
     }
 
     &-image {
-      bottom: -280px;
+      bottom: 0px;
+      transform: translateY(280px);
       width: 100%;
       max-width: 554px;
 

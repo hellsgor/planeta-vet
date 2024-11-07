@@ -22,8 +22,11 @@
  
 
       {{> message text="Успей присоединиться к нашей партнёрской программе" position="right-top" classes="countdown__message"}}
+  {{> elements/image 
+        src=this.image 
+        classes="countdown__img"}}
 
-      <img class="countdown__img" src="/assets/images/{{#if this.image}}{{this.image}}{{else}}countdown.webp{{/if}}" alt="">
+      
     </div>
     </div>
 </section>
