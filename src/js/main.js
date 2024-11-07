@@ -15,6 +15,7 @@ import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/services-catalog';
 import { initYaMap } from './services/YaMap';
+import { initLazyLoading } from './utils/LazyLoader';
 
 export const resolutionChecker = new ResolutionChecker();
 
@@ -32,4 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
   header();
   initCountdownTimer();
   initYaMap();
+  initLazyLoading();
 });
