@@ -1,3 +1,4 @@
+import { Debouncer } from '../utils/Debouncer';
 import { resolutionChecker } from '../utils/ResolutionChecker';
 
 /**
@@ -40,6 +41,11 @@ class BurgerMenu {
   $headerContainer = null;
 
   /**
+   * @type {Debouncer} Экземпляр класса Debouncer для дебаунсинга.
+   */
+  debouncer = null;
+
+  /**
    * CSS-селекторы для поиска элементов секции Header.
    * @type {Object.<string, string>}
    * @property {string} section - Селектор для контейнера Header.
@@ -63,26 +69,26 @@ class BurgerMenu {
   /**
    * Создает экземпляр класса BurgerMenu.
    * @param {HTMLElement} $section - Корневой элемент секции Header.
+   * Инициализирует элементы, добавляет обработчики событий и перемещает элементы в зависимости от разрешения экрана.
    */
   constructor($section) {
     this.$section = $section;
+    this.debouncer = new Debouncer();
     this.getElements();
     this.addEvents();
     this.transferElements();
   }
 
   /**
-   * Добавляет обработчик события изменения размера окна.
-   * При изменении размера срабатывает с задержкой.
-   * @private
+   * Добавляет обработчик события изменения размера окна с задержкой.
+   * Использует дебаунсер для оптимизации частоты вызова.
    */
   addEvents() {
-    window.addEventListener('resize', this.transferElements.bind(this));
+    window.addEventListener('resize', this.debouncer.debounce(this.transferElements.bind(this), 350));
   }
 
   /**
    * Инициализирует элементы внутри секции Header, присваивая их соответствующим свойствам класса.
-   * @private
    */
   getElements() {
     this.$select = this.$section.querySelector(this.classNames.select);
@@ -95,10 +101,9 @@ class BurgerMenu {
 
   /**
    * Перемещает элементы внутри секции Header в зависимости от разрешения экрана.
-   * Если разрешение соответствует ноутбуку, элементы меню переносятся в бургер-меню.
-   * Для мобильного разрешения кнопка запроса перемещается в меню,
-   * в остальных случаях она перемещается в другой контейнер.
-   * @private
+   * - Для ноутбуков элементы меню переносятся в бургер-меню.
+   * - Для мобильных разрешений кнопка запроса перемещается в меню.
+   * - Для остальных разрешений кнопка запроса перемещается в другой контейнер.
    */
   transferElements() {
     if (resolutionChecker.isLaptop()) {
@@ -122,6 +127,7 @@ class BurgerMenu {
 
 /**
  * Инициализирует бургер-меню в секции Header.
+ * Создает экземпляр класса BurgerMenu и передает корневой элемент секции Header.
  * @function
  */
 export function initBurgerMenu() {
