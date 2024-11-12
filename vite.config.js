@@ -51,6 +51,8 @@ export default defineConfig({
 
   root: resolve(__dirname, 'src'),
 
+  publicDir: resolve(__dirname, 'src/assets'),
+
   server: {
     host: '0.0.0.0',
     hot: true,
@@ -68,50 +70,18 @@ export default defineConfig({
   },
 
   plugins: [
-    viteStaticCopy({
-      targets: [
-        { src: 'assets/data/*.json', dest: 'data' },
-        { src: 'assets/images/*', dest: 'images' },
-      ],
-    }),
     handlebars({
       partialDirectory: resolve(__dirname, './src/components'),
       context(pagePath) {
         return { ...pageData[pagePath], ...context };
       },
     }),
+
+    viteStaticCopy({
+      targets: [{ src: 'assets/data/*.json', dest: 'data' }],
+    }),
+
     ViteImageOptimizer({
-      test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
-      exclude: undefined,
-      include: undefined,
-      includePublic: true,
-      logStats: true,
-      svg: {
-        multipass: true,
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                cleanupNumericValues: false,
-                removeViewBox: false, // https://github.com/svg/svgo/issues/1128
-              },
-              cleanupIDs: {
-                minify: false,
-                remove: false,
-              },
-              convertPathData: false,
-            },
-          },
-          'sortAttrs',
-          {
-            name: 'addAttributesToSVGElement',
-            params: {
-              attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
-            },
-          },
-        ],
-      },
       png: {
         // https://sharp.pixelplumbing.com/api-output#png
         quality: 80,
@@ -133,13 +103,14 @@ export default defineConfig({
       gif: {},
       webp: {
         // https://sharp.pixelplumbing.com/api-output#webp
-        quality: 80,
+        quality: 76,
       },
       avif: {
         // https://sharp.pixelplumbing.com/api-output#avif
         lossless: true,
       },
     }),
+
     stylelintPlugin({
       files: ['src/**/*.css', 'src/**/*.scss'],
       fix: false,
@@ -170,17 +141,11 @@ export default defineConfig({
       output: {
         compact: true,
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.');
-          let extType = info[info.length - 1];
-          let path = '';
-          if (/webp|jpg|jpeg|svg|gif|tiff|png|ico/i.test(extType)) {
-            const { originalFileName, name } = assetInfo;
-            path = originalFileName.replace('assets/images/', '').replace(name, '');
-            extType = 'images';
-          } else if (/woff|woff2/.test(extType)) {
-            extType = 'fonts';
+          if (assetInfo.name.endsWith('.css')) {
+            return 'styles/style.css';
           }
-          return `${extType}/${path}[name][extname]`;
+
+          return 'assets/[name][extname]';
         },
         chunkFileNames: 'js/[name].js',
         entryFileNames: () => 'js/main.js',
