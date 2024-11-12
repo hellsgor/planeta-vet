@@ -1,5 +1,5 @@
-@include font-face("BloggerSans-Light", "BloggerSans-Light.woff2", "BloggerSans-Light.woff", 300);
-@include font-face("BloggerSans", "BloggerSans.woff2", "BloggerSans-regular.woff", 400);
-@include font-face("BloggerSans-Medium", "BloggerSans-Medium.woff2", "BloggerSans-Medium.woff", 500);
-@include font-face("BloggerSans-Bold", "BloggerSans-Bold.woff2", "BloggerSans-Bold.woff", 700);
-@include font-face("CTC_Bold", "CTC_Bold.woff2", "CTC_Bold.woff", 700);
+@include font-face("BloggerSans-Light", "BloggerSans-Light.woff2", 300, "BloggerSans-Light.woff");
+@include font-face("BloggerSans", "BloggerSans.woff2", 400, "BloggerSans.woff");
+@include font-face("BloggerSans-Medium", "BloggerSans-Medium.woff2", 500, "BloggerSans-Medium.woff");
+@include font-face("BloggerSans-Bold", "BloggerSans-Bold.woff2", 700, "BloggerSans-Bold.woff");
+@include font-face("CTC_Bold", "CTC_Bold.woff2", 700, "CTC_Bold.woff");
