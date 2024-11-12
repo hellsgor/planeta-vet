@@ -1,4 +1,4 @@
-import { resolutionChecker } from '../main';
+import { resolutionChecker } from '../utils/ResolutionChecker';
 
 export const header = function () {
   const header = document.querySelector('header');
