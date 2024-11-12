@@ -1,3 +1,4 @@
+import { Debouncer } from '../utils/Debouncer';
 import { resolutionChecker } from '../utils/ResolutionChecker';
 
 class StartInNumbers {
@@ -5,6 +6,8 @@ class StartInNumbers {
   $bigItem = null;
   $container = null;
   $wrapper = null;
+
+  debouncer = null;
 
   classNames = {
     bigItem: 'card-start-in-numbers_big',
@@ -15,6 +18,8 @@ class StartInNumbers {
 
   constructor($section) {
     this.$section = $section;
+
+    this.debouncer = new Debouncer();
 
     this.getElements();
     this.moveBigItem();
@@ -29,7 +34,7 @@ class StartInNumbers {
   }
 
   addEvents() {
-    window.addEventListener('resize', this.handlerWindowResize.bind(this));
+    window.addEventListener('resize', this.debouncer.debounce(this.moveBigItem.bind(this), 350));
   }
 
   moveBigItem() {
@@ -42,10 +47,6 @@ class StartInNumbers {
         this.$container.appendChild(this.$bigItem);
       }
     }
-  }
-
-  handlerWindowResize() {
-    this.moveBigItem();
   }
 }
 
