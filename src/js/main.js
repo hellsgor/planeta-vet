@@ -14,6 +14,7 @@ import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/services-catalog';
 import { initYaMap } from './services/YaMap';
+import { scrollAnimation } from './services/scroll-animation';
 
 document.addEventListener('DOMContentLoaded', () => {
   initHero();
@@ -29,4 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
   header();
   initCountdownTimer();
   initYaMap();
+  scrollAnimation();
 });
