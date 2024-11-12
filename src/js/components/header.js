@@ -1,13 +1,17 @@
 import { resolutionChecker } from '../utils/ResolutionChecker';
+import { Debouncer } from '../utils/Debouncer';
 
 export const header = function () {
   const header = document.querySelector('header');
   const hero = document.querySelector('.hero');
 
+  const debouncer = new Debouncer();
+  const debouncedManagementHeroPaddingTop = debouncer.debounce(managementHeroPaddingTop, 350);
+
   managementHeroPaddingTop();
 
   window.addEventListener('resize', () => {
-    managementHeroPaddingTop();
+    debouncedManagementHeroPaddingTop();
   });
 
   window.addEventListener('scroll', () => {
