@@ -1,3 +1,4 @@
+import { Debouncer } from '../utils/Debouncer';
 import { resolutionChecker } from '../utils/ResolutionChecker';
 
 /**
@@ -20,6 +21,11 @@ class Hero {
   $subtitle = null;
 
   /**
+   * @type {Debouncer} Экземпляр класса Debouncer.
+   */
+  $debouncer = null;
+
+  /**
    * CSS-селекторы для поиска элементов секции Hero.
    * @type {Object.<string, string>}
    * @property {string} section - Селектор для контейнера Hero.
@@ -37,7 +43,7 @@ class Hero {
    * @param {HTMLElement} $section - Корневой элемент секции Hero.
    */
   constructor($section) {
-    // this.debouncer = new Debouncer();
+    this.debouncer = new Debouncer();
 
     this.$section = $section;
 
@@ -49,16 +55,13 @@ class Hero {
   /**
    * Добавляет обработчик события изменения размера окна.
    * При изменении размера срабатывает с задержкой.
-   * @private
    */
   addEvents() {
-    window.addEventListener('resize', this.transferImg.bind(this));
-    // window.addEventListener('resize', this.debouncer.debounce(this.transferImg.bind(this), 350));
+    window.addEventListener('resize', this.debouncer.debounce(this.transferImg.bind(this), 350));
   }
 
   /**
    * Получает элементы изображения и подзаголовка внутри секции Hero.
-   * @private
    */
   getElements() {
     this.$img = this.$section.querySelector(`${this.classNames.img}`);
@@ -69,7 +72,6 @@ class Hero {
    * Перемещает изображение внутри секции Hero.
    * Если разрешение подходит для ноутбуков, изображение добавляется после подзаголовка,
    * в противном случае — в начало контейнера Hero.
-   * @private
    */
   transferImg() {
     if (resolutionChecker.isLaptop()) {
