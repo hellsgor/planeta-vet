@@ -1,4 +1,4 @@
-import { resolutionChecker } from '../main';
+import { resolutionChecker } from '../utils/ResolutionChecker';
 
 /**
  * Класс для управления поведением бургер-меню в секции "Header".

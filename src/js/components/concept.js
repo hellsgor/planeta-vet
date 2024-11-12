@@ -1,4 +1,4 @@
-import { resolutionChecker } from '../main';
+import { resolutionChecker } from '../utils/ResolutionChecker';
 
 export const showServicesInfo = function () {
   const lis = document.querySelectorAll('.concept__services li');

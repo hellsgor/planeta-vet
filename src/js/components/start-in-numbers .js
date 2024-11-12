@@ -1,4 +1,4 @@
-import { resolutionChecker } from '../main';
+import { resolutionChecker } from '../utils/ResolutionChecker';
 
 class StartInNumbers {
   $section = null;
