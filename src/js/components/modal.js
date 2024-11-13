@@ -82,9 +82,11 @@ class Modal {
 }
 
 export function initModals() {
+  const notInitializedOnLoading = ['thank-you'];
+
   const $backdrop = document.getElementById(backdropId);
 
   document.querySelectorAll(`.${modalClassName}`).forEach(($modal) => {
-    new Modal($modal, $backdrop);
+    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name'))) new Modal($modal, $backdrop);
   });
 }
