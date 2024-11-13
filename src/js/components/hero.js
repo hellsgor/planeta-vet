@@ -35,6 +35,7 @@ class Hero {
   classNames = {
     section: '.hero .container',
     img: '.hero__img',
+    title: '.hero__title',
     subtitle: '.hero__subtitle',
   };
 
@@ -66,6 +67,7 @@ class Hero {
   getElements() {
     this.$img = this.$section.querySelector(`${this.classNames.img}`);
     this.$subtitle = this.$section.querySelector(`${this.classNames.subtitle}`);
+    this.$title = this.$section.querySelector(`${this.classNames.title}`);
   }
 
   /**
@@ -75,7 +77,9 @@ class Hero {
    */
   transferImg() {
     if (resolutionChecker.isLaptop()) {
-      this.$subtitle.insertAdjacentElement('afterend', this.$img);
+      this.$subtitle
+        ? this.$subtitle.insertAdjacentElement('afterend', this.$img)
+        : this.$title.insertAdjacentElement('afterend', this.$img);
     } else {
       this.$section.prepend(this.$img);
     }

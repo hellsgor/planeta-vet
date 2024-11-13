@@ -89,20 +89,35 @@
       inset: unset;
       max-width: unset;
     }
+    @include bp(md) {
+      padding: 38px 16px;
+    }
   }
   &-list {
     & li {
       display: flex;
       align-items: center;
-
       min-height: 50px;
-      margin-bottom: 16px;
       padding-left: 90px;
-
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      @include bp(md) {
+        padding-left: 57px;
+        font-size: 20px;
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+      }
       &::before {
         width: 50px;
         height: 50px;
         border-radius: 10px;
+        @include bp(md) {
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
+        }
       }
     }
   }

@@ -102,6 +102,9 @@
     @include bp(lg) {
       padding-top: 0;
     }
+    @include bp(md) {
+      gap: 24px;
+    }
   }
 
   &-title {
@@ -144,6 +147,18 @@
 
       @include bp(xs) {
         flex-basis: 100%;
+      }
+    }
+    &.center {
+      @include bp(md) {
+        & li {
+          &:before {
+            top: 0;
+            transform: translateY(0);
+            width: 12px;
+            height: 12px;
+          }
+        }
       }
     }
   }

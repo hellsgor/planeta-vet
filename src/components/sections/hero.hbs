@@ -12,9 +12,12 @@
         {{#if this.title}}{{this.title}}{{/if}}
         
         </h1>
-        <p class="hero__subtitle">
-        {{#if this.subtitle}}{{this.subtitle}}{{/if}}
-         </p>
+        
+          {{#if this.subtitle}}
+            <p class="hero__subtitle">
+              {{this.subtitle}}
+            </p>
+          {{/if}}
 
          {{> elements/button white = this.buttonWhite type='button' text=this.buttonText attrs='popovertarget="modal-cooperation"'}}
 
