@@ -1,5 +1,9 @@
 .modal {
   position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
 
   width: 100%;
   max-width: 800px;
@@ -38,9 +42,9 @@
     }
   }
 
-  &::backdrop {
-    opacity: 0.5;
-    background-color: $black;
+  &_hidden {
+    z-index: -1000;
+    display: none;
   }
 
   @include bp(lg) {
