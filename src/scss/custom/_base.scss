@@ -56,6 +56,9 @@ section {
     @include bp(lg) {
       margin-bottom: 128px;
     }
+    @include bp(md) {
+      margin-bottom: 64px;
+    }
   }
   &.hero {
     margin-bottom: 108px;
