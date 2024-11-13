@@ -18,7 +18,9 @@ body {
 }
 
 main {
-  overflow-x: hidden;
+  &:not(:has(section.services)) {
+    overflow-x: hidden;
+  }
 }
 
 header,

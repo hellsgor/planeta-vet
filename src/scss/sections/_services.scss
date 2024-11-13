@@ -237,6 +237,9 @@
     section.services__service {
       margin: 0;
     }
+    @include bp(md) {
+      overflow-x: scroll;
+    }
   }
 
   @include bp(lg) {
