@@ -1,99 +1,90 @@
-/**
- * @class Modal
- * @description
- * Класс для управления модальными окнами на странице.
- *
- * @param {HTMLElement} $modal - Элемент модального окна.
- */
+import { fadeIn, fadeOut } from '../services/fade-animation';
+
+const backdropId = 'backdrop';
+const modalClassName = 'modal';
+
 class Modal {
-  /**
-   * @property {HTMLElement} $modal
-   * @description
-   * Элемент модального окна.
-   */
-  $modal;
+  $modal = null;
+  $closeButton = null;
+  $backdrop = null;
 
-  /**
-   * @property {HTMLElement} $basicCloseButton
-   * @description
-   * Кнопка закрытия модального окна.
-   */
-  $basicCloseButton;
+  calledButtonsCollection = null;
 
-  /**
-   * @property {HTMLElement} $restorePasswordButton
-   * @description
-   * Кнопка восстановления пароля (если присутствует).
-   */
-  $restorePasswordButton;
+  classNames = {
+    closeButton: `${modalClassName}__close-button`,
+  };
 
-  /**
-   * @constructor
-   * @param {HTMLElement} $modal
-   */
-  constructor($modal) {
-    /**
-     * Инициализация свойств.
-     */
+  modifiers = {
+    hidden: 'hidden',
+  };
+
+  attrs = {
+    calledButton: 'data-call-modal',
+    modalName: 'data-modal-name',
+    state: 'data-modal-state',
+  };
+
+  states = {
+    initialized: 'initialized',
+    showing: 'showing',
+  };
+
+  constructor($modal, $backdrop = null) {
     this.$modal = $modal;
-    this.$basicCloseButton = this.$modal.querySelector('.modal__close-button');
+    this.setState(this.states.initialized);
 
-    /**
-     * Проверка наличия кнопки восстановления пароля.
-     */
-    if (this.$modal.classList.contains('modal_entrance')) {
-      this.$restorePasswordButton = this.$modal.querySelector('.modal-entrance__forgot');
-    }
+    this.$backdrop = $backdrop || document.getElementById(backdropId) || null;
 
-    /**
-     * Добавление событий.
-     */
+    this.getElements();
     this.addEvents();
   }
 
-  /**
-   * @method addEvents
-   * @description
-   * Добавление обработчиков событий на элементы модального окна.
-   */
+  getElements() {
+    this.$closeButton = this.$modal.querySelector(`.${this.classNames.closeButton}`);
+    this.calledButtonsCollection = document.querySelectorAll(
+      `[${this.attrs.calledButton}="${this.$modal.getAttribute(this.attrs.modalName)}"]`,
+    );
+  }
+
   addEvents() {
-    this.$modal.addEventListener('toggle', this.handleModalToggle.bind(this));
+    this.calledButtonsCollection.forEach(($calledButton) =>
+      $calledButton.addEventListener('click', this.show.bind(this)),
+    );
 
-    this.$restorePasswordButton &&
-      this.$restorePasswordButton.addEventListener('click', this.showPopover.bind(this, 'modal-forgot'));
+    this.$closeButton.addEventListener('click', this.hide.bind(this));
 
-    if (this.$modal.classList.contains('modal_forgot')) {
-      this.$basicCloseButton.addEventListener('click', this.showPopover.bind(this, 'modal-entrance'));
+    this.$backdrop.addEventListener('click', () => {
+      if (this.$modal.getAttribute(this.attrs.state) === this.states.showing) this.hide();
+    });
+  }
+
+  show() {
+    document.body.style.overflow = 'hidden';
+    if (this.$backdrop) fadeIn(this.$backdrop, { opacity: 0.5, zIndex: 109 });
+    fadeIn(this.$modal, { scale: 0.97 });
+
+    this.setState(this.states.showing);
+  }
+
+  hide() {
+    if (this.$backdrop) fadeOut(this.$backdrop);
+    fadeOut(this.$modal);
+    document.body.style.removeProperty('overflow');
+
+    this.setState(this.states.initialized);
+  }
+
+  setState(state) {
+    if (this.states[state]) {
+      this.$modal.setAttribute(this.attrs.state, this.states[state]);
     }
-  }
-
-  /**
-   * @method handleModalToggle
-   * @description
-   * Обработка переключения модального окна.
-   */
-  handleModalToggle() {
-    document.body.classList[`${this.$modal.matches(':popover-open') ? 'add' : 'remove'}`]('popover-opened');
-  }
-
-  /**
-   * @method showPopover
-   * @param {string} popoverId
-   * @description
-   * Показ всплывающего окна с заданным идентификатором.
-   */
-  showPopover(popoverId) {
-    document.getElementById(popoverId).showPopover();
   }
 }
 
-/**
- * @function initModals
- * @description
- * Инициализация всех модальных окон на странице.
- */
 export function initModals() {
-  document.querySelectorAll('.modal').forEach(($modal) => {
-    new Modal($modal);
+  const $backdrop = document.getElementById(backdropId);
+
+  document.querySelectorAll(`.${modalClassName}`).forEach(($modal) => {
+    new Modal($modal, $backdrop);
   });
 }
