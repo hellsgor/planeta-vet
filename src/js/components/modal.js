@@ -67,7 +67,7 @@ class Modal {
   hide() {
     let count = 0;
 
-    fadeOut(this.$modal);
+    fadeOut(this.$modal, { duration: 0.15 });
     this.setState(this.states.initialized);
 
     this.otherModals.forEach(($modal) => {
@@ -108,7 +108,7 @@ class Modal {
     }
 
     this.$backdrop.removeAttribute(this.attrs.state);
-    fadeOut(this.$backdrop);
+    fadeOut(this.$backdrop, { duration: 0.15 });
   }
 
   setState(state) {
@@ -128,7 +128,7 @@ class Modal {
 }
 
 export function initModals() {
-  const notInitializedOnLoading = ['thank-you', 'services-bubble'];
+  const notInitializedOnLoading = ['thank-you', 'services-bubble', 'burger-menu'];
 
   const modals = Array.from(document.querySelectorAll(`.${modalClassName}`));
   const $backdrop = document.getElementById(backdropId);

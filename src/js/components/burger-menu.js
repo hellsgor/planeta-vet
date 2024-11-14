@@ -1,5 +1,7 @@
+import gsap from 'gsap';
 import { Debouncer } from '../utils/Debouncer';
 import { resolutionChecker } from '../utils/ResolutionChecker';
+import { fadeIn, fadeOut } from '../services/fade-animation';
 
 /**
  * Класс для управления поведением бургер-меню в секции "Header".
@@ -35,6 +37,11 @@ class BurgerMenu {
    */
   $burgerMenuContainer = null;
 
+  $burgerMenuCalledButton = null;
+  $burgerMenu = null;
+  $closeButton = null;
+  $backdrop = null;
+
   /**
    * @type {NodeListOf<HTMLElement> | null} Контейнеры Header.
    */
@@ -64,6 +71,10 @@ class BurgerMenu {
     headerContainer: '.header__wrapper',
     burgerMenuContainer: '.burger-menu',
     request: '.button__request',
+    burgerMenuCalledButton: '.header__burger',
+    burgerMenu: '.modal_burger-menu',
+    closeButton: '.modal__close-button',
+    backdrop: '.burger-menu-backdrop',
   };
 
   /**
@@ -85,6 +96,11 @@ class BurgerMenu {
    */
   addEvents() {
     window.addEventListener('resize', this.debouncer.debounce(this.transferElements.bind(this), 350));
+
+    this.$burgerMenuCalledButton.addEventListener('click', this.show.bind(this));
+
+    this.$closeButton.addEventListener('click', this.hide.bind(this));
+    this.$backdrop.addEventListener('click', this.hide.bind(this));
   }
 
   /**
@@ -97,6 +113,10 @@ class BurgerMenu {
     this.$request = this.$section.querySelector(this.classNames.request);
     this.$burgerMenuContainer = this.$section.querySelector(this.classNames.burgerMenuContainer);
     this.$headerContainer = this.$section.querySelectorAll(this.classNames.headerContainer);
+    this.$burgerMenuCalledButton = this.$section.querySelector(this.classNames.burgerMenuCalledButton);
+    this.$burgerMenu = this.$section.querySelector(this.classNames.burgerMenu);
+    this.$closeButton = this.$burgerMenu.querySelector(this.classNames.closeButton);
+    this.$backdrop = this.$section.querySelector(this.classNames.backdrop);
   }
 
   /**
@@ -122,6 +142,36 @@ class BurgerMenu {
       this.$headerContainer[0].appendChild(this.$menu);
       this.$headerContainer[1].prepend(this.$login);
     }
+  }
+
+  show() {
+    document.body.style.overflow = 'hidden';
+    fadeIn(this.$backdrop, { zIndex: 104, opacity: 0.5 });
+    gsap.to(this.$burgerMenu, {
+      startAt: {
+        display: 'block',
+        zIndex: 105,
+      },
+      xPercent: 100,
+    });
+    this.$burgerMenu.setAttribute('data-state', 'showing');
+  }
+
+  hide() {
+    fadeOut(this.$backdrop, { duration: 0.15 });
+    gsap.to(this.$burgerMenu, {
+      xPercent: -100,
+      duration: 0.15,
+
+      onComplete: () => {
+        gsap.set(this.$burgerMenu, {
+          display: 'none',
+          zIndex: -1000,
+        });
+      },
+    });
+    this.$burgerMenu.removeAttribute('data-state');
+    document.body.style.removeProperty('overflow');
   }
 }
 
