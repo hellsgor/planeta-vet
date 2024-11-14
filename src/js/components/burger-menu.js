@@ -37,9 +37,24 @@ class BurgerMenu {
    */
   $burgerMenuContainer = null;
 
+  /**
+   * @type {HTMLElement | null} Кнопка открытия бургер-меню.
+   */
   $burgerMenuCalledButton = null;
+
+  /**
+   * @type {HTMLElement | null} Блок бургер-меню.
+   */
   $burgerMenu = null;
+
+  /**
+   * @type {HTMLElement | null} Кнопка закрытия бургер-меню.
+   */
   $closeButton = null;
+
+  /**
+   * @type {HTMLElement | null} Фон бургер-меню.
+   */
   $backdrop = null;
 
   /**
@@ -48,7 +63,7 @@ class BurgerMenu {
   $headerContainer = null;
 
   /**
-   * @type {Debouncer} Экземпляр класса Debouncer для дебаунсинга.
+   * @type {Debouncer} Экземпляр класса Debouncer для оптимизации событий resize.
    */
   debouncer = null;
 
@@ -62,6 +77,10 @@ class BurgerMenu {
    * @property {string} headerContainer - Селектор для обертки Header.
    * @property {string} burgerMenuContainer - Селектор для контейнера бургер-меню.
    * @property {string} request - Селектор для кнопки запроса.
+   * @property {string} burgerMenuCalledButton - Селектор для кнопки открытия бургер-меню.
+   * @property {string} burgerMenu - Селектор для блока бургер-меню.
+   * @property {string} closeButton - Селектор для кнопки закрытия бургер-меню.
+   * @property {string} backdrop - Селектор для фонового слоя бургер-меню.
    */
   classNames = {
     section: '.header',
@@ -91,14 +110,13 @@ class BurgerMenu {
   }
 
   /**
-   * Добавляет обработчик события изменения размера окна с задержкой.
-   * Использует дебаунсер для оптимизации частоты вызова.
+   * Добавляет обработчики событий для открытия и закрытия бургер-меню и для изменения размеров окна.
+   * Использует дебаунсер для оптимизации частоты вызова при ресайзе.
    */
   addEvents() {
     window.addEventListener('resize', this.debouncer.debounce(this.transferElements.bind(this), 350));
 
     this.$burgerMenuCalledButton.addEventListener('click', this.show.bind(this));
-
     this.$closeButton.addEventListener('click', this.hide.bind(this));
     this.$backdrop.addEventListener('click', this.hide.bind(this));
   }
@@ -121,9 +139,9 @@ class BurgerMenu {
 
   /**
    * Перемещает элементы внутри секции Header в зависимости от разрешения экрана.
-   * - Для ноутбуков элементы меню переносятся в бургер-меню.
-   * - Для мобильных разрешений кнопка запроса перемещается в меню.
-   * - Для остальных разрешений кнопка запроса перемещается в другой контейнер.
+   * - На экранах ноутбуков элементы переносятся в бургер-меню.
+   * - На мобильных разрешениях кнопка запроса перемещается внутрь меню.
+   * - На больших экранах кнопка запроса перемещается в основной контейнер.
    */
   transferElements() {
     if (resolutionChecker.isLaptop()) {
@@ -144,14 +162,16 @@ class BurgerMenu {
     }
   }
 
+  /**
+   * Показывает бургер-меню с анимацией.
+   * Блокирует прокрутку документа и плавно показывает фон.
+   */
   show() {
     document.body.style.overflow = 'hidden';
 
     gsap.to(this.$backdrop, {
       startAt: {
-        y: parseFloat(getComputedStyle(this.$section).marginTop)
-          ? -parseFloat(getComputedStyle(this.$section).marginTop)
-          : 0,
+        y: parseFloat(getComputedStyle(this.$section).marginTop) || 0,
       },
     });
 
@@ -161,9 +181,7 @@ class BurgerMenu {
       startAt: {
         display: 'block',
         zIndex: 105,
-        y: parseFloat(getComputedStyle(this.$section).marginTop)
-          ? -parseFloat(getComputedStyle(this.$section).marginTop)
-          : 0,
+        y: parseFloat(getComputedStyle(this.$section).marginTop) || 0,
       },
       xPercent: 0,
       left: -parseFloat(getComputedStyle(this.$section).marginLeft),
@@ -171,12 +189,15 @@ class BurgerMenu {
     this.$burgerMenu.setAttribute('data-state', 'showing');
   }
 
+  /**
+   * Скрывает бургер-меню с анимацией.
+   * Возвращает прокрутку документа и скрывает фон и меню.
+   */
   hide() {
     fadeOut(this.$backdrop, { duration: 0.15 });
     gsap.to(this.$burgerMenu, {
       xPercent: -100,
       duration: 0.15,
-
       onComplete: () => {
         gsap.set(this.$burgerMenu, {
           display: 'none',
@@ -187,7 +208,6 @@ class BurgerMenu {
     });
 
     this.$burgerMenu.removeAttribute('data-state');
-
     document.body.style.removeProperty('overflow');
   }
 }
