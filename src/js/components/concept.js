@@ -35,10 +35,13 @@ export const showServicesInfo = function () {
          * @type {HTMLElement}
          */
         const modal = document.querySelector('#modal-services-bubble');
+        modal.classList.remove('modal_hidden');
+        modal.setAttribute('popover', '');
 
         /**
          * Обновление содержимого модального окна.
          */
+        console.log(234);
         modal.querySelector('.modal-services-bubble__title').innerHTML = this.firstChild.textContent.trim();
         modal.querySelector('.modal-services-bubble__text').innerHTML = this.querySelector('p').textContent;
 
