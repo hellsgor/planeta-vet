@@ -145,14 +145,23 @@ class BurgerMenu {
   }
 
   show() {
-    document.body.style.overflow = 'hidden';
+    console.log(
+      parseFloat(getComputedStyle(this.$section).marginTop)
+        ? -parseFloat(getComputedStyle(this.$section).marginTop)
+        : 0,
+    );
+    // document.body.style.overflow = 'hidden';
     fadeIn(this.$backdrop, { zIndex: 104, opacity: 0.5 });
     gsap.to(this.$burgerMenu, {
       startAt: {
         display: 'block',
         zIndex: 105,
+        y: parseFloat(getComputedStyle(this.$section).marginTop)
+          ? -parseFloat(getComputedStyle(this.$section).marginTop)
+          : 0,
       },
-      xPercent: 100,
+      x: () =>
+        parseFloat(getComputedStyle(this.$burgerMenu).width) - parseFloat(getComputedStyle(this.$section).marginLeft),
     });
     this.$burgerMenu.setAttribute('data-state', 'showing');
   }
@@ -168,6 +177,7 @@ class BurgerMenu {
           display: 'none',
           zIndex: -1000,
         });
+        this.$burgerMenu.removeAttribute('style');
       },
     });
     this.$burgerMenu.removeAttribute('data-state');
