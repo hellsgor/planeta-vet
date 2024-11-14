@@ -10,7 +10,7 @@ export function scrollAnimation() {
   createHeaderAnimation('header.header');
 
   //анимация появления секций снизу, пришлось повестить overflow-y hidden на main
-  createSectionsSwipeFromBottomAnimation('section:not(.hero)');
+  createSectionsSwipeFromBottomAnimation('section:not(.hero):not(.services__service)');
 
   // анимация везда с разных сторон карточек 3 концепций
   createSectionsSwipeFromSidesAnimation('.approaches-card');
