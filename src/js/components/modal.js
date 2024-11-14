@@ -1,6 +1,6 @@
 import { fadeIn, fadeOut } from '../services/fade-animation';
 
-const backdropId = 'backdrop';
+const backdropClassName = 'backdrop';
 const modalClassName = 'modal';
 
 class Modal {
@@ -30,7 +30,7 @@ class Modal {
   constructor($modal, $backdrop = null, otherModals) {
     this.$modal = $modal;
     this.otherModals = otherModals;
-    this.$backdrop = $backdrop || document.getElementById(backdropId) || null;
+    this.$backdrop = $backdrop || document.querySelector(`body > .${backdropClassName}`) || null;
 
     this.getElements();
     this.addEvents();
@@ -131,7 +131,7 @@ export function initModals() {
   const notInitializedOnLoading = ['thank-you', 'services-bubble', 'burger-menu'];
 
   const modals = Array.from(document.querySelectorAll(`.${modalClassName}`));
-  const $backdrop = document.getElementById(backdropId);
+  const $backdrop = document.querySelector(`body > .${backdropClassName}`);
 
   modals.forEach(($modal) => {
     if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name')))
