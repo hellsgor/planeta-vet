@@ -21,6 +21,8 @@ main {
   &:not(:has(section.services)) {
     overflow-x: hidden;
   }
+
+  overflow-y: hidden;
 }
 
 header,
