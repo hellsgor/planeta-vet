@@ -18,8 +18,11 @@ body {
 }
 
 main {
-  &:not(:has(section.services)) {
-    overflow-x: hidden;
+  overflow-y: hidden;
+  @include bp(lg) {
+    &:not(:has(section.services)) {
+      overflow-x: hidden;
+    }
   }
 }
 
