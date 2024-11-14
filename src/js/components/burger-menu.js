@@ -171,7 +171,7 @@ class BurgerMenu {
 
     gsap.to(this.$backdrop, {
       startAt: {
-        y: parseFloat(getComputedStyle(this.$section).marginTop) || 0,
+        top: -parseFloat(getComputedStyle(this.$section).marginTop) || 0,
       },
     });
 
@@ -181,7 +181,7 @@ class BurgerMenu {
       startAt: {
         display: 'block',
         zIndex: 105,
-        y: parseFloat(getComputedStyle(this.$section).marginTop) || 0,
+        top: -parseFloat(getComputedStyle(this.$section).marginTop) || 0,
       },
       xPercent: 0,
       left: -parseFloat(getComputedStyle(this.$section).marginLeft),
