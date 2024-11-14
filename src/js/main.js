@@ -2,7 +2,6 @@ import '../../node_modules/modern-normalize/modern-normalize.css';
 import '../scss/style.scss';
 
 import { initModals } from './components/modal';
-import { ResolutionChecker } from './utils/ResolutionChecker';
 import { initPathToSuccess } from './components/path-to-success';
 import { initHero } from './components/hero';
 import { initBurgerMenu } from './components/burger-menu';
@@ -15,8 +14,7 @@ import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/services-catalog';
 import { initYaMap } from './services/YaMap';
-
-export const resolutionChecker = new ResolutionChecker();
+import { scrollAnimation } from './services/scroll-animation';
 
 document.addEventListener('DOMContentLoaded', () => {
   initHero();
@@ -32,4 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
   header();
   initCountdownTimer();
   initYaMap();
+  scrollAnimation();
 });
