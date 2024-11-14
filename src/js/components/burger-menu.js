@@ -145,12 +145,7 @@ class BurgerMenu {
   }
 
   show() {
-    console.log(
-      parseFloat(getComputedStyle(this.$section).marginTop)
-        ? -parseFloat(getComputedStyle(this.$section).marginTop)
-        : 0,
-    );
-    // document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
 
     gsap.to(this.$backdrop, {
       startAt: {
@@ -190,7 +185,9 @@ class BurgerMenu {
         this.$burgerMenu.removeAttribute('style');
       },
     });
+
     this.$burgerMenu.removeAttribute('data-state');
+
     document.body.style.removeProperty('overflow');
   }
 }
