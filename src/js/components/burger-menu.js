@@ -160,8 +160,8 @@ class BurgerMenu {
           ? -parseFloat(getComputedStyle(this.$section).marginTop)
           : 0,
       },
-      x: () =>
-        parseFloat(getComputedStyle(this.$burgerMenu).width) - parseFloat(getComputedStyle(this.$section).marginLeft),
+      xPercent: 0,
+      left: -parseFloat(getComputedStyle(this.$section).marginLeft),
     });
     this.$burgerMenu.setAttribute('data-state', 'showing');
   }
