@@ -28,7 +28,7 @@ function createHeroAnimation(selector) {
 
 function createHeaderAnimation(selector) {
   return document.querySelector(selector)
-    ? gsap.fromTo('header', { autoAlpha: 0, y: '-10rem' }, { autoAlpha: 1, y: 0, ease: 'back(2)', duration: 1 })
+    ? gsap.fromTo(selector, { autoAlpha: 0, y: '-10rem' }, { autoAlpha: 1, y: 0, ease: 'back(2)', duration: 1 })
     : null;
 }
 

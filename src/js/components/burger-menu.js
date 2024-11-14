@@ -1,5 +1,7 @@
+import gsap from 'gsap';
 import { Debouncer } from '../utils/Debouncer';
 import { resolutionChecker } from '../utils/ResolutionChecker';
+import { fadeIn, fadeOut } from '../services/fade-animation';
 
 /**
  * Класс для управления поведением бургер-меню в секции "Header".
@@ -36,12 +38,32 @@ class BurgerMenu {
   $burgerMenuContainer = null;
 
   /**
+   * @type {HTMLElement | null} Кнопка открытия бургер-меню.
+   */
+  $burgerMenuCalledButton = null;
+
+  /**
+   * @type {HTMLElement | null} Блок бургер-меню.
+   */
+  $burgerMenu = null;
+
+  /**
+   * @type {HTMLElement | null} Кнопка закрытия бургер-меню.
+   */
+  $closeButton = null;
+
+  /**
+   * @type {HTMLElement | null} Фон бургер-меню.
+   */
+  $backdrop = null;
+
+  /**
    * @type {NodeListOf<HTMLElement> | null} Контейнеры Header.
    */
   $headerContainer = null;
 
   /**
-   * @type {Debouncer} Экземпляр класса Debouncer для дебаунсинга.
+   * @type {Debouncer} Экземпляр класса Debouncer для оптимизации событий resize.
    */
   debouncer = null;
 
@@ -55,6 +77,10 @@ class BurgerMenu {
    * @property {string} headerContainer - Селектор для обертки Header.
    * @property {string} burgerMenuContainer - Селектор для контейнера бургер-меню.
    * @property {string} request - Селектор для кнопки запроса.
+   * @property {string} burgerMenuCalledButton - Селектор для кнопки открытия бургер-меню.
+   * @property {string} burgerMenu - Селектор для блока бургер-меню.
+   * @property {string} closeButton - Селектор для кнопки закрытия бургер-меню.
+   * @property {string} backdrop - Селектор для фонового слоя бургер-меню.
    */
   classNames = {
     section: '.header',
@@ -64,6 +90,10 @@ class BurgerMenu {
     headerContainer: '.header__wrapper',
     burgerMenuContainer: '.burger-menu',
     request: '.button__request',
+    burgerMenuCalledButton: '.header__burger',
+    burgerMenu: '.modal_burger-menu',
+    closeButton: '.modal__close-button',
+    backdrop: '.burger-menu-backdrop',
   };
 
   /**
@@ -80,11 +110,15 @@ class BurgerMenu {
   }
 
   /**
-   * Добавляет обработчик события изменения размера окна с задержкой.
-   * Использует дебаунсер для оптимизации частоты вызова.
+   * Добавляет обработчики событий для открытия и закрытия бургер-меню и для изменения размеров окна.
+   * Использует дебаунсер для оптимизации частоты вызова при ресайзе.
    */
   addEvents() {
     window.addEventListener('resize', this.debouncer.debounce(this.transferElements.bind(this), 350));
+
+    this.$burgerMenuCalledButton.addEventListener('click', this.show.bind(this));
+    this.$closeButton.addEventListener('click', this.hide.bind(this));
+    this.$backdrop.addEventListener('click', this.hide.bind(this));
   }
 
   /**
@@ -97,13 +131,17 @@ class BurgerMenu {
     this.$request = this.$section.querySelector(this.classNames.request);
     this.$burgerMenuContainer = this.$section.querySelector(this.classNames.burgerMenuContainer);
     this.$headerContainer = this.$section.querySelectorAll(this.classNames.headerContainer);
+    this.$burgerMenuCalledButton = this.$section.querySelector(this.classNames.burgerMenuCalledButton);
+    this.$burgerMenu = this.$section.querySelector(this.classNames.burgerMenu);
+    this.$closeButton = this.$burgerMenu.querySelector(this.classNames.closeButton);
+    this.$backdrop = this.$section.querySelector(this.classNames.backdrop);
   }
 
   /**
    * Перемещает элементы внутри секции Header в зависимости от разрешения экрана.
-   * - Для ноутбуков элементы меню переносятся в бургер-меню.
-   * - Для мобильных разрешений кнопка запроса перемещается в меню.
-   * - Для остальных разрешений кнопка запроса перемещается в другой контейнер.
+   * - На экранах ноутбуков элементы переносятся в бургер-меню.
+   * - На мобильных разрешениях кнопка запроса перемещается внутрь меню.
+   * - На больших экранах кнопка запроса перемещается в основной контейнер.
    */
   transferElements() {
     if (resolutionChecker.isLaptop()) {
@@ -122,6 +160,55 @@ class BurgerMenu {
       this.$headerContainer[0].appendChild(this.$menu);
       this.$headerContainer[1].prepend(this.$login);
     }
+  }
+
+  /**
+   * Показывает бургер-меню с анимацией.
+   * Блокирует прокрутку документа и плавно показывает фон.
+   */
+  show() {
+    document.body.style.overflow = 'hidden';
+
+    gsap.to(this.$backdrop, {
+      startAt: {
+        y: parseFloat(getComputedStyle(this.$section).marginTop) || 0,
+      },
+    });
+
+    fadeIn(this.$backdrop, { zIndex: 104, opacity: 0.5 });
+
+    gsap.to(this.$burgerMenu, {
+      startAt: {
+        display: 'block',
+        zIndex: 105,
+        y: parseFloat(getComputedStyle(this.$section).marginTop) || 0,
+      },
+      xPercent: 0,
+      left: -parseFloat(getComputedStyle(this.$section).marginLeft),
+    });
+    this.$burgerMenu.setAttribute('data-state', 'showing');
+  }
+
+  /**
+   * Скрывает бургер-меню с анимацией.
+   * Возвращает прокрутку документа и скрывает фон и меню.
+   */
+  hide() {
+    fadeOut(this.$backdrop, { duration: 0.15 });
+    gsap.to(this.$burgerMenu, {
+      xPercent: -100,
+      duration: 0.15,
+      onComplete: () => {
+        gsap.set(this.$burgerMenu, {
+          display: 'none',
+          zIndex: -1000,
+        });
+        this.$burgerMenu.removeAttribute('style');
+      },
+    });
+
+    this.$burgerMenu.removeAttribute('data-state');
+    document.body.style.removeProperty('overflow');
   }
 }
 
