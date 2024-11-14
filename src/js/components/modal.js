@@ -15,10 +15,6 @@ class Modal {
     closeButton: `${modalClassName}__close-button`,
   };
 
-  modifiers = {
-    hidden: 'hidden',
-  };
-
   attrs = {
     calledButton: 'data-call-modal',
     modalName: 'data-modal-name',
@@ -28,6 +24,7 @@ class Modal {
   states = {
     initialized: 'initialized',
     showing: 'showing',
+    hidden: 'hidden',
   };
 
   constructor($modal, $backdrop = null, otherModals) {
@@ -54,27 +51,46 @@ class Modal {
 
     this.$closeButton.addEventListener('click', this.hide.bind(this));
 
-    this.$backdrop.addEventListener('click', () => {
-      if (this.$modal.getAttribute(this.attrs.state) === this.states.showing) this.hide();
-    });
+    this.$backdrop.addEventListener('click', this.hideAll.bind(this));
   }
 
   show() {
     document.body.style.overflow = 'hidden';
 
     this.showBackdrop();
-    fadeIn(this.$modal, { scale: 0.97 });
 
+    this.checkOpened();
+    fadeIn(this.$modal, { scale: 0.97 });
     this.setState(this.states.showing);
   }
 
   hide() {
-    this.hideBackdrop();
+    let count = 0;
+
     fadeOut(this.$modal);
+    this.setState(this.states.initialized);
+
+    this.otherModals.forEach(($modal) => {
+      if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
+        fadeIn($modal);
+        $modal.setAttribute(this.attrs.state, this.states.showing);
+        ++count;
+      }
+    });
+
+    !count && this.hideBackdrop();
 
     document.body.style.removeProperty('overflow');
+  }
 
-    this.setState(this.states.initialized);
+  hideAll() {
+    this.otherModals.forEach(($modal) => {
+      if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
+        $modal.setAttribute(this.attrs.state, this.states.initialized);
+        fadeOut($modal, { duration: 0.01 });
+      }
+    });
+    this.hide();
   }
 
   showBackdrop() {
@@ -99,6 +115,15 @@ class Modal {
     if (this.states[state]) {
       this.$modal.setAttribute(this.attrs.state, this.states[state]);
     }
+  }
+
+  checkOpened() {
+    this.otherModals.forEach(($modal) => {
+      if ($modal.getAttribute(this.attrs.state) === this.states.showing) {
+        fadeOut($modal);
+        $modal.setAttribute(this.attrs.state, this.states.hidden);
+      }
+    });
   }
 }
 
