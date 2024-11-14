@@ -151,7 +151,17 @@ class BurgerMenu {
         : 0,
     );
     // document.body.style.overflow = 'hidden';
+
+    gsap.to(this.$backdrop, {
+      startAt: {
+        y: parseFloat(getComputedStyle(this.$section).marginTop)
+          ? -parseFloat(getComputedStyle(this.$section).marginTop)
+          : 0,
+      },
+    });
+
     fadeIn(this.$backdrop, { zIndex: 104, opacity: 0.5 });
+
     gsap.to(this.$burgerMenu, {
       startAt: {
         display: 'block',
