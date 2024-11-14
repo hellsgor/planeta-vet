@@ -8,6 +8,7 @@ class Modal {
   $closeButton = null;
   $backdrop = null;
 
+  otherModals = null;
   calledButtonsCollection = null;
 
   classNames = {
@@ -29,14 +30,14 @@ class Modal {
     showing: 'showing',
   };
 
-  constructor($modal, $backdrop = null) {
+  constructor($modal, $backdrop = null, otherModals) {
     this.$modal = $modal;
-    this.setState(this.states.initialized);
-
+    this.otherModals = otherModals;
     this.$backdrop = $backdrop || document.getElementById(backdropId) || null;
 
     this.getElements();
     this.addEvents();
+    this.setState(this.states.initialized);
   }
 
   getElements() {
@@ -60,18 +61,38 @@ class Modal {
 
   show() {
     document.body.style.overflow = 'hidden';
-    if (this.$backdrop) fadeIn(this.$backdrop, { opacity: 0.5, zIndex: 109 });
+
+    this.showBackdrop();
     fadeIn(this.$modal, { scale: 0.97 });
 
     this.setState(this.states.showing);
   }
 
   hide() {
-    if (this.$backdrop) fadeOut(this.$backdrop);
+    this.hideBackdrop();
     fadeOut(this.$modal);
+
     document.body.style.removeProperty('overflow');
 
     this.setState(this.states.initialized);
+  }
+
+  showBackdrop() {
+    if (!this.$backdrop || this.$backdrop.getAttribute(this.attrs.state) === this.states.showing) {
+      return;
+    }
+
+    this.$backdrop.setAttribute(this.attrs.state, this.states.showing);
+    fadeIn(this.$backdrop, { opacity: 0.5, zIndex: 109 });
+  }
+
+  hideBackdrop() {
+    if (!this.$backdrop || this.$backdrop.getAttribute(this.attrs.state) !== this.states.showing) {
+      return;
+    }
+
+    this.$backdrop.removeAttribute(this.attrs.state);
+    fadeOut(this.$backdrop);
   }
 
   setState(state) {
@@ -82,11 +103,17 @@ class Modal {
 }
 
 export function initModals() {
-  const notInitializedOnLoading = ['thank-you'];
+  const notInitializedOnLoading = ['thank-you', 'services-bubble'];
 
+  const modals = Array.from(document.querySelectorAll(`.${modalClassName}`));
   const $backdrop = document.getElementById(backdropId);
 
-  document.querySelectorAll(`.${modalClassName}`).forEach(($modal) => {
-    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name'))) new Modal($modal, $backdrop);
+  modals.forEach(($modal) => {
+    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name')))
+      new Modal(
+        $modal,
+        $backdrop,
+        modals.filter((m) => m !== $modal),
+      );
   });
 }
