@@ -36,7 +36,7 @@ export const vet = {
   },
   wisdom: {
     title: 'Основные преимущества',
-    image: 'hedgehog.webp',
+    image: '/images/hedgehog.webp',
     color: 'green',
     item: [
       {
