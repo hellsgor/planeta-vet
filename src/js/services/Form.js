@@ -9,11 +9,13 @@ class Form {
   controls = null;
   $submitButton = null;
   successSubmitCallback = null;
+  failureSubmitCallback = null;
 
   constructor($form, props = null) {
     this.$form = $form;
 
     this.successSubmitCallback = props?.successSubmitCallback || thankYou;
+    this.failureSubmitCallback = props?.failureSubmitCallback || thankYou;
 
     this.validation = new Validation();
 
@@ -84,6 +86,7 @@ class Form {
   }
 
   responseHandler(response) {
+    console.log(response.status);
     if (response.status === 'success' && !response.errors?.length) {
       this.clearForm();
       this.successSubmitCallback(response);
@@ -92,6 +95,8 @@ class Form {
     if (response.status !== 'success') {
       if (response.errors && response.errors.length) {
         this.showResponseErrors(response.errors);
+      } else {
+        this.failureSubmitCallback(response);
       }
     }
   }

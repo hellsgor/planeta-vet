@@ -19,6 +19,10 @@ export function thankYou(data) {
     if (data.title) $title.textContent = data.title;
     if (data.text) $text.textContent = data.text;
     if (data.button) $buttonText.textContent = data.button;
+
+    $modal
+      .querySelector('.modal-thank-you')
+      .classList[`${data.success !== 'success' ? 'add' : 'remove'}`]('modal-thank-you_errored');
   }
 }
 
