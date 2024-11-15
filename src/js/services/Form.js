@@ -86,14 +86,13 @@ class Form {
   }
 
   responseHandler(response) {
-    console.log(response.status);
     if (response.status === 'success' && !response.errors?.length) {
       this.clearForm();
       this.successSubmitCallback(response);
     }
 
     if (response.status !== 'success') {
-      if (response.errors && response.errors.length) {
+      if (response.errors?.length) {
         this.showResponseErrors(response.errors);
       } else {
         this.failureSubmitCallback(response);
