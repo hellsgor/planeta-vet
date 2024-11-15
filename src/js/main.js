@@ -15,6 +15,7 @@ import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/services-catalog';
 import { initYaMap } from './services/YaMap';
 import { scrollAnimation } from './services/scroll-animation';
+import { initForms } from './services/Form';
 
 document.addEventListener('DOMContentLoaded', () => {
   initHero();
@@ -31,4 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdownTimer();
   initYaMap();
   scrollAnimation();
+  initForms();
 });
