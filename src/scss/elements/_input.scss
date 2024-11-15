@@ -25,6 +25,7 @@
 
     font-family: inherit;
     font-size: inherit;
+    font-size: 16px;
 
     background-color: transparent;
     border: none;
@@ -32,7 +33,7 @@
     outline: none;
 
     &::placeholder {
-      font-size: 22px;
+      font-size: 16px;
       color: $text-light;
     }
   }

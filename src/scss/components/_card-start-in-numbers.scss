@@ -133,7 +133,7 @@
     @include bp(md) {
       height: fit-content;
       max-height: 524px;
-      padding: 38px 16px 78px;
+      padding: 38px 16px;
 
       .card-start-in-numbers__wrapper {
         row-gap: 249px;

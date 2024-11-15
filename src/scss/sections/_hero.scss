@@ -1,6 +1,10 @@
 .hero {
+  position: relative;
+  z-index: 1;
+
   margin: 34px 34px 0;
   padding: 0 36px 36px;
+
   background-color: $white;
   border-radius: $medium-radius;
 
@@ -98,6 +102,9 @@
     @include bp(lg) {
       padding-top: 0;
     }
+    @include bp(md) {
+      gap: 24px;
+    }
   }
 
   &-title {
@@ -140,6 +147,18 @@
 
       @include bp(xs) {
         flex-basis: 100%;
+      }
+    }
+    &.center {
+      @include bp(md) {
+        & li {
+          &:before {
+            top: 0;
+            transform: translateY(0);
+            width: 12px;
+            height: 12px;
+          }
+        }
       }
     }
   }

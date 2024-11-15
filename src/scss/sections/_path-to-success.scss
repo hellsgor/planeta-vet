@@ -30,6 +30,7 @@
     }
 
     @include bp(md) {
+      row-gap: 16px;
       padding-bottom: 0;
     }
   }
@@ -114,6 +115,9 @@
 
     @include bp(xl) {
       display: block;
+    }
+    @include bp(md) {
+      margin-bottom: 48px;
     }
   }
 
