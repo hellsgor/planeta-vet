@@ -129,13 +129,40 @@ class Form {
   }
 
   clearForm() {
+    const radioGroups = new Set();
+
     this.controls.forEach(($control) => {
-      $control.value = '';
+      if (
+        $control.type === 'text' ||
+        $control.type === 'tel' ||
+        $control.type === 'email' ||
+        $control.tagName === 'TEXTAREA'
+      ) {
+        $control.value = '';
+      }
+
+      if ($control.type === 'checkbox') {
+        $control.checked = false;
+      }
 
       if ($control.type === 'file') {
+        $control.value = '';
         const spans = $control.closest('div').querySelectorAll('label span');
         spans[1].innerText = '';
         spans[0].removeAttribute('style');
+      }
+
+      if ($control.tagName === 'SELECT') {
+        $control.selectedIndex = 0;
+      }
+
+      if ($control.type === 'radio') {
+        if (!radioGroups.has($control.name)) {
+          $control.checked = true;
+          radioGroups.add($control.name);
+        } else {
+          $control.checked = false;
+        }
       }
     });
   }
