@@ -64,7 +64,7 @@ export class Modal {
     this.setState(this.states.showing);
   }
 
-  hide() {
+  hide(notHideBackdrop = null) {
     let count = 0;
 
     fadeOut(this.$modal, { duration: 0.15 });
@@ -78,7 +78,7 @@ export class Modal {
       }
     });
 
-    !count && this.hideBackdrop();
+    !count && !notHideBackdrop && this.hideBackdrop();
 
     document.body.style.removeProperty('overflow');
   }
@@ -127,6 +127,8 @@ export class Modal {
   }
 }
 
+export const initializedModals = [];
+
 export function initModals() {
   const notInitializedOnLoading = ['thank-you', 'services-bubble', 'burger-menu'];
 
@@ -134,11 +136,14 @@ export function initModals() {
   const $backdrop = document.querySelector(`body > .${backdropClassName}`);
 
   modals.forEach(($modal) => {
-    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name')))
-      new Modal(
+    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name'))) {
+      const modal = new Modal(
         $modal,
         $backdrop,
         modals.filter((m) => m !== $modal),
       );
+
+      initializedModals.push(modal);
+    }
   });
 }
