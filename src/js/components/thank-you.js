@@ -22,7 +22,7 @@ export function thankYou(data) {
 
     $modal
       .querySelector('.modal-thank-you')
-      .classList[`${data.success !== 'success' ? 'add' : 'remove'}`]('modal-thank-you_errored');
+      .classList[`${data.status !== 'success' ? 'add' : 'remove'}`]('modal-thank-you_errored');
   }
 }
 
