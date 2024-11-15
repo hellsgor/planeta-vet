@@ -1,3 +1,4 @@
+import { entrance } from '../components/entrance';
 import { thankYou } from '../components/thank-you';
 import { Validation } from './Validation';
 
@@ -141,5 +142,27 @@ class Form {
 }
 
 export const initForms = () => {
-  document.querySelectorAll(`form[${Form.autoInitAttr}]`).forEach(($form) => new Form($form));
+  document.querySelectorAll(`form[${Form.autoInitAttr}]`).forEach(($form) => new Form($form, getFormProps($form.name)));
 };
+
+function getFormProps(formName) {
+  return {
+    successSubmitCallback: (() => {
+      switch (formName) {
+        case 'entrance':
+          return entrance;
+        default:
+          return thankYou;
+      }
+    })(),
+
+    failureSubmitCallback: (() => {
+      switch (formName) {
+        case 'entrance':
+          return entrance;
+        default:
+          return thankYou;
+      }
+    })(),
+  };
+}
