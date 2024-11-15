@@ -5,7 +5,7 @@
 
       <p class="path-to-success__message-mobile"></p>
 
-      <form class="path-to-success__form" action="" name="path-to-success" method="GET">
+      <form data-form-auto-init="" class="path-to-success__form" action="/data/success.json" name="path-to-success" method="POST">
         <div class="path-to-success__controls">
           <div class="path-to-success__columns">
             {{> elements/form-control placeholder='Ваша почта' name='email' required=true inputmode='email' autocomplete='email'}}
@@ -17,7 +17,7 @@
 
         <p>Нажимая кнопку «Отправить», я даю своё согласие на обработку моих персональных данных, в соответствии с Федеральным законом от 27.07.2006 года № 152-ФЗ «О персональных данных», на условиях и для целей, определённых в Согласии на обработку персональных данных</p>
 
-        {{> elements/button type='button' text='Отправить'}}
+        {{> elements/button type='submit' text='Отправить'}}
       </form>
 
       {{> elements/shadow-circle classes='path-to-success__shadow'}}
