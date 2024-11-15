@@ -13,15 +13,12 @@ class LazyLoader {
           // console.log(entries);
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              // setTimeout(() => {
-
-              // }, 2000);
               this.loadImage();
               observer.unobserve(this.$img);
             }
           });
         },
-        { rootMargin: '200px' },
+        { root: document, rootMargin: '8000px' },
       );
       this.observer.observe(this.$img);
     } else {
