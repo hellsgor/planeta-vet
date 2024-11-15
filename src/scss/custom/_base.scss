@@ -19,10 +19,9 @@ body {
 
 main {
   overflow-y: hidden;
-  @include bp(lg) {
-    &:not(:has(section.services)) {
-      overflow-x: hidden;
-    }
+
+  &:not(:has(section.services)) {
+    overflow-x: hidden;
   }
 }
 
