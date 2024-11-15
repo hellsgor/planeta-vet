@@ -43,14 +43,41 @@ class Form {
     const formData = new FormData();
 
     this.controls.forEach(($control) => {
-      if ($control.type === 'file' && $control.files.length > 0) {
-        for (let file of $control.files) {
-          formData.append($control.name, file);
+      switch ($control.type) {
+        case 'file': {
+          if ($control.files.length > 0) {
+            for (let file of $control.files) {
+              formData.append($control.name, file);
+            }
+          }
+          break;
         }
-      } else {
-        $control.type === 'tel' || $control.getAttribute('inputmode') === 'tel'
-          ? formData.append($control.name, $control.value.replace(/[^\d+]/g, ''))
-          : formData.append($control.name, $control.value.trim());
+
+        case 'radio': {
+          if ($control.checked) {
+            formData.append($control.name, $control.value);
+          }
+          break;
+        }
+
+        case 'checkbox': {
+          formData.append($control.name, $control.checked ? $control.value : '');
+          break;
+        }
+
+        case 'tel': {
+          formData.append($control.name, $control.value.replace(/[^\d+]/g, ''));
+          break;
+        }
+
+        default: {
+          const value =
+            $control.getAttribute('inputmode') === 'tel'
+              ? $control.value.replace(/[^\d+]/g, '')
+              : $control.value.trim();
+          formData.append($control.name, value);
+          break;
+        }
       }
     });
 
