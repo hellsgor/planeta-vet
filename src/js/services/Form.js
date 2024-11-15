@@ -1,3 +1,4 @@
+import { thankYou } from '../components/thank-you';
 import { Validation } from './Validation';
 
 class Form {
@@ -7,9 +8,13 @@ class Form {
   validation = null;
   controls = null;
   $submitButton = null;
+  successSubmitCallback = null;
 
-  constructor($form) {
+  constructor($form, props = null) {
     this.$form = $form;
+
+    this.successSubmitCallback = props?.successSubmitCallback || thankYou;
+
     this.validation = new Validation();
 
     this.getElements();
@@ -79,7 +84,10 @@ class Form {
   }
 
   responseHandler(response) {
-    if (response.status === 'success' && !response.errors?.length) this.clearForm();
+    if (response.status === 'success' && !response.errors?.length) {
+      this.clearForm();
+      this.successSubmitCallback(response);
+    }
 
     if (response.status !== 'success') {
       if (response.errors && response.errors.length) {

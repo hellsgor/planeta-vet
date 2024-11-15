@@ -3,7 +3,7 @@ import { fadeIn, fadeOut } from '../services/fade-animation';
 const backdropClassName = 'backdrop';
 const modalClassName = 'modal';
 
-class Modal {
+export class Modal {
   $modal = null;
   $closeButton = null;
   $backdrop = null;
@@ -29,7 +29,7 @@ class Modal {
 
   constructor($modal, $backdrop = null, otherModals) {
     this.$modal = $modal;
-    this.otherModals = otherModals;
+    this.otherModals = otherModals || null;
     this.$backdrop = $backdrop || document.querySelector(`body > .${backdropClassName}`) || null;
 
     this.getElements();
@@ -70,7 +70,7 @@ class Modal {
     fadeOut(this.$modal, { duration: 0.15 });
     this.setState(this.states.initialized);
 
-    this.otherModals.forEach(($modal) => {
+    this.otherModals?.forEach(($modal) => {
       if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
         fadeIn($modal);
         $modal.setAttribute(this.attrs.state, this.states.showing);
@@ -84,7 +84,7 @@ class Modal {
   }
 
   hideAll() {
-    this.otherModals.forEach(($modal) => {
+    this.otherModals?.forEach(($modal) => {
       if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
         $modal.setAttribute(this.attrs.state, this.states.initialized);
         fadeOut($modal, { duration: 0.01 });
@@ -118,7 +118,7 @@ class Modal {
   }
 
   checkOpened() {
-    this.otherModals.forEach(($modal) => {
+    this.otherModals?.forEach(($modal) => {
       if ($modal.getAttribute(this.attrs.state) === this.states.showing) {
         fadeOut($modal);
         $modal.setAttribute(this.attrs.state, this.states.hidden);
