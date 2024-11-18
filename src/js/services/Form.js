@@ -119,7 +119,7 @@ class Form {
       this.clearForm();
       this.successSubmitCallback(
         response,
-        this.$form.closest(`.${modalClassName}`).getAttribute(Modal.attrs.modalName) || null,
+        this.$form.closest(`.${modalClassName}`)?.getAttribute(Modal.attrs.modalName) || null,
       );
     }
 
@@ -129,7 +129,7 @@ class Form {
       } else {
         this.failureSubmitCallback(
           response,
-          this.$form.closest(`.${modalClassName}`).getAttribute(Modal.attrs.modalName) || null,
+          this.$form.closest(`.${modalClassName}`)?.getAttribute(Modal.attrs.modalName) || null,
         );
       }
     }
