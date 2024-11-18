@@ -1,7 +1,7 @@
 import { fadeIn, fadeOut } from '../services/fade-animation';
 
 const backdropClassName = 'backdrop';
-const modalClassName = 'modal';
+export const modalClassName = 'modal';
 
 export class Modal {
   $modal = null;
@@ -11,17 +11,17 @@ export class Modal {
   otherModals = null;
   calledButtonsCollection = null;
 
-  classNames = {
+  static classNames = {
     closeButton: `${modalClassName}__close-button`,
   };
 
-  attrs = {
+  static attrs = {
     calledButton: 'data-call-modal',
     modalName: 'data-modal-name',
     state: 'data-modal-state',
   };
 
-  states = {
+  static states = {
     initialized: 'initialized',
     showing: 'showing',
     hidden: 'hidden',
@@ -34,13 +34,13 @@ export class Modal {
 
     this.getElements();
     this.addEvents();
-    this.setState(this.states.initialized);
+    this.setState(Modal.states.initialized);
   }
 
   getElements() {
-    this.$closeButton = this.$modal.querySelector(`.${this.classNames.closeButton}`);
+    this.$closeButton = this.$modal.querySelector(`.${Modal.classNames.closeButton}`);
     this.calledButtonsCollection = document.querySelectorAll(
-      `[${this.attrs.calledButton}="${this.$modal.getAttribute(this.attrs.modalName)}"]`,
+      `[${Modal.attrs.calledButton}="${this.$modal.getAttribute(Modal.attrs.modalName)}"]`,
     );
   }
 
@@ -61,19 +61,19 @@ export class Modal {
 
     this.checkOpened();
     fadeIn(this.$modal, { scale: 0.97 });
-    this.setState(this.states.showing);
+    this.setState(Modal.states.showing);
   }
 
   hide(notHideBackdrop = null) {
     let count = 0;
 
     fadeOut(this.$modal, { duration: 0.15 });
-    this.setState(this.states.initialized);
+    this.setState(Modal.states.initialized);
 
     this.otherModals?.forEach(($modal) => {
-      if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
+      if ($modal.getAttribute(Modal.attrs.state) === Modal.states.hidden) {
         fadeIn($modal);
-        $modal.setAttribute(this.attrs.state, this.states.showing);
+        $modal.setAttribute(Modal.attrs.state, Modal.states.showing);
         ++count;
       }
     });
@@ -85,8 +85,8 @@ export class Modal {
 
   hideAll() {
     this.otherModals?.forEach(($modal) => {
-      if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
-        $modal.setAttribute(this.attrs.state, this.states.initialized);
+      if ($modal.getAttribute(Modal.attrs.state) === Modal.states.hidden) {
+        $modal.setAttribute(Modal.attrs.state, Modal.states.initialized);
         fadeOut($modal, { duration: 0.01 });
       }
     });
@@ -94,34 +94,34 @@ export class Modal {
   }
 
   showBackdrop() {
-    if (!this.$backdrop || this.$backdrop.getAttribute(this.attrs.state) === this.states.showing) {
+    if (!this.$backdrop || this.$backdrop.getAttribute(Modal.attrs.state) === Modal.states.showing) {
       return;
     }
 
-    this.$backdrop.setAttribute(this.attrs.state, this.states.showing);
+    this.$backdrop.setAttribute(Modal.attrs.state, Modal.states.showing);
     fadeIn(this.$backdrop, { opacity: 0.5, zIndex: 109 });
   }
 
   hideBackdrop() {
-    if (!this.$backdrop || this.$backdrop.getAttribute(this.attrs.state) !== this.states.showing) {
+    if (!this.$backdrop || this.$backdrop.getAttribute(Modal.attrs.state) !== Modal.states.showing) {
       return;
     }
 
-    this.$backdrop.removeAttribute(this.attrs.state);
+    this.$backdrop.removeAttribute(Modal.attrs.state);
     fadeOut(this.$backdrop, { duration: 0.15 });
   }
 
   setState(state) {
-    if (this.states[state]) {
-      this.$modal.setAttribute(this.attrs.state, this.states[state]);
+    if (Modal.states[state]) {
+      this.$modal.setAttribute(Modal.attrs.state, Modal.states[state]);
     }
   }
 
   checkOpened() {
     this.otherModals?.forEach(($modal) => {
-      if ($modal.getAttribute(this.attrs.state) === this.states.showing) {
+      if ($modal.getAttribute(Modal.attrs.state) === Modal.states.showing) {
         fadeOut($modal);
-        $modal.setAttribute(this.attrs.state, this.states.hidden);
+        $modal.setAttribute(Modal.attrs.state, Modal.states.hidden);
       }
     });
   }
