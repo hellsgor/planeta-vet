@@ -82,7 +82,7 @@ class Form {
       }
     });
 
-    this.logFormData(formData);
+    // this.logFormData(formData);
     return formData;
   }
 
