@@ -9,7 +9,7 @@
   <div class="modal-cooperation__wrapper">
     <p class="heading heading_h3 modal-cooperation__title">Заполните форму и мы вам перезвоним</p>
 
-    <form action="" class="modal-cooperation__form">
+    <form data-form-auto-init="" action="/data/success.json" method="POST" name="cooperation" class="modal-cooperation__form">
       <div class="modal-cooperation__variant">
         <span class="text">Выберите вариант сотрудничества</span>
 
@@ -97,11 +97,10 @@
 
         {{> elements/button
           classes='modal-cooperation__submit-button'
-          type='button'
+          type='submit'
           wide=true
           white=true
           text='Отправить'
-          attrs='popovertarget="modal-cooperation" popovertargetaction="hide"'
         }}
       </div>
     </form>

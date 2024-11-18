@@ -1,9 +1,9 @@
 import { fadeIn, fadeOut } from '../services/fade-animation';
 
 const backdropClassName = 'backdrop';
-const modalClassName = 'modal';
+export const modalClassName = 'modal';
 
-class Modal {
+export class Modal {
   $modal = null;
   $closeButton = null;
   $backdrop = null;
@@ -11,17 +11,17 @@ class Modal {
   otherModals = null;
   calledButtonsCollection = null;
 
-  classNames = {
+  static classNames = {
     closeButton: `${modalClassName}__close-button`,
   };
 
-  attrs = {
+  static attrs = {
     calledButton: 'data-call-modal',
     modalName: 'data-modal-name',
     state: 'data-modal-state',
   };
 
-  states = {
+  static states = {
     initialized: 'initialized',
     showing: 'showing',
     hidden: 'hidden',
@@ -29,18 +29,18 @@ class Modal {
 
   constructor($modal, $backdrop = null, otherModals) {
     this.$modal = $modal;
-    this.otherModals = otherModals;
+    this.otherModals = otherModals || null;
     this.$backdrop = $backdrop || document.querySelector(`body > .${backdropClassName}`) || null;
 
     this.getElements();
     this.addEvents();
-    this.setState(this.states.initialized);
+    this.setState(Modal.states.initialized);
   }
 
   getElements() {
-    this.$closeButton = this.$modal.querySelector(`.${this.classNames.closeButton}`);
+    this.$closeButton = this.$modal.querySelector(`.${Modal.classNames.closeButton}`);
     this.calledButtonsCollection = document.querySelectorAll(
-      `[${this.attrs.calledButton}="${this.$modal.getAttribute(this.attrs.modalName)}"]`,
+      `[${Modal.attrs.calledButton}="${this.$modal.getAttribute(Modal.attrs.modalName)}"]`,
     );
   }
 
@@ -61,32 +61,34 @@ class Modal {
 
     this.checkOpened();
     fadeIn(this.$modal, { scale: 0.97 });
-    this.setState(this.states.showing);
+    this.setState(Modal.states.showing);
   }
 
-  hide() {
+  hide(notHideBackdrop = false) {
     let count = 0;
 
     fadeOut(this.$modal, { duration: 0.15 });
-    this.setState(this.states.initialized);
+    this.setState(Modal.states.initialized);
 
-    this.otherModals.forEach(($modal) => {
-      if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
+    this.otherModals?.forEach(($modal) => {
+      if ($modal.getAttribute(Modal.attrs.state) === Modal.states.hidden) {
         fadeIn($modal);
-        $modal.setAttribute(this.attrs.state, this.states.showing);
+        $modal.setAttribute(Modal.attrs.state, Modal.states.showing);
         ++count;
       }
     });
 
-    !count && this.hideBackdrop();
+    if (count === 0 || !notHideBackdrop) {
+      this.hideBackdrop();
+    }
 
     document.body.style.removeProperty('overflow');
   }
 
   hideAll() {
-    this.otherModals.forEach(($modal) => {
-      if ($modal.getAttribute(this.attrs.state) === this.states.hidden) {
-        $modal.setAttribute(this.attrs.state, this.states.initialized);
+    this.otherModals?.forEach(($modal) => {
+      if ($modal.getAttribute(Modal.attrs.state) === Modal.states.hidden) {
+        $modal.setAttribute(Modal.attrs.state, Modal.states.initialized);
         fadeOut($modal, { duration: 0.01 });
       }
     });
@@ -94,38 +96,40 @@ class Modal {
   }
 
   showBackdrop() {
-    if (!this.$backdrop || this.$backdrop.getAttribute(this.attrs.state) === this.states.showing) {
+    if (!this.$backdrop || this.$backdrop.getAttribute(Modal.attrs.state) === Modal.states.showing) {
       return;
     }
 
-    this.$backdrop.setAttribute(this.attrs.state, this.states.showing);
+    this.$backdrop.setAttribute(Modal.attrs.state, Modal.states.showing);
     fadeIn(this.$backdrop, { opacity: 0.5, zIndex: 109 });
   }
 
   hideBackdrop() {
-    if (!this.$backdrop || this.$backdrop.getAttribute(this.attrs.state) !== this.states.showing) {
+    if (!this.$backdrop || this.$backdrop.getAttribute(Modal.attrs.state) !== Modal.states.showing) {
       return;
     }
 
-    this.$backdrop.removeAttribute(this.attrs.state);
+    this.$backdrop.removeAttribute(Modal.attrs.state);
     fadeOut(this.$backdrop, { duration: 0.15 });
   }
 
   setState(state) {
-    if (this.states[state]) {
-      this.$modal.setAttribute(this.attrs.state, this.states[state]);
+    if (Modal.states[state]) {
+      this.$modal.setAttribute(Modal.attrs.state, Modal.states[state]);
     }
   }
 
   checkOpened() {
-    this.otherModals.forEach(($modal) => {
-      if ($modal.getAttribute(this.attrs.state) === this.states.showing) {
+    this.otherModals?.forEach(($modal) => {
+      if ($modal.getAttribute(Modal.attrs.state) === Modal.states.showing) {
         fadeOut($modal);
-        $modal.setAttribute(this.attrs.state, this.states.hidden);
+        $modal.setAttribute(Modal.attrs.state, Modal.states.hidden);
       }
     });
   }
 }
+
+export const initializedModals = [];
 
 export function initModals() {
   const notInitializedOnLoading = ['thank-you', 'services-bubble', 'burger-menu'];
@@ -134,11 +138,14 @@ export function initModals() {
   const $backdrop = document.querySelector(`body > .${backdropClassName}`);
 
   modals.forEach(($modal) => {
-    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name')))
-      new Modal(
+    if (!notInitializedOnLoading.includes($modal.getAttribute('data-modal-name'))) {
+      const modal = new Modal(
         $modal,
         $backdrop,
         modals.filter((m) => m !== $modal),
       );
+
+      initializedModals.push(modal);
+    }
   });
 }
