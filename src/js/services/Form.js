@@ -1,4 +1,5 @@
-import { entrance } from '../components/entrance';
+import { modalFromModal } from './modalFromModal';
+import { Modal, modalClassName } from '../components/modal';
 import { thankYou } from '../components/thank-you';
 import { Validation } from './Validation';
 
@@ -116,14 +117,20 @@ class Form {
   responseHandler(response) {
     if (response.status === 'success' && !response.errors?.length) {
       this.clearForm();
-      this.successSubmitCallback(response);
+      this.successSubmitCallback(
+        response,
+        this.$form.closest(`.${modalClassName}`).getAttribute(Modal.attrs.modalName) || null,
+      );
     }
 
     if (response.status !== 'success') {
       if (response.errors?.length) {
         this.showResponseErrors(response.errors);
       } else {
-        this.failureSubmitCallback(response);
+        this.failureSubmitCallback(
+          response,
+          this.$form.closest(`.${modalClassName}`).getAttribute(Modal.attrs.modalName) || null,
+        );
       }
     }
   }
@@ -204,7 +211,9 @@ function getFormProps(formName) {
     successSubmitCallback: (() => {
       switch (formName) {
         case 'entrance':
-          return entrance;
+          return modalFromModal;
+        case 'cooperation':
+          return modalFromModal;
         default:
           return thankYou;
       }
@@ -213,7 +222,9 @@ function getFormProps(formName) {
     failureSubmitCallback: (() => {
       switch (formName) {
         case 'entrance':
-          return entrance;
+          return modalFromModal;
+        case 'cooperation':
+          return modalFromModal;
         default:
           return thankYou;
       }
