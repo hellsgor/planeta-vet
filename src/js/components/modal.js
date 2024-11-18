@@ -78,7 +78,7 @@ export class Modal {
       }
     });
 
-    !count && !notHideBackdrop && this.hideBackdrop();
+    (!count || !notHideBackdrop) && this.hideBackdrop();
 
     document.body.style.removeProperty('overflow');
   }
