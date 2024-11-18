@@ -17,6 +17,7 @@ import { initYaMap } from './services/YaMap';
 import { scrollAnimation } from './services/scroll-animation';
 import { initForms } from './services/Form';
 import { initControls } from './components/FormControl';
+import { initPhoneMasks } from './services/PhoneMask';
 
 document.addEventListener('DOMContentLoaded', () => {
   initControls();
@@ -35,4 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initYaMap();
   scrollAnimation();
   initForms();
+  initPhoneMasks();
 });
