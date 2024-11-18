@@ -214,6 +214,8 @@ function getFormProps(formName) {
           return modalFromModal;
         case 'cooperation':
           return modalFromModal;
+        case 'recovery':
+          return modalFromModal;
         default:
           return thankYou;
       }
@@ -224,6 +226,8 @@ function getFormProps(formName) {
         case 'entrance':
           return modalFromModal;
         case 'cooperation':
+          return modalFromModal;
+        case 'recovery':
           return modalFromModal;
         default:
           return thankYou;
