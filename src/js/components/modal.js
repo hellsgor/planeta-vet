@@ -64,7 +64,7 @@ export class Modal {
     this.setState(Modal.states.showing);
   }
 
-  hide(notHideBackdrop = null) {
+  hide(notHideBackdrop = false) {
     let count = 0;
 
     fadeOut(this.$modal, { duration: 0.15 });
@@ -78,7 +78,9 @@ export class Modal {
       }
     });
 
-    (!count || !notHideBackdrop) && this.hideBackdrop();
+    if (count === 0 || !notHideBackdrop) {
+      this.hideBackdrop();
+    }
 
     document.body.style.removeProperty('overflow');
   }
