@@ -1,6 +1,6 @@
 export const home = {
   hero: {
-    src: '/images/test-hero.jpg',
+    src: '/images/hero-main-page.webp',
     corpName: {
       first: 'Planeta',
       second: 'Vet',
