@@ -6,16 +6,17 @@ class Tabs {
 
   activeIndex = null;
 
-  attrs = {
+  static attrs = {
     tab: 'data-tab',
     tabContent: 'data-tab-content',
+    tabParent: 'data-tab-parent',
   };
 
   constructor($parentBlock) {
     this.$parentBlock = $parentBlock;
 
-    this.tabs = this.getItems(this.attrs.tab);
-    this.tabContentBlocks = this.getItems(this.attrs.tabContent);
+    this.tabs = this.getItems(Tabs.attrs.tab);
+    this.tabContentBlocks = this.getItems(Tabs.attrs.tabContent);
     if (!this.tabs.length || !this.tabContentBlocks.length) return;
 
     this.prepare();
@@ -30,7 +31,7 @@ class Tabs {
     if (window.location.hash?.slice(1)) {
       this.activeIndex = window.location.hash
         ? Array.from(this.tabs).findIndex(
-            ($tab) => $tab.getAttribute(`${this.attrs.tab}`) === window.location.hash.slice(1),
+            ($tab) => $tab.getAttribute(`${Tabs.attrs.tab}`) === window.location.hash.slice(1),
           )
         : 0;
     } else {
@@ -58,7 +59,7 @@ class Tabs {
   }
 
   setHash(target) {
-    window.location.hash = target.getAttribute(`${this.attrs.tab}`);
+    window.location.hash = target.getAttribute(`${Tabs.attrs.tab}`);
   }
 
   activateTab(target) {
@@ -76,8 +77,8 @@ class Tabs {
     this.tabContentBlocks.forEach(($block) =>
       $block.classList[
         `${
-          $block.getAttribute(`${this.attrs.tabContent}`) !==
-          this.tabs[this.activeIndex].getAttribute(`${this.attrs.tab}`)
+          $block.getAttribute(`${Tabs.attrs.tabContent}`) !==
+          this.tabs[this.activeIndex].getAttribute(`${Tabs.attrs.tab}`)
             ? 'add'
             : 'remove'
         }`
@@ -86,10 +87,8 @@ class Tabs {
   }
 }
 
-const dataTabsParentName = 'data-tab-parent';
-
 export function initTabs() {
-  document.querySelectorAll(`[${dataTabsParentName}]`).forEach(($tabsParent) => {
+  document.querySelectorAll(`[${Tabs.attrs.tabParent}]`).forEach(($tabsParent) => {
     new Tabs($tabsParent);
   });
 }
