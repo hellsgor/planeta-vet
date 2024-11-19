@@ -7,7 +7,7 @@ import { initHero } from './components/hero';
 import { initBurgerMenu } from './components/burger-menu';
 import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
-import { initAccordeon } from './components/accordeon';
+import { initAccordion } from './components/Accordion';
 import { header } from './components/header';
 import { initCountdownTimer } from './components/init';
 import { initSwipers } from './services/Swiper';
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showServicesInfo();
   initBurgerMenu();
   initModals();
-  initAccordeon();
+  initAccordion();
   initSwipers();
   initTabs();
   initCatalog();

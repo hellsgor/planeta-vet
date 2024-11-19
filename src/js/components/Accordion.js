@@ -1,15 +1,15 @@
 /**
  * Класс для создания аккордеона.
  */
-class Accordeon {
+class Accordion {
   /**
    * Селекторы для элементов аккордеона.
    * @type {Object}
    */
-  classNames = {
-    list: '.accordeon-list',
-    question: '.accordeon-list__item',
-    answer: '.accordeon-list__answer',
+  static classNames = {
+    list: 'accordion-list',
+    question: 'accordion-list__item',
+    answer: 'accordion-list__answer',
   };
 
   /**
@@ -38,8 +38,8 @@ class Accordeon {
    * Получает необходимые элементы аккордеона.
    */
   getElements() {
-    this.$questions = this.$list.querySelectorAll(this.classNames.question);
-    this.$answer = this.$list.querySelector(this.classNames.answer);
+    this.$questions = this.$list.querySelectorAll(`.${Accordion.classNames.question}`);
+    this.$answer = this.$list.querySelector(`.${Accordion.classNames.answer}`);
   }
 
   /**
@@ -57,8 +57,8 @@ class Accordeon {
 /**
  * Инициализирует все аккордеоны на странице.
  */
-export const initAccordeon = function () {
-  document.querySelectorAll('.accordeon-list').forEach(($acc) => {
-    new Accordeon($acc);
+export const initAccordion = function () {
+  document.querySelectorAll(`.${Accordion.classNames.list}`).forEach(($acc) => {
+    new Accordion($acc);
   });
 };

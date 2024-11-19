@@ -1,4 +1,4 @@
-.accordeon {
+.accordion {
   &-list {
     &__item {
       cursor: pointer;
@@ -12,7 +12,7 @@
         min-height: 0;
       }
       &.active {
-        & .accordeon {
+        & .accordion {
           &-list {
             &__question {
               margin-bottom: 32px;
