@@ -30,10 +30,7 @@ class Form {
   }
 
   getControls() {
-    const inputs = this.$form.querySelectorAll('input');
-    const textareas = this.$form.querySelectorAll('textarea');
-
-    this.controls = [...inputs, ...textareas];
+    this.controls = [...this.$form.querySelectorAll('input'), ...this.$form.querySelectorAll('textarea')];
   }
 
   addListeners() {
