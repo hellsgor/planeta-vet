@@ -1,7 +1,6 @@
 import Swiper from 'swiper';
 import 'swiper/css';
 import { Navigation, Pagination } from 'swiper/modules';
-// import { Autoplay, EffectFade, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 
 export class InitSlider {
   classSlider = '';
@@ -162,8 +161,6 @@ const listSliders = [
         },
       },
 
-      // setWrapperSize: true,
-
       destroySize: '(min-width: 1550px)',
     },
   },
@@ -202,36 +199,6 @@ const listSliders = [
       },
     },
   },
-
-  // {
-  //   classSlider: '.products-main-page__inner',
-  //   settingsSlider: {
-  //     modules: [Navigation, Pagination, EffectFade, Autoplay],
-  //     wrapperClass: 'products-main-page__wrapper',
-  //     slideClass: 'products-main-page__product',
-  //     loop: true,
-  //     slidesPerView: 'auto',
-  //     effect: 'fade',
-  //     fadeEffect: { crossFade: true },
-  //     speed: 300,
-  //     autoplay: {
-  //       delay: 3000,
-  //       disableOnInteraction: true,
-  //     },
-  //     navigation: {
-  //       nextEl: '.slider-navigation__arrow_next',
-  //       prevEl: '.slider-navigation__arrow_prev',
-  //     },
-  //     pagination: {
-  //       bulletClass: 'slider-pagination-item',
-  //       bulletActiveClass: 'slider-pagination-item_active',
-  //       el: '.products-main-page__pagination',
-  //       clickable: true,
-  //       type: 'custom',
-  //     },
-  //     destroySize: '(max-width: 500px)',
-  //   },
-  // },
 ];
 
 export const initSwipers = () => {
