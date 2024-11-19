@@ -6,7 +6,7 @@ import { initPathToSuccess } from './components/PathToSuccess';
 import { initHero } from './components/Hero';
 import { initBurgerMenu } from './components/BurgerMenu';
 import { showServicesInfo } from './components/concept';
-import { initStartInNumbers } from './components/start-in-numbers ';
+import { initStartInNumbers } from './components/StartInNumbers';
 import { initAccordion } from './components/Accordion';
 import { header } from './components/header';
 import { initCountdownTimer } from './components/Countdown';
