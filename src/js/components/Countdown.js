@@ -1,30 +1,42 @@
 /**
  * Класс CountdownTimer создает обратный отсчет до определенной даты и отображает оставшееся
- * время (дни, часы, минуты) в выбранных HTML элементах. Целевая дата сохраняется в `localStorage`
+ * время (дни, часы, минуты) в указанных HTML элементах. Целевая дата сохраняется в `localStorage`
  * для сохранения данных при обновлении страницы.
  */
 export class CountdownTimer {
   /**
    * Создает экземпляр CountdownTimer.
-   * @param {HTMLElement} section - Элемент секции, содержащий таймер.
+   * @param {HTMLElement} section - HTML элемент, содержащий таймер.
    */
   constructor(section) {
     this.$section = section;
 
-    // Получаем целевую дату из атрибута data-time
+    /**
+     * Получаем целевую дату из атрибута `data-time`, установленного на секции.
+     * @type {number} - Количество миллисекунд до целевой даты.
+     */
     const targetDateAttr = this.$section.getAttribute('data-time');
     if (!targetDateAttr) {
       console.error('Отсутствует атрибут data-time для целевой даты.');
       return;
     }
-    // Преобразуем дату в формат Date
+
     const [day, month, year] = targetDateAttr.split('.').map(Number);
     this.targetDate = new Date(year, month - 1, day).getTime();
 
-    // Инициализируем элементы для отображения
+    /**
+     * Элементы для отображения оставшегося времени (дней, часов, минут).
+     * @type {HTMLElement}
+     */
     this.daysElem = this.$section.querySelector('.countdown-days');
     this.hoursElem = this.$section.querySelector('.countdown-hours');
     this.minutesElem = this.$section.querySelector('.countdown-minutes');
+
+    /**
+     * Идентификатор интервала для обновления таймера.
+     * @type {number}
+     */
+    this.countdownInterval = null;
 
     // Запуск таймера
     this.start();
@@ -32,7 +44,7 @@ export class CountdownTimer {
 
   /**
    * Обновляет значения обратного отсчета и отображает оставшееся время в HTML элементах.
-   * Если время истекло, таймер останавливается.
+   * Если время истекло, таймер останавливается и показывает нули.
    */
   updateCountdown() {
     const now = Date.now();
@@ -57,15 +69,18 @@ export class CountdownTimer {
   }
 
   /**
-   * Запускает таймер, вызывая обновление каждую секунду.
+   * Запускает таймер, устанавливая начальные значения и обновляя их каждую секунду.
    */
   start() {
-    this.updateCountdown(); // Первоначальный вызов для установки начальных значений
+    this.updateCountdown(); // Первоначальный вызов для отображения начальных значений
     this.countdownInterval = setInterval(() => this.updateCountdown(), 1000);
   }
 }
 
-/* Инициализация обратного отсчета */
+/**
+ * Инициализация обратного отсчета.
+ * Проверяет наличие элемента таймера на странице и, если он присутствует, создает экземпляр CountdownTimer.
+ */
 export const initCountdownTimer = function () {
   const section = document.querySelector('.countdown');
 
