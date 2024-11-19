@@ -144,22 +144,30 @@ class BurgerMenu {
    * - На больших экранах кнопка запроса перемещается в основной контейнер.
    */
   transferElements() {
+    let isTransferred = false;
+
     if (resolutionChecker.isLaptop()) {
       this.$burgerMenuContainer.appendChild(this.$menu);
       this.$burgerMenuContainer.appendChild(this.$select);
       this.$burgerMenuContainer.appendChild(this.$login);
+      isTransferred = true;
     }
     if (resolutionChecker.isMobile()) {
       this.$menu.appendChild(this.$request);
+      isTransferred = true;
     }
     if (!resolutionChecker.isMobile()) {
       this.$headerContainer[1].appendChild(this.$request);
+      isTransferred = true;
     }
     if (!resolutionChecker.isLaptop()) {
       this.$headerContainer[0].appendChild(this.$select);
       this.$headerContainer[0].appendChild(this.$menu);
       this.$headerContainer[1].prepend(this.$login);
+      isTransferred = true;
     }
+
+    isTransferred && this.hide();
   }
 
   /**
