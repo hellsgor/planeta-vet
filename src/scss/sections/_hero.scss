@@ -7,7 +7,12 @@
 
   background-color: $white;
   border-radius: $medium-radius;
-
+  &:has(~ section.concept) {
+    margin-bottom: 0;
+  }
+  & ~ section.concept {
+    padding-top: 120px;
+  }
   &_orange {
     color: $white;
     background: linear-gradient(112deg, #f9b233 35.75%, #f36f21 102.05%),
