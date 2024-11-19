@@ -9,7 +9,7 @@ import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
 import { initAccordion } from './components/Accordion';
 import { header } from './components/header';
-import { initCountdownTimer } from './components/init';
+import { initCountdownTimer } from './components/Countdown';
 import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/services-catalog';
