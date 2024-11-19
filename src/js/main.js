@@ -14,7 +14,7 @@ import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
 import { initCatalog } from './components/ServicesCatalog';
 import { initYaMap } from './services/YaMap';
-import { scrollAnimation } from './services/scroll-animation';
+import { scrollAnimation } from './animations/scroll-animation';
 import { initForms } from './services/Form';
 import { initControls } from './components/FormControl';
 import { initPhoneMasks } from './services/PhoneMask';

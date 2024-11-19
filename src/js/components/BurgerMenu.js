@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { Debouncer } from '../utils/Debouncer';
 import { resolutionChecker } from '../utils/ResolutionChecker';
-import { fadeIn, fadeOut } from '../services/fade-animation';
+import { fadeIn, fadeOut } from '../animations/fade-animation';
 
 /**
  * Класс для управления поведением бургер-меню в секции "Header".

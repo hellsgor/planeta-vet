@@ -1,4 +1,4 @@
-import { fadeIn, fadeOut } from '../services/fade-animation';
+import { fadeIn, fadeOut } from '../animations/fade-animation';
 
 const backdropClassName = 'backdrop';
 export const modalClassName = 'modal';
