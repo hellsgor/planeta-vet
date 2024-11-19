@@ -2,20 +2,30 @@ import gsap from 'gsap';
 /* gsap plugins */
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
+
+/**
+ * Инициализирует анимации при прокрутке страницы, включая эффекты для hero, шапки, секций и карточек.
+ */
 export function scrollAnimation() {
-  //Анимация хиро
+  // Анимация hero
   createHeroAnimation('.hero *');
 
-  //анимация шапки, делает небольшой баунс из-за ease: back
+  // Анимация шапки с небольшим баунсом
   createHeaderAnimation('header.header');
 
-  //анимация появления секций снизу, пришлось повестить overflow-y hidden на main
+  // Анимация появления секций снизу
   createSectionsSwipeFromBottomAnimation('section:not(.hero):not(.services__service)');
 
-  // анимация везда с разных сторон карточек 3 концепций
+  // Анимация въезда с разных сторон карточек 3 концепций
   createSectionsSwipeFromSidesAnimation('.approaches-card');
 }
 
+/**
+ * Создаёт анимацию появления элементов hero-секции при загрузке страницы.
+ *
+ * @param {string} selector - Селектор элементов, к которым применяется анимация.
+ * @returns {gsap.core.Tween|null} Анимация или null, если элементы не найдены.
+ */
 function createHeroAnimation(selector) {
   return document.querySelector(selector)
     ? gsap.fromTo(
@@ -26,18 +36,30 @@ function createHeroAnimation(selector) {
     : null;
 }
 
+/**
+ * Создаёт анимацию для шапки с эффектом баунса.
+ *
+ * @param {string} selector - Селектор элемента шапки.
+ * @returns {gsap.core.Tween|null} Анимация или null, если элемент не найден.
+ */
 function createHeaderAnimation(selector) {
   return document.querySelector(selector)
     ? gsap.fromTo(selector, { autoAlpha: 0, y: '-10rem' }, { autoAlpha: 1, y: 0, ease: 'back(2)', duration: 1 })
     : null;
 }
 
+/**
+ * Создаёт анимацию появления секций снизу при прокрутке страницы.
+ * Каждая секция появляется при достижении 75% высоты окна просмотра.
+ *
+ * @param {string} selector - Селектор секций, к которым применяется анимация.
+ */
 function createSectionsSwipeFromBottomAnimation(selector) {
   return document.querySelector(selector)
     ? gsap.utils.toArray(selector).forEach((section) => {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: section, // Устанавливаем текущую секцию как триггер
+            trigger: section,
             start: 'top 75%',
           },
         });
@@ -53,12 +75,18 @@ function createSectionsSwipeFromBottomAnimation(selector) {
     : null;
 }
 
+/**
+ * Создаёт анимацию для карточек, которые въезжают с разных сторон экрана при прокрутке.
+ * Чередует направление движения для чётных и нечётных карточек.
+ *
+ * @param {string} selector - Селектор карточек, к которым применяется анимация.
+ */
 function createSectionsSwipeFromSidesAnimation(selector) {
   return document.querySelector(selector)
     ? gsap.utils.toArray(selector).forEach((section, index) => {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: section, // Устанавливаем текущую секцию как триггер
+            trigger: section,
             start: 'top center',
           },
         });
