@@ -1,4 +1,4 @@
-import { CountdownTimer } from './Сountdown';
+import { CountdownTimer } from './Countdown';
 
 /* Инициализация обратного отсчета */
 export const initCountdownTimer = function () {
