@@ -1,6 +1,15 @@
 import { errors } from '../constants/errors';
 
+/**
+ * Класс для валидации элементов формы.
+ * Включает методы для проверки обязательных полей, номеров телефонов и email-адресов.
+ */
 export class Validation {
+  /**
+   * Массив валидаторов.
+   * Каждый валидатор включает условие и код ошибки, который должен быть показан при ошибке.
+   * @type {Array<{condition: Function, errorCode: string}>}
+   */
   validators = [
     {
       condition: (control) => !this.requiredControlValidation(control),
@@ -22,6 +31,12 @@ export class Validation {
     },
   ];
 
+  /**
+   * Метод для валидации массива элементов формы.
+   * Проверяет каждый элемент формы на соответствие условиям валидаторов.
+   * @param {Array} controls Массив элементов формы для валидации.
+   * @returns {boolean} Возвращает true, если все элементы валидны, иначе false.
+   */
   validate(controls) {
     let isValid = true;
 
@@ -38,19 +53,40 @@ export class Validation {
     return isValid;
   }
 
+  /**
+   * Проверка обязательного поля.
+   * @param {HTMLInputElement} $control Элемент формы для проверки.
+   * @returns {boolean} Возвращает true, если поле не обязательно или заполнено.
+   */
   requiredControlValidation($control) {
     if (!$control.required) return true;
     return !!$control.value.trim();
   }
 
+  /**
+   * Проверка номера телефона.
+   * @param {HTMLInputElement} $control Элемент формы для проверки.
+   * @returns {boolean} Возвращает true, если номер телефона валиден.
+   */
   phoneNumberControlValidation($control) {
     return /^(?:\+\d{11}|\d{11})$/.test($control.value.replace(/[^\d+]/g, ''));
   }
 
+  /**
+   * Проверка email адреса.
+   * @param {HTMLInputElement} $control Элемент формы для проверки.
+   * @returns {boolean} Возвращает true, если email валиден.
+   */
   emailControlValidation($control) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($control.value);
   }
 
+  /**
+   * Показать ошибку для элемента формы.
+   * @param {string|null} errorCode Код ошибки для отображения.
+   * @param {HTMLInputElement} input Элемент формы, для которого отображается ошибка.
+   * @param {string|null} errorText Текст ошибки, если errorCode не задан.
+   */
   showError(errorCode = null, input, errorText = null) {
     const control = input.closest('div');
     const $error = control.querySelector('p');
@@ -65,6 +101,10 @@ export class Validation {
     control.classList.add('control_with-error');
   }
 
+  /**
+   * Скрыть все ошибки для элементов формы.
+   * @param {Array} controls Массив элементов формы для очистки ошибок.
+   */
   hideErrors(controls) {
     controls.forEach((input) => {
       const control = input.closest('div');

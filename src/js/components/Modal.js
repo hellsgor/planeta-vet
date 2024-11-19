@@ -1,9 +1,20 @@
-import { fadeIn, fadeOut } from '../services/fade-animation';
+import { fadeIn, fadeOut } from '../animations/fade-animation';
 
 const backdropClassName = 'backdrop';
 export const modalClassName = 'modal';
 
+/**
+ * Класс `Modal` управляет отображением модальных окон на странице, их состояниями и анимацией.
+ */
 export class Modal {
+  /**
+   * @property {HTMLElement} $modal - Элемент модального окна.
+   * @property {HTMLElement|null} $closeButton - Кнопка закрытия модального окна.
+   * @property {HTMLElement|null} $backdrop - Фон, который появляется позади модального окна.
+   * @property {HTMLElement[]|null} otherModals - Коллекция других модальных окон на странице.
+   * @property {NodeList|null} calledButtonsCollection - Кнопки, вызывающие данное модальное окно.
+   */
+
   $modal = null;
   $closeButton = null;
   $backdrop = null;
@@ -11,22 +22,31 @@ export class Modal {
   otherModals = null;
   calledButtonsCollection = null;
 
+  /** @enum {Object} - CSS классы, используемые для элементов модального окна */
   static classNames = {
     closeButton: `${modalClassName}__close-button`,
   };
 
+  /** @enum {Object} - Атрибуты, используемые для управления состоянием модального окна */
   static attrs = {
     calledButton: 'data-call-modal',
     modalName: 'data-modal-name',
     state: 'data-modal-state',
   };
 
+  /** @enum {Object} - Состояния, используемые для управления видимостью модальных окон */
   static states = {
     initialized: 'initialized',
     showing: 'showing',
     hidden: 'hidden',
   };
 
+  /**
+   * Создаёт экземпляр модального окна.
+   * @param {HTMLElement} $modal - Модальный элемент, который будет управляться этим экземпляром.
+   * @param {HTMLElement|null} [$backdrop=null] - Фон позади модального окна.
+   * @param {HTMLElement[]} [otherModals=null] - Массив других модальных окон на странице.
+   */
   constructor($modal, $backdrop = null, otherModals) {
     this.$modal = $modal;
     this.otherModals = otherModals || null;
@@ -37,6 +57,9 @@ export class Modal {
     this.setState(Modal.states.initialized);
   }
 
+  /**
+   * Получает элементы управления модальным окном, такие как кнопка закрытия и связанные кнопки вызова.
+   */
   getElements() {
     this.$closeButton = this.$modal.querySelector(`.${Modal.classNames.closeButton}`);
     this.calledButtonsCollection = document.querySelectorAll(
@@ -44,26 +67,34 @@ export class Modal {
     );
   }
 
+  /**
+   * Добавляет обработчики событий для элементов управления модальным окном.
+   */
   addEvents() {
     this.calledButtonsCollection.forEach(($calledButton) =>
       $calledButton.addEventListener('click', this.show.bind(this)),
     );
 
     this.$closeButton.addEventListener('click', this.hide.bind(this));
-
     this.$backdrop.addEventListener('click', this.hideAll.bind(this));
   }
 
+  /**
+   * Показывает модальное окно с анимацией и блокирует прокрутку страницы.
+   */
   show() {
     document.body.style.overflow = 'hidden';
 
     this.showBackdrop();
-
     this.checkOpened();
     fadeIn(this.$modal, { scale: 0.97 });
     this.setState(Modal.states.showing);
   }
 
+  /**
+   * Скрывает модальное окно с анимацией. Может также скрыть фон.
+   * @param {boolean} [notHideBackdrop=false] - Указывает, нужно ли оставлять фон видимым.
+   */
   hide(notHideBackdrop = false) {
     let count = 0;
 
@@ -85,6 +116,9 @@ export class Modal {
     document.body.style.removeProperty('overflow');
   }
 
+  /**
+   * Скрывает все модальные окна и фон.
+   */
   hideAll() {
     this.otherModals?.forEach(($modal) => {
       if ($modal.getAttribute(Modal.attrs.state) === Modal.states.hidden) {
@@ -95,6 +129,9 @@ export class Modal {
     this.hide();
   }
 
+  /**
+   * Показывает фон с анимацией, если он не отображается.
+   */
   showBackdrop() {
     if (!this.$backdrop || this.$backdrop.getAttribute(Modal.attrs.state) === Modal.states.showing) {
       return;
@@ -104,6 +141,9 @@ export class Modal {
     fadeIn(this.$backdrop, { opacity: 0.5, zIndex: 109 });
   }
 
+  /**
+   * Скрывает фон с анимацией, если он отображается.
+   */
   hideBackdrop() {
     if (!this.$backdrop || this.$backdrop.getAttribute(Modal.attrs.state) !== Modal.states.showing) {
       return;
@@ -113,12 +153,19 @@ export class Modal {
     fadeOut(this.$backdrop, { duration: 0.15 });
   }
 
+  /**
+   * Устанавливает состояние модального окна.
+   * @param {string} state - Новое состояние модального окна.
+   */
   setState(state) {
     if (Modal.states[state]) {
       this.$modal.setAttribute(Modal.attrs.state, Modal.states[state]);
     }
   }
 
+  /**
+   * Проверяет, есть ли открытые модальные окна, и скрывает их.
+   */
   checkOpened() {
     this.otherModals?.forEach(($modal) => {
       if ($modal.getAttribute(Modal.attrs.state) === Modal.states.showing) {
@@ -129,8 +176,13 @@ export class Modal {
   }
 }
 
+/** Массив инициализированных модальных окон */
 export const initializedModals = [];
 
+/**
+ * Инициализирует все модальные окна на странице, кроме исключённых.
+ * @function
+ */
 export function initModals() {
   const notInitializedOnLoading = ['thank-you', 'services-bubble', 'burger-menu'];
 

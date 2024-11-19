@@ -1,45 +1,97 @@
 import { modalFromModal } from './modalFromModal';
-import { Modal, modalClassName } from '../components/modal';
-import { thankYou } from '../components/thank-you';
+import { Modal, modalClassName } from '../components/Modal';
+import { thankYou } from '../components/thankYou';
 import { Validation } from './Validation';
 
+/**
+ * Класс, представляющий форму с функциональностью отправки и валидации.
+ * Управляет заполнением формы, отправкой данных, а также обработкой ошибок и успешных ответов.
+ */
 class Form {
+  /**
+   * Атрибут для автоматической инициализации формы.
+   * @type {string}
+   */
   static autoInitAttr = 'data-form-auto-init';
 
+  /**
+   * HTML-элемент формы.
+   * @type {HTMLElement}
+   */
   $form = null;
+
+  /**
+   * Экземпляр класса валидации для формы.
+   * @type {Validation}
+   */
   validation = null;
+
+  /**
+   * Элементы управления формой (инпуты, текстовые поля и т.д.).
+   * @type {HTMLElement[]}
+   */
   controls = null;
+
+  /**
+   * Кнопка отправки формы.
+   * @type {HTMLElement}
+   */
   $submitButton = null;
+
+  /**
+   * Функция обратного вызова для успешной отправки формы.
+   * @type {Function}
+   */
   successSubmitCallback = null;
+
+  /**
+   * Функция обратного вызова для неуспешной отправки формы.
+   * @type {Function}
+   */
   failureSubmitCallback = null;
 
+  /**
+   * Создаёт экземпляр формы и инициализирует её свойства.
+   * @param {HTMLElement} $form - HTML-элемент формы.
+   * @param {Object} [props] - Опции для настройки успешного и неуспешного ответа.
+   * @param {Function} [props.successSubmitCallback] - Функция, которая вызывается при успешной отправке.
+   * @param {Function} [props.failureSubmitCallback] - Функция, которая вызывается при неуспешной отправке.
+   */
   constructor($form, props = null) {
     this.$form = $form;
-
     this.successSubmitCallback = props?.successSubmitCallback || thankYou;
     this.failureSubmitCallback = props?.failureSubmitCallback || thankYou;
-
     this.validation = new Validation();
 
     this.getElements();
     this.addListeners();
   }
 
+  /**
+   * Получает элементы формы, такие как кнопка отправки.
+   */
   getElements() {
     this.$submitButton = this.$form.querySelector('button[type="submit"]');
   }
 
+  /**
+   * Получает все элементы формы (инпуты, текстовые поля).
+   */
   getControls() {
-    const inputs = this.$form.querySelectorAll('input');
-    const textareas = this.$form.querySelectorAll('textarea');
-
-    this.controls = [...inputs, ...textareas];
+    this.controls = [...this.$form.querySelectorAll('input'), ...this.$form.querySelectorAll('textarea')];
   }
 
+  /**
+   * Добавляет обработчики событий для кнопки отправки формы.
+   */
   addListeners() {
     this.$submitButton.addEventListener('click', (event) => this.doFormJob(event));
   }
 
+  /**
+   * Серриализует данные формы в объект FormData.
+   * @returns {FormData} Данные формы в формате FormData.
+   */
   serialize() {
     const formData = new FormData();
 
@@ -82,20 +134,14 @@ class Form {
       }
     });
 
-    // this.logFormData(formData);
     return formData;
   }
 
-  logFormData(formData) {
-    for (let [key, value] of formData.entries()) {
-      if (value instanceof File) {
-        console.log(`${key}: ${value.name}`);
-      } else {
-        console.log(`${key}: ${value}`);
-      }
-    }
-  }
-
+  /**
+   * Отправляет данные формы на сервер.
+   * @param {FormData} formData - Данные формы.
+   * @returns {Promise<Object>} Ответ от сервера.
+   */
   async submit(formData) {
     try {
       const response = await fetch(this.$form.action, {
@@ -114,6 +160,10 @@ class Form {
     }
   }
 
+  /**
+   * Обрабатывает ответ от сервера после отправки формы.
+   * @param {Object} response - Ответ от сервера.
+   */
   responseHandler(response) {
     if (response.status === 'success' && !response.errors?.length) {
       this.clearForm();
@@ -135,6 +185,9 @@ class Form {
     }
   }
 
+  /**
+   * Очищает все элементы управления формы.
+   */
   clearForm() {
     const radioGroups = new Set();
 
@@ -174,6 +227,10 @@ class Form {
     });
   }
 
+  /**
+   * Показывает ошибки, полученные от сервера.
+   * @param {Array<Object>} errors - Ошибки, полученные с сервера.
+   */
   showResponseErrors(errors) {
     errors.forEach((error) => {
       this.validation.showError(
@@ -184,6 +241,10 @@ class Form {
     });
   }
 
+  /**
+   * Обрабатывает отправку формы, выполняя валидацию и отправку данных.
+   * @param {Event} event - Событие клика по кнопке отправки.
+   */
   async doFormJob(event) {
     event.preventDefault();
 
@@ -202,10 +263,18 @@ class Form {
   }
 }
 
+/**
+ * Инициализирует все формы с атрибутом data-form-auto-init.
+ */
 export const initForms = () => {
   document.querySelectorAll(`form[${Form.autoInitAttr}]`).forEach(($form) => new Form($form, getFormProps($form.name)));
 };
 
+/**
+ * Получает параметры для формы в зависимости от её имени.
+ * @param {string} formName - Имя формы.
+ * @returns {Object} Объект с функциями обратного вызова для успешной и неуспешной отправки.
+ */
 function getFormProps(formName) {
   return {
     successSubmitCallback: (() => {

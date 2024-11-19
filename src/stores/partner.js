@@ -37,7 +37,7 @@ export const partner = {
   },
   wisdom: {
     title: 'Основные преимущества',
-    image: '/images/turtle.webp',
+    image: 'turtle.webp',
     color: 'green',
     item: [
       {
