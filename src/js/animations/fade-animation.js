@@ -7,6 +7,16 @@ const defaultProps = {
   opacity: 1,
 };
 
+/**
+ * Выполняет анимацию появления (fade-in) для указанного элемента.
+ *
+ * @param {HTMLElement} $element - Элемент, который необходимо показать с анимацией.
+ * @param {Object} [props=null] - Параметры анимации.
+ * @param {number} [props.duration=0.3] - Длительность анимации в секундах.
+ * @param {number} [props.scale=1] - Начальное значение масштабирования элемента.
+ * @param {number} [props.zIndex=110] - z-index, с которого будет начинаться анимация.
+ * @param {number} [props.opacity=1] - Конечная прозрачность элемента.
+ */
 export function fadeIn($element, props = null) {
   gsap.to($element, {
     startAt: {
@@ -22,6 +32,16 @@ export function fadeIn($element, props = null) {
   });
 }
 
+/**
+ * Выполняет анимацию исчезновения (fade-out) для указанного элемента.
+ *
+ * @param {HTMLElement} $element - Элемент, который необходимо скрыть с анимацией.
+ * @param {Object} [props=null] - Параметры анимации.
+ * @param {number} [props.duration=0.3] - Длительность анимации в секундах.
+ * @param {number} [props.scale=1] - Конечное значение масштабирования элемента перед скрытием.
+ *
+ * @description После завершения анимации элемент становится невидимым (display: 'none') и его `zIndex` уменьшается для исключения из потока.
+ */
 export function fadeOut($element, props = null) {
   gsap.to($element, {
     ease: 'power2.out',
