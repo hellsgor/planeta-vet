@@ -18,15 +18,13 @@
         <span class="countdown__timer-name">минут</span>
       </div>
     </div>
-      {{> elements/button text="Стать партнёром" white=true attrs='data-call-modal="cooperation"'}}
- 
 
-      {{> message text="Успей присоединиться к нашей партнёрской программе" position="right-top" classes="countdown__message"}}
-  {{> elements/image 
-        src=this.image 
-        classes="countdown__img"}}
+    {{> elements/button text="Стать партнёром" white=true attrs='data-call-modal="cooperation"'}}
 
-      <img class="countdown__img" src="/images/{{#if this.image}}{{this.image}}{{else}}countdown.webp{{/if}}" alt="">
+    {{> message text="Успей присоединиться к нашей партнёрской программе" position="right-top" classes="countdown__message"}}
+
+    {{> elements/image src='/images/countdown.webp' classes="countdown__img"}}
+
     </div>
-    </div>
+  </div>
 </section>
