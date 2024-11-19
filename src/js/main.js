@@ -12,7 +12,7 @@ import { header } from './components/header';
 import { initCountdownTimer } from './components/Countdown';
 import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
-import { initCatalog } from './components/services-catalog';
+import { initCatalog } from './components/ServicesCatalog';
 import { initYaMap } from './services/YaMap';
 import { scrollAnimation } from './services/scroll-animation';
 import { initForms } from './services/Form';
