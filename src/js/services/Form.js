@@ -1,6 +1,6 @@
 import { modalFromModal } from './modalFromModal';
 import { Modal, modalClassName } from '../components/Modal';
-import { thankYou } from '../components/thank-you';
+import { thankYou } from '../components/thankYou';
 import { Validation } from './Validation';
 
 class Form {
