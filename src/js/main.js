@@ -4,7 +4,7 @@ import '../scss/style.scss';
 import { initModals } from './components/Modal';
 import { initPathToSuccess } from './components/path-to-success';
 import { initHero } from './components/hero';
-import { initBurgerMenu } from './components/burger-menu';
+import { initBurgerMenu } from './components/BurgerMenu';
 import { showServicesInfo } from './components/concept';
 import { initStartInNumbers } from './components/start-in-numbers ';
 import { initAccordion } from './components/Accordion';
