@@ -1,7 +1,12 @@
 import gsap from 'gsap';
 /* gsap plugins */
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+import { handleAboutHrefScroll } from '../utils/handleAboutHrefScroll';
+
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin);
 
 /**
  * Инициализирует анимации при прокрутке страницы, включая эффекты для hero, шапки, секций и карточек.
@@ -18,6 +23,11 @@ export function scrollAnimation() {
 
   // Анимация въезда с разных сторон карточек 3 концепций
   createSectionsSwipeFromSidesAnimation('.approaches-card');
+}
+
+if (window.localStorage.getItem('about_href')) {
+  handleAboutHrefScroll();
+  window.localStorage.removeItem('about_href');
 }
 
 /**

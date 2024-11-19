@@ -1,6 +1,8 @@
 import { resolutionChecker } from '../utils/ResolutionChecker';
 import { Debouncer } from '../utils/Debouncer';
 
+import { handleAboutHrefScroll } from '../utils/handleAboutHrefScroll';
+
 /**
  * Функция для управления поведением шапки сайта (header) и её взаимодействием с секцией hero.
  * В зависимости от размера экрана и прокрутки страницы она корректирует отступы и внешние отступы.
@@ -60,4 +62,15 @@ export const header = function () {
       header.style.removeProperty('margin-top');
     }
   }
+
+  (function handleAboutClickEvent() {
+    document.querySelector('a[href="/#about"').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.localStorage.setItem('about_href', '#about');
+      if (window.location.pathname !== '/') {
+        window.location.href = '/';
+      }
+      handleAboutHrefScroll();
+    });
+  })();
 };
