@@ -22,6 +22,12 @@
   }
 
   &__table {
+    @include bp(xxl) {
+      width: 1000px;
+    }
+    @include bp(lg) {
+      width: 1000px;
+    }
     tr {
       td,
       th {
@@ -32,6 +38,19 @@
         &:nth-child(3) {
           width: 288px;
         }
+      }
+    }
+    &-wrapper {
+      @include bp(xxl) {
+        overflow-x: scroll;
+        width: calc(100vw - 240px - 406px - 54px);
+      }
+      @include bp(xl) {
+        width: calc(100vw - 160px - 406px - 54px);
+      }
+      @include bp(lg) {
+        overflow-x: scroll;
+        width: 90vw;
       }
     }
   }

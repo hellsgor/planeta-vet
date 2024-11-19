@@ -1,4 +1,4 @@
-<div class="{{#if classes}}{{this.classes}} {{/if}}modal-entrance">
+<form data-form-auto-init="" action="/data/success.json" method="POST" name="entrance" class="{{#if classes}}{{this.classes}} {{/if}}modal-entrance">
   <h6 class="modal-entrance__title">Вход</h6>
   <div class="modal-entrance__controls">
     {{> elements/form-control
@@ -9,7 +9,7 @@
       type='email'
       placeholder='Email'
       name='email'
-      require=true
+      required=true
       autocomplete='email'
     }}
     
@@ -21,14 +21,14 @@
       type='password'
       placeholder='Пароль'
       name='password'
-      require=true
+      required=true
       autocomplete='current-password'
     }}
   </div>
 
   <div class="modal-entrance__buttons">
-    {{> elements/button classes='button_white_bordered modal-entrance__enter-button' white=true bordered=true type='button' text='Войти' attrs='popovertarget="modal-entrance" popovertargetaction="hide"'}}
+    {{> elements/button classes='button_white_bordered modal-entrance__enter-button' white=true bordered=true type='submit' text='Войти'}}
   
-    {{> elements/button classes='button_null modal-entrance__forgot' type='button' text='Забыли пароль?' attrs='popovertarget="modal-entrance" popovertargetaction="hide"'}}
+    {{> elements/button classes='button_null modal-entrance__forgot' type='button' text='Забыли пароль?' attrs='data-call-modal="forgot"'}}
   </div>
-</div>
+</form>

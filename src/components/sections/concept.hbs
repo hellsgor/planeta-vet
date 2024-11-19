@@ -3,7 +3,7 @@
   {{#if this.data.decor}}
   <div class="concept__decor-wrapper">
       <div class="concept__decor">
-                <img src="/assets/images/{{this.data.decor.src}}" alt="">
+        <img src="{{this.data.decor.src}}" alt="">
       </div>
   </div>
 {{/if}}
@@ -63,9 +63,9 @@
     <ul class="concept__list">
       {{#each this.data.advantagesBottom}}
       <li>
-        {{#if this.item.link}}
+        {{#if this.item.href}}
         {{#if this.item.textBeforeLink}}{{this.item.textBeforeLink}}{{/if}}
-        <a href={{this.item.link}}>{{this.item.linkText}} </a>
+        <a href={{this.item.href}}>{{this.item.linkText}} </a>
         {{#if this.item.textAfterLink}}{{this.item.textAfterLink}}{{/if}}
         {{else}}
         {{this.item}}

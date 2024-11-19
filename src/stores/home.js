@@ -5,7 +5,7 @@ export const home = {
       first: 'Planeta',
       second: 'Vet',
     },
-    title: 'Ветеринарная лаборатория будущего',
+    title: 'Ветеринарная экосистема будущего',
 
     advantages: [
       { text: '​Весь спектр ветеринарных анализов и услуг в одной экосистеме' },
@@ -22,7 +22,7 @@ export const home = {
   concept: {
     id: 'about',
     decor: {
-      src: 'frog.webp',
+      src: '/images/frog.webp',
     },
     message: {
       text: 'У нас более 500 видов исследований. И мы постоянно обновляем каталог',
@@ -101,7 +101,7 @@ export const home = {
           textBeforeLink:
             'Наша франшиза ветеринарной клиники предлагает уникальную возможность стать частью быстрорастущей индустрии заботы о домашних животных. Мы предоставляем',
           linkText: 'полный пакет поддержки для франчайзи,',
-          link: 'javascript:void(0)',
+          href: 'javascript:void(0)',
           textAfterLink: 'включая обучение, маркетинговые материалы и доступ к современному оборудованию.',
         },
       },
@@ -113,7 +113,7 @@ export const home = {
   approaches: {
     card: [
       {
-        src: 'ambassador.webp',
+        src: '/images/ambassador.webp',
         title: 'Амбассадор',
         text: 'Амбассадор -  сотрудничая с нами, вы становитесь частью уникального ветеринарного сообщества, где можно обмениваться опытом, находить новых партнеров, и получать профессиональную поддержку. Наши амбассадоры  помогают улучить качество услуг лаборатории и адаптировать их под потребности клиента.',
         tags: [
@@ -124,14 +124,14 @@ export const home = {
         href: '/ambassador.html',
       },
       {
-        src: 'partner.webp',
+        src: '/images/partner.webp',
         title: 'Клиника-партнер',
         text: 'Клиника-партнер - это оазис заботы и профессионализма, где каждый пушистый пациент и его заботливый хозяин могут рассчитывать на внимание, тепло и высококачественные медицинские услуги. Наша команда опытных ветеринаров и специалистов по уходу за животными использует новейшие технологии и методики, чтобы обеспечить здоровье и благополучие ваших питомцев.',
         tags: [{ name: 'Обучение персонала' }, { name: 'Система управления' }, { name: 'Широкий спектр услуг' }],
         href: '/partner-clinic.html',
       },
       {
-        src: 'vet.webp',
+        src: '/images/vet.webp',
         title: 'врач клиники',
         text: 'Работа ветеринарного врача требует не только глубоких знаний в области ветеринарной медицины, но и навыков общения с владельцами животных. Ветеринары должны быть готовы к различным ситуациям, от экстренных случаев до плановых осмотров, и уметь быстро принимать решения в стрессовых условиях.',
         tags: [{ name: 'Стабильный спрос' }, { name: 'Гибкость графика' }, { name: 'Финансовая стабильность' }],
@@ -154,7 +154,7 @@ export const home = {
         mod: 'big',
         buttonText: 'Получить бизнес-план',
         scrollToId: 'path-to-success',
-        imageName: 'raccoon.webp',
+        imageName: '/images/raccoon.webp',
       },
       { title: 'от 2 млн. руб.', subtitle: 'Минимальная стоимость запуска', iconId: 'rocket' },
       { title: 'от 13 месяцев', subtitle: 'Средний срок возврата инвестиций', iconId: 'return-of-investment' },
@@ -212,26 +212,22 @@ export const home = {
       },
       {
         title: 'Поддержка бренда',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/1-investment.webp',
       },
       {
         title: 'Обучение и подготовка',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/2-flexibility.webp',
       },
       {
         title: 'Сетевое взаимодействие',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/1-investment.webp',
       },
       {
         title: 'Доступ к эксклюзивным продуктам',
-        description:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sapiente accusantium iusto ipsam nisi exercitationem ex reprehenderit neque, eius pariatur praesentium doloribus esse dignissimos sed unde adipisci possimus porro voluptatum?',
+        description: '',
         imagePath: 'images/main-advantages/2-flexibility.webp',
       },
     ],

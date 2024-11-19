@@ -1,7 +1,10 @@
  
 
   <div class="approaches-card">
-    <img class="approaches-card__img" src="/images/{{this.src}}" alt="">
+    {{> elements/image 
+        src=this.src 
+        classes="approaches-card__img"}}
+
 
     <div class="approaches-card__wrapper">
       <div class="approaches-card__num"></div>

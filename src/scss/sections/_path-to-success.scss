@@ -30,6 +30,7 @@
     }
 
     @include bp(md) {
+      row-gap: 16px;
       padding-bottom: 0;
     }
   }
@@ -56,7 +57,7 @@
   }
 
   &__form {
-    p {
+    & > p {
       margin-bottom: 32px;
 
       font-size: 16px;
@@ -114,6 +115,9 @@
 
     @include bp(xl) {
       display: block;
+    }
+    @include bp(md) {
+      margin-bottom: 48px;
     }
   }
 

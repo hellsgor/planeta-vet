@@ -25,7 +25,7 @@
   &__decor {
     position: absolute;
     z-index: -1;
-    top: -22%;
+    top: -13%;
     right: 0;
     transform: rotate(339deg) translateX(108px);
 
@@ -50,7 +50,7 @@
   }
 
   &__message {
-    top: 190px;
+    top: 340px;
     right: 70px;
     max-width: 420px;
 
@@ -131,7 +131,7 @@
     }
 
     @include bp(lg) {
-      padding: 24px 8px;
+      padding: 24px 16px;
     }
 
     & h6 {

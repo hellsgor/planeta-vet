@@ -32,7 +32,7 @@
 
     height: 100%;
 
-    img {
+    .image-container {
       width: auto;
       height: 100%;
     }
@@ -130,7 +130,7 @@
 }
 
 .modal_cooperation {
-  max-width: 87.5vw;
+  max-width: 86vw;
   max-height: 98vh;
   background: linear-gradient(110deg, $green 1.85%, $green-lighten 97.94%);
 
@@ -138,5 +138,9 @@
     svg {
       stroke: $white;
     }
+  }
+
+  @media (min-width: 1920px) {
+    max-width: 1680px;
   }
 }

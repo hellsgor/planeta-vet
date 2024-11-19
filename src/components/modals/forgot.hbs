@@ -1,4 +1,4 @@
-<div class="{{#if classes}}{{this.classes}} {{/if}}modal-forgot">
+<form data-form-auto-init="" action="/data/recovery.json" method="POST" name="recovery" class="{{#if classes}}{{this.classes}} {{/if}}modal-forgot">
   <h6 class="modal-forgot__title">Восстановление пароля</h6>
 
   {{> elements/form-control
@@ -13,5 +13,5 @@
       autocomplete='off'
     }}
 
-  {{> elements/button classes='button_white_bordered modal-forgot__restore-button' white=true bordered=true type='button' text='Восстановить' attrs='popovertarget="modal-forgot" popovertargetaction="hide"'}}
-</div>
+  {{> elements/button classes='button_white_bordered modal-forgot__restore-button' white=true bordered=true type='submit' text='Восстановить'}}
+</form>

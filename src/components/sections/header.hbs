@@ -2,7 +2,7 @@
   <div class="container">
     <div class=" header__wrapper">
       <a href="/" class="header__logo">
-        <img src="./assets/images/logo-header.svg" alt="">
+        <img src="/images/logo-header.svg" alt="">
       </a>
 
       <div class="header-select">
@@ -23,14 +23,14 @@
     </div>
 
     <div class="header__wrapper">
-      {{> elements/button text='Войти' iconId='icon-profile' classes='header__entrance' white=true attrs='popovertarget="modal-entrance"'}}
+      {{> elements/button text='Войти' iconId='icon-profile' classes='header__entrance' white=true attrs='data-call-modal="entrance"'}}
 
       {{> elements/button text="Оставить заявку" href="#path-to-success" classes="button_white button_white_bordered button__request"}}
     </div>
 
 
-    {{> elements/button  classes="button_null header__burger" iconId="icon-burger" attrs='popovertarget="modal-burger-menu"'}}
+    {{> elements/button  classes="button_null header__burger" iconId="icon-burger"}}
   </div>
-  
+  {{> backdrop classes='burger-menu-backdrop'}}
   {{> modal name="burger-menu"}}
 </header>

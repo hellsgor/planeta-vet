@@ -20,4 +20,11 @@
   &__close-button {
     width: fit-content;
   }
+
+  &_errored {
+    .modal-thank-you__title,
+    .modal-thank-you__text {
+      color: $red;
+    }
+  }
 }

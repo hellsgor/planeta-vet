@@ -18,7 +18,11 @@
     <div class="controlled-slider__wrapper">
       {{#each this.items}}
         <div class="controlled-slider__item controlled-slider__slide">
-          <div class="controlled-slider__slide-image"><img src="{{this.imagePath}}" alt=""></div>
+          <div class="controlled-slider__slide-image">
+             {{> elements/image 
+                  src=this.imagePath 
+                }}
+            </div>
           <div class="controlled-slider__slide-wrapper">
             <p class="controlled-slider__slide-title">{{this.title}}</p>
             <p class="controlled-slider__description">{{this.description}}</p>
@@ -28,7 +32,10 @@
 
       <div class="controlled-slider__plug">
         <div class="controlled-slider__plug-logo">
-          <img src="../assets/images/logo-header.svg" alt="">
+
+           {{> elements/image 
+              src="/images/logo-header.svg" 
+              }}
         </div>
 
         <p class="controlled-slider__plug-text">Ваш путь к успешной ветеринарной практике</p>

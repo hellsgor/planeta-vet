@@ -18,7 +18,11 @@ body {
 }
 
 main {
-  overflow-x: hidden;
+  overflow-y: hidden;
+
+  &:not(:has(section.services)) {
+    overflow-x: hidden;
+  }
 }
 
 header,
@@ -55,6 +59,9 @@ section {
 
     @include bp(lg) {
       margin-bottom: 128px;
+    }
+    @include bp(md) {
+      margin-bottom: 64px;
     }
   }
   &.hero {

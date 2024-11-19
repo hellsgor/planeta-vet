@@ -1,35 +1,40 @@
 import '../../node_modules/modern-normalize/modern-normalize.css';
 import '../scss/style.scss';
 
-import { initModals } from './components/modal';
-import { ResolutionChecker } from './utils/ResolutionChecker';
-import { initPathToSuccess } from './components/path-to-success';
-import { initHero } from './components/hero';
-import { initBurgerMenu } from './components/burger-menu';
+import { initModals } from './components/Modal';
+import { initPathToSuccess } from './components/PathToSuccess';
+import { initHero } from './components/Hero';
+import { initBurgerMenu } from './components/BurgerMenu';
 import { showServicesInfo } from './components/concept';
-import { initStartInNumbers } from './components/start-in-numbers ';
-import { initAccordeon } from './components/accordeon';
+import { initStartInNumbers } from './components/StartInNumbers';
+import { initAccordion } from './components/Accordion';
 import { header } from './components/header';
-import { initCountdownTimer } from './components/init';
+import { initCountdownTimer } from './components/Countdown';
 import { initSwipers } from './services/Swiper';
 import { initTabs } from './utils/Tabs';
-import { initCatalog } from './components/services-catalog';
+import { initCatalog } from './components/ServicesCatalog';
 import { initYaMap } from './services/YaMap';
-
-export const resolutionChecker = new ResolutionChecker();
+import { scrollAnimation } from './animations/scroll-animation';
+import { initForms } from './services/Form';
+import { initControls } from './components/FormControl';
+import { initPhoneMasks } from './services/PhoneMask';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initControls();
   initHero();
   initStartInNumbers();
   initPathToSuccess();
   showServicesInfo();
   initBurgerMenu();
   initModals();
-  initAccordeon();
+  initAccordion();
   initSwipers();
   initTabs();
   initCatalog();
   header();
   initCountdownTimer();
   initYaMap();
+  scrollAnimation();
+  initForms();
+  initPhoneMasks();
 });

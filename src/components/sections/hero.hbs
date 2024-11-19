@@ -1,7 +1,8 @@
 <section class="hero{{#if this.mode}} hero_{{this.mode}}{{/if}}">
   <div class="container">
     
-    <img src="{{this.src}}" alt="" class="hero__img">
+
+    {{> elements/image src=this.src classes="hero__img preload"}}
     
     <div class="hero-wrapper">
       <h1 class="hero-title hero__title">
@@ -12,11 +13,14 @@
         {{#if this.title}}{{this.title}}{{/if}}
         
         </h1>
-        <p class="hero__subtitle">
-        {{#if this.subtitle}}{{this.subtitle}}{{/if}}
-         </p>
+        
+          {{#if this.subtitle}}
+            <p class="hero__subtitle">
+              {{this.subtitle}}
+            </p>
+          {{/if}}
 
-         {{> elements/button white = this.buttonWhite type='button' text=this.buttonText attrs='popovertarget="modal-cooperation"'}}
+         {{> elements/button white = this.buttonWhite type='button' text=this.buttonText attrs='data-call-modal="cooperation"'}}
 
             {{#if this.advantages}}
               <ul class="center">

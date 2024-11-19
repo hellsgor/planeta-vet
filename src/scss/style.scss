@@ -11,6 +11,7 @@
 @import "./custom/fonts";
 @import "./custom/typography";
 @import "./custom/base";
+@import "./custom/lazy-load";
 
 // elements
 @import "./elements/button";
@@ -28,6 +29,8 @@
 @import "./components/stage";
 @import "./components/controlled-slider";
 @import "./components/contact-card";
+@import "./components/approaches-card";
+@import "./components/backdrop";
 
 // modals
 @import "./components/modals/thank-you";
@@ -48,7 +51,7 @@
 @import "./sections/path-to-success";
 @import "./sections/stages-of-opening";
 @import "./sections/advantages";
-@import "./sections/accordeon";
+@import "./sections/accordion";
 @import "./sections/wisdom";
 @import "./sections/four-steps";
 @import "./sections/services";
