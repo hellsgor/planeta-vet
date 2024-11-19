@@ -30,5 +30,5 @@
 
 ## Стенды
 
-- demo: [http://planeta-vet.relevant.ru/](http://planeta-vet.relevant.ru/);
+- demo: [https://planeta-vet.relevant.ru/](https://planeta-vet.relevant.ru/);
 - prod: [https://planetavet.ru](https://planetavet.ru).
