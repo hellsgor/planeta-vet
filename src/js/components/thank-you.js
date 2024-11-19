@@ -1,4 +1,4 @@
-import { Modal } from './modal';
+import { Modal } from './Modal-renamed';
 
 const $modal = document.getElementById('modal-thank-you');
 const modalInstance = new Modal($modal);

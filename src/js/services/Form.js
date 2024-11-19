@@ -1,5 +1,5 @@
 import { modalFromModal } from './modalFromModal';
-import { Modal, modalClassName } from '../components/modal';
+import { Modal, modalClassName } from '../components/Modal-renamed';
 import { thankYou } from '../components/thank-you';
 import { Validation } from './Validation';
 

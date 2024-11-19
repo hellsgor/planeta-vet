@@ -1,4 +1,4 @@
-import { initializedModals, Modal } from '../components/modal';
+import { initializedModals, Modal } from '../components/Modal-renamed';
 import { thankYou } from '../components/thank-you';
 
 const thankYouLastStepModals = ['cooperation', 'forgot'];
