@@ -2,7 +2,7 @@ import '../../node_modules/modern-normalize/modern-normalize.css';
 import '../scss/style.scss';
 
 import { initModals } from './components/Modal';
-import { initPathToSuccess } from './components/path-to-success';
+import { initPathToSuccess } from './components/PathToSuccess';
 import { initHero } from './components/Hero';
 import { initBurgerMenu } from './components/BurgerMenu';
 import { showServicesInfo } from './components/concept';
