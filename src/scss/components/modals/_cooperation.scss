@@ -74,14 +74,18 @@
   }
 
   &__text-inputs,
+  &__bottom-row,
+  &__variant {
+    max-width: 1064px;
+  }
+
+  &__text-inputs,
   &__bottom-row {
     display: flex;
     flex-wrap: wrap;
     row-gap: 40px;
     column-gap: 64px;
     align-items: flex-start;
-
-    max-width: 1064px;
 
     & > * {
       flex: 0 0 calc((100% - 64px) / 2);

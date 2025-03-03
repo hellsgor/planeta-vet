@@ -143,7 +143,7 @@ export const home = {
     title: 'Старт в цифрах',
     subtitle: 'полноценного исследовательского центра с командой профессионалов',
     cards: [
-      { title: '2%', subtitle: 'Роялти', iconId: 'money-bag' },
+      { title: '7%', subtitle: 'Роялти', iconId: 'money-bag' },
 
       { title: '1 месяц', subtitle: 'Средний срок запуска', iconId: 'hourglass' },
       { title: '50%', subtitle: 'Агентское вознаграждение по анализам', iconId: 'cash-register' },
