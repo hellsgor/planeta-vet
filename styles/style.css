@@ -267,35 +267,35 @@ ul {
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/BloggerSans-Light.woff2"), url("/fonts/BloggerSans-Light.woff");
+  src: url("../fonts/BloggerSans-Light.woff2"), url("../fonts/BloggerSans-Light.woff");
 }
 @font-face {
   font-family: "BloggerSans";
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/BloggerSans.woff2"), url("/fonts/BloggerSans.woff");
+  src: url("../fonts/BloggerSans.woff2"), url("../fonts/BloggerSans.woff");
 }
 @font-face {
   font-family: "BloggerSans-Medium";
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/BloggerSans-Medium.woff2"), url("/fonts/BloggerSans-Medium.woff");
+  src: url("../fonts/BloggerSans-Medium.woff2"), url("../fonts/BloggerSans-Medium.woff");
 }
 @font-face {
   font-family: "BloggerSans-Bold";
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/BloggerSans-Bold.woff2"), url("/fonts/BloggerSans-Bold.woff");
+  src: url("../fonts/BloggerSans-Bold.woff2"), url("../fonts/BloggerSans-Bold.woff");
 }
 @font-face {
   font-family: "CTC_Bold";
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/CTC_Bold.woff2"), url("/fonts/CTC_Bold.woff");
+  src: url("../fonts/CTC_Bold.woff2"), url("../fonts/CTC_Bold.woff");
 }
 body,
 .paragraph,
@@ -537,7 +537,7 @@ ul.custom_plus li::before {
   width: 30px;
   height: 30px;
   background-color: unset;
-  background-image: url("/images/icons/icon-plus.svg");
+  background-image: url("../images/icons/icon-plus.svg");
   background-position: center;
   border: 1px solid #fff;
   border-radius: 50%;
@@ -1047,7 +1047,7 @@ table thead tr {
   display: block;
   width: 30px;
   height: 36px;
-  background: url("/images/message-angle.svg") no-repeat center;
+  background: url("../images/message-angle.svg") no-repeat center;
   background-size: 100%;
 }
 .message_right-top::before {
